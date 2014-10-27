@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunBookMobile.Cloud.WebApi", "FunBookMobile.Cloud.WebApi\FunBookMobile.Cloud.WebApi.csproj", "{3837A293-2462-475E-B765-1B83FF3BC0FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunBookMobile.Cloud.Models", "FunBookMobile.Cloud.Models\FunBookMobile.Cloud.Models.csproj", "{A19EF0EE-8E5A-44A8-849D-9A89DBC32EE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunBookMobile.Cloud.Data", "FunBookMobile.Cloud.Data\FunBookMobile.Cloud.Data.csproj", "{A9CEAC01-A328-47EB-8CBF-D7EA37382E54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunBookMobile.Cloud.ImageUploadProvider", "FunBookMobile.Cloud.ImageUploadProvider\FunBookMobile.Cloud.ImageUploadProvider.csproj", "{9E0302E0-B547-4E80-B270-8C6207C94DF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3837A293-2462-475E-B765-1B83FF3BC0FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3837A293-2462-475E-B765-1B83FF3BC0FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3837A293-2462-475E-B765-1B83FF3BC0FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3837A293-2462-475E-B765-1B83FF3BC0FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A19EF0EE-8E5A-44A8-849D-9A89DBC32EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19EF0EE-8E5A-44A8-849D-9A89DBC32EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19EF0EE-8E5A-44A8-849D-9A89DBC32EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19EF0EE-8E5A-44A8-849D-9A89DBC32EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9CEAC01-A328-47EB-8CBF-D7EA37382E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CEAC01-A328-47EB-8CBF-D7EA37382E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9CEAC01-A328-47EB-8CBF-D7EA37382E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9CEAC01-A328-47EB-8CBF-D7EA37382E54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E0302E0-B547-4E80-B270-8C6207C94DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0302E0-B547-4E80-B270-8C6207C94DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0302E0-B547-4E80-B270-8C6207C94DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0302E0-B547-4E80-B270-8C6207C94DF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
