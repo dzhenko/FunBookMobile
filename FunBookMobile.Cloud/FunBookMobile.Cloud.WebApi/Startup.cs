@@ -14,6 +14,7 @@ namespace FunBookMobile.Cloud.WebApi
         {
             ConfigureAuth(app);
 
+            // used to seed data at runtime
             FunBookMobile.Cloud.Data.FunBookData.Create().Jokes.All().Any();
         }
     }

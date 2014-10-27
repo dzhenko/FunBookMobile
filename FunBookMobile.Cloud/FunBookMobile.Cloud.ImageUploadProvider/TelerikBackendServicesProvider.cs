@@ -39,6 +39,17 @@
             return url;
         }
 
+        public string UrlFromBase64Image(MemoryStream stream, string category, string[] tags)
+        {
+            var filename = string.Format("{0}#{1}#{2}", category, string.Join(" ", tags), Guid.NewGuid());
+
+            var uploadResult = app.WorkWith().Files().Upload(new FileField("fieldName", filename, "image/jpeg", stream)).ExecuteSync();
+
+            var url = app.WorkWith().Files().GetFileDownloadUrl(uploadResult.Id);
+
+            return url;
+        }
+
         public List<Tuple<string, string>> GetUploadedFiles()
         {
             var allFiles = app.WorkWith().Files().GetAll().ExecuteSync();

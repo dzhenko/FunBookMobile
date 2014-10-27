@@ -23,7 +23,8 @@
         }
 
         public Guid Id { get; set; }
-        
+
+        [MinLength(3)]
         [Required]
         public string Text { get; set; }
 
