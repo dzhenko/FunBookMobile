@@ -1,6 +1,7 @@
 ﻿namespace FunBookMobile.Cloud.WebApi.DataModels
 {
     using System;
+    using System.Linq;
     using System.Linq.Expressions;
     using FunBookMobile.Cloud.Models;
 
@@ -15,6 +16,7 @@
                     Id = j.Id.ToString(),
                     Title = j.Title,
                     Content = j.Text,
+                    Views = j.Views.Count(),
                     Date = j.Created
                 };
             }
@@ -29,6 +31,7 @@
                     Id = l.Id.ToString(),
                     Title = l.Title,
                     Content = l.URL,
+                    Views = l.Views.Count(),
                     Date = l.Created
                 };
             }
@@ -43,6 +46,7 @@
                     Id = p.Id.ToString(),
                     Title = p.Title,
                     Content = p.UrlPath,
+                    Views = p.Views.Count(),
                     Date = p.Created
                 };
             }
@@ -51,6 +55,8 @@
         public string Id { get; set; }
 
         public string Title { get; set; }
+
+        public int Views { get; set; }
 
         public string Content { get; set; }
 

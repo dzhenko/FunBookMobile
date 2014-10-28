@@ -216,7 +216,12 @@
     <Compile Include="Controllers\JokesController.cs" />
     <Compile Include="Controllers\LinksController.cs" />
     <Compile Include="Controllers\PicturesController.cs" />
+    <Compile Include="DataModels\CommentDataModel.cs" />
     <Compile Include="DataModels\ContentOverviewDataModel.cs" />
+    <Compile Include="DataModels\DetailsJokeDataModel.cs" />
+    <Compile Include="DataModels\DetailsLinkDataModel.cs" />
+    <Compile Include="DataModels\DetailsPictureDataModel.cs" />
+    <Compile Include="DataModels\NewCommentDataModel.cs" />
     <Compile Include="DataModels\NewJokeDataModel.cs" />
     <Compile Include="DataModels\NewLinkDataModel.cs" />
     <Compile Include="DataModels\NewPictureDataModel.cs" />
@@ -300,6 +305,10 @@
     <ProjectReference Include="..\FunBookMobile.Cloud.Data\FunBookMobile.Cloud.Data.csproj">
       <Project>{a9ceac01-a328-47eb-8cbf-d7ea37382e54}</Project>
       <Name>FunBookMobile.Cloud.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FunBookMobile.Cloud.ImageUploadProvider\FunBookMobile.Cloud.ImageUploadProvider.csproj">
+      <Project>{9e0302e0-b547-4e80-b270-8c6207c94df4}</Project>
+      <Name>FunBookMobile.Cloud.ImageUploadProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\FunBookMobile.Cloud.Models\FunBookMobile.Cloud.Models.csproj">
       <Project>{a19ef0ee-8e5a-44a8-849d-9a89dbc32ee7}</Project>

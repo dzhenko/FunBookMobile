@@ -7,7 +7,7 @@
     using Telerik.Everlive.Sdk.Core;
     using Telerik.Everlive.Sdk.Core.Query.Definition.FormData;
 
-    public class TelerikBackendServicesProvider
+    public class TelerikBackendServicesProvider : IBackendServicesProvider
     {
         private const string EverliveAppKey = "yTpcS8cIlRXlVS2a";
         
@@ -16,14 +16,6 @@
         public TelerikBackendServicesProvider()
         {
             app = new EverliveApp(EverliveAppKey);
-        }
-
-        public static string DefaultUrl
-        {
-            get
-            {
-                return "http://api.everlive.com/v1/yTpcS8cIlRXlVS2a/Files/730fbdc0-53f2-11e4-b2b7-0f2a33946566/Download";
-            }
         }
 
         public string UrlFromBase64Image(string base64, string category, string[] tags)

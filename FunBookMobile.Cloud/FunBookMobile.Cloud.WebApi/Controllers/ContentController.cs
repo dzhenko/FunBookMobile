@@ -45,6 +45,36 @@ namespace FunBookMobile.Cloud.WebApi.Controllers
                     .Take(PageSize));
         }
 
+        [AllowAnonymous]
+        [HttpGet]
+        public IHttpActionResult Jokes(int page = 0)
+        {
+            return this.Ok(this.Data.Jokes.All().Select(ContentOverviewDataModel.FromJoke)
+                    .OrderByDescending(c => c.Date)
+                    .Skip(page * PageSize)
+                    .Take(PageSize));
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public IHttpActionResult Links(int page = 0)
+        {
+            return this.Ok(this.Data.Links.All().Select(ContentOverviewDataModel.FromLink)
+                    .OrderByDescending(c => c.Date)
+                    .Skip(page * PageSize)
+                    .Take(PageSize));
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public IHttpActionResult Pictures(int page = 0)
+        {
+            return this.Ok(this.Data.Pictures.All().Select(ContentOverviewDataModel.FromPicture)
+                    .OrderByDescending(c => c.Date)
+                    .Skip(page * PageSize)
+                    .Take(PageSize));
+        }
+
         [Authorize]
         [HttpGet]
         public IHttpActionResult Find(string text, int page = 0)

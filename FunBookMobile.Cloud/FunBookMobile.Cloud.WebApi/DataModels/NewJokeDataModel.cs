@@ -17,6 +17,7 @@
         // should the owner of this content be visible to other users or not
         public bool IsAnonymous { get; set; }
         
+        [Required]
         public string Category { get; set; }
     }
 }
