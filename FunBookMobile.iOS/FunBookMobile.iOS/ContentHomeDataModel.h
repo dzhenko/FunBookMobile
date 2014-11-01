@@ -1,13 +1,13 @@
 //
-//  ContentHome.m
+//  ContentHomeDataModel.h
 //  FunBookMobile.iOS
 //
 //  Created by Admin on 11/2/14.
 //  Copyright (c) 2014 TelerikAcademyTeamwork. All rights reserved.
 //
 
-#import "ContentHome.h"
+#import <Foundation/Foundation.h>
 
-@implementation ContentHome
+@interface ContentHomeDataModel : NSObject
 
 @end

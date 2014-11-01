@@ -33,7 +33,7 @@
 		849EAFF61A056FFB00B08F24 /* JokeNewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFF51A056FFB00B08F24 /* JokeNewDataModel.m */; };
 		849EAFFA1A05702900B08F24 /* HttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFF91A05702900B08F24 /* HttpRequester.m */; };
 		849EAFFD1A05710600B08F24 /* appData.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFFC1A05710600B08F24 /* appData.m */; };
-		849EB0001A0584FE00B08F24 /* ContentHome.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFFF1A0584FE00B08F24 /* ContentHome.m */; };
+		849EB0031A05875A00B08F24 /* ContentHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EB0021A05875A00B08F24 /* ContentHomeDataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +94,8 @@
 		849EAFF91A05702900B08F24 /* HttpRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequester.m; sourceTree = "<group>"; };
 		849EAFFB1A05710600B08F24 /* appData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appData.h; sourceTree = "<group>"; };
 		849EAFFC1A05710600B08F24 /* appData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appData.m; sourceTree = "<group>"; };
-		849EAFFE1A0584FE00B08F24 /* ContentHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentHome.h; sourceTree = "<group>"; };
-		849EAFFF1A0584FE00B08F24 /* ContentHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentHome.m; sourceTree = "<group>"; };
+		849EB0011A05875A00B08F24 /* ContentHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentHomeDataModel.h; sourceTree = "<group>"; };
+		849EB0021A05875A00B08F24 /* ContentHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentHomeDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,8 +276,8 @@
 			children = (
 				849EAFDC1A056F5800B08F24 /* ContentOverviewDataModel.h */,
 				849EAFDD1A056F5800B08F24 /* ContentOverviewDataModel.m */,
-				849EAFFE1A0584FE00B08F24 /* ContentHome.h */,
-				849EAFFF1A0584FE00B08F24 /* ContentHome.m */,
+				849EB0011A05875A00B08F24 /* ContentHomeDataModel.h */,
+				849EB0021A05875A00B08F24 /* ContentHomeDataModel.m */,
 			);
 			name = Content;
 			sourceTree = "<group>";
@@ -402,6 +402,7 @@
 				0130137F1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld in Sources */,
 				849EAFE71A056FB300B08F24 /* PictureDetailsDataModel.m in Sources */,
 				849EAFED1A056FCF00B08F24 /* LinkDetailsDataModel.m in Sources */,
+				849EB0031A05875A00B08F24 /* ContentHomeDataModel.m in Sources */,
 				849EAFEA1A056FBF00B08F24 /* PictureNewDataModel.m in Sources */,
 				01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */,
 				849EAFE11A056F7000B08F24 /* CommentDataModel.m in Sources */,
@@ -410,7 +411,6 @@
 				849EAFF61A056FFB00B08F24 /* JokeNewDataModel.m in Sources */,
 				849EAFF01A056FDD00B08F24 /* LinkNewDataModel.m in Sources */,
 				013013821A02614C0000E67D /* ViewController.m in Sources */,
-				849EB0001A0584FE00B08F24 /* ContentHome.m in Sources */,
 				849EAFFD1A05710600B08F24 /* appData.m in Sources */,
 				013013791A02614C0000E67D /* main.m in Sources */,
 				01BE50B31A053570001490E8 /* LoginViewController.m in Sources */,
@@ -535,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FunBookMobile.iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FunBookMobile.iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
