@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface DateFormater : NSObject
-
++(NSDate*) fromString:(NSString*) string;
 @end

@@ -18,7 +18,7 @@
                     Id = j.Id.ToString(),
                     Text = j.Text,
                     Title = j.Title,
-                    Created = j.Created,
+                    Created = j.Created.ToString(),
                     Creator = j.IsAnonymous ? "Anonymous" : j.User.UserName,
                     Likes = j.Views.Count(v => v.Liked == true),
                     Hates = j.Views.Count(v => v.Liked == false),
@@ -34,7 +34,7 @@
 
         public string Title { get; set; }
 
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         public string Creator { get; set; }
 

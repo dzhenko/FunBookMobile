@@ -17,7 +17,7 @@
                     Title = j.Title,
                     Content = j.Text,
                     Views = j.Views.Count(),
-                    Date = j.Created
+                    Date = j.Created.ToString(),
                 };
             }
         }
@@ -32,7 +32,7 @@
                     Title = l.Title,
                     Content = l.URL,
                     Views = l.Views.Count(),
-                    Date = l.Created
+                    Date = l.Created.ToString(),
                 };
             }
         }
@@ -47,7 +47,7 @@
                     Title = p.Title,
                     Content = p.UrlPath,
                     Views = p.Views.Count(),
-                    Date = p.Created
+                    Date = p.Created.ToString()
                 };
             }
         }
@@ -60,6 +60,6 @@
 
         public string Content { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
     }
 }

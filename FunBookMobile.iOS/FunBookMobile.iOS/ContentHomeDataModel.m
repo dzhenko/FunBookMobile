@@ -35,7 +35,6 @@
 }
 
 +(ContentHomeDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary {
-    NSDictionary* test = [jsonDictionary objectForKey:@"LastJoke"];
     return [[ContentHomeDataModel alloc]
 initWithUsersCount:[[jsonDictionary objectForKey:@"UsersCount"] integerValue]
 jokesCount:[[jsonDictionary objectForKey:@"JokesCount"] integerValue]

@@ -18,7 +18,7 @@
                     Id = l.Id.ToString(),
                     Url = l.URL,
                     Title = l.Title,
-                    Created = l.Created,
+                    Created = l.Created.ToString(),
                     Creator = l.IsAnonymous ? "Anonymous" : l.User.UserName,
                     Likes = l.Views.Count(v => v.Liked == true),
                     Hates = l.Views.Count(v => v.Liked == false),
@@ -34,7 +34,7 @@
 
         public string Title { get; set; }
 
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         public string Creator { get; set; }
 

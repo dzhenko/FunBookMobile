@@ -11,7 +11,7 @@
 @implementation ContentOverviewDataModel
 
 -(instancetype) initWithId:(NSString*)objId title:(NSString*)title views:
-                (NSInteger)views content:(NSString*)content andDate:(NSDate*)date {
+                (NSInteger)views content:(NSString*)content andDate:(NSString*)date {
     if (self = [super init]) {
         self.objId = objId;
         self.title = title;
@@ -24,11 +24,11 @@
 
 +(ContentOverviewDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary {
     return [[ContentOverviewDataModel alloc]
-            initWithId:[[jsonDictionary objectForKey:@"Id"] stringValue]
-                title:[[jsonDictionary objectForKey:@"Title"] stringValue]
+            initWithId:[jsonDictionary objectForKey:@"Id"]
+                title:[jsonDictionary objectForKey:@"Title"]
                 views:[[jsonDictionary objectForKey:@"Views"] integerValue]
-                content:[[jsonDictionary objectForKey:@"Content"] stringValue]
-                andDate:[[[NSDateFormatter alloc] init] dateFromString:[[jsonDictionary objectForKey:@"Date"] stringValue]]];
+                content:[jsonDictionary objectForKey:@"Content"]
+                andDate:[jsonDictionary objectForKey:@"Date"]];
 }
 
 @end

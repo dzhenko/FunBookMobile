@@ -14,7 +14,7 @@
                 return c => new CommentDataModel()
                 {
                     Text = c.Text,
-                    Created = c.Created,
+                    Created = c.Created.ToString(),
                     User = c.User.UserName
                 };
             }
@@ -24,6 +24,6 @@
 
         public string Text { get; set; }
 
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
     }
 }

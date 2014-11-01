@@ -14,10 +14,10 @@
 @property (strong, nonatomic) NSString* title;
 @property NSInteger views;
 @property (strong, nonatomic) NSString* content;
-@property (strong, nonatomic) NSDate* date;
+@property (strong, nonatomic) NSString* date;
 
 -(instancetype) initWithId:(NSString*)objId title:(NSString*)title views:
-(NSInteger)views content:(NSString*)content andDate:(NSDate*)date;
+(NSInteger)views content:(NSString*)content andDate:(NSString*)date;
 
 +(ContentOverviewDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary;
 @end

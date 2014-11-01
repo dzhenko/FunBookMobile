@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) NSString* user;
 @property (strong, nonatomic) NSString* text;
-@property (strong, nonatomic) NSDate* created;
+@property (strong, nonatomic) NSString* created;
 
 @end
