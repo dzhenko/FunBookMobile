@@ -74,7 +74,7 @@
 
             this.Data.SaveChanges();
 
-            return this.Created(string.Empty, picture.Id);
+            return this.Ok(JsonResultWrapper.Create(picture.Id));
         }
 
         [HttpGet]
@@ -96,7 +96,8 @@
                 this.Data.SaveChanges();
             }
 
-            return this.Ok(this.Data.Pictures.All().Where(p => p.Id == id).Select(DetailsPictureDataModel.FromPicture).FirstOrDefault());
+            return this.Ok(JsonResultWrapper.Create(
+                this.Data.Pictures.All().Where(p => p.Id == id).Select(DetailsPictureDataModel.FromPicture).FirstOrDefault()));
         }
 
         [HttpPost]
@@ -117,7 +118,7 @@
             this.Data.Pictures.Update(pictures);
             this.Data.SaveChanges();
 
-            return this.Created(string.Empty, model);
+            return this.Ok(JsonResultWrapper.Create(model));
         }
 
         [HttpGet]
@@ -130,7 +131,7 @@
 
             this.VotePicture(true);
 
-            return this.Ok();
+            return this.Ok(JsonResultWrapper.Create(id));
         }
 
         [HttpGet]
@@ -143,7 +144,7 @@
 
             this.VotePicture(false);
 
-            return this.Ok();
+            return this.Ok(JsonResultWrapper.Create(id));
         }
 
         private void VotePicture(bool value)

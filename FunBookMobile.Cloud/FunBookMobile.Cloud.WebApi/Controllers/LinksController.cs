@@ -58,7 +58,7 @@
 
             this.Data.SaveChanges();
 
-            return this.Created(string.Empty, link.Id);
+            return this.Ok(JsonResultWrapper.Create(link.Id));
         }
 
         [HttpGet]
@@ -80,7 +80,8 @@
                 this.Data.SaveChanges();
             }
 
-            return this.Ok(this.Data.Links.All().Where(l => l.Id == id).Select(DetailsLinkDataModel.FromLink).FirstOrDefault());
+            return this.Ok(JsonResultWrapper.Create(
+                this.Data.Links.All().Where(l => l.Id == id).Select(DetailsLinkDataModel.FromLink).FirstOrDefault()));
         }
 
         [HttpPost]
@@ -101,7 +102,7 @@
             this.Data.Links.Update(link);
             this.Data.SaveChanges();
 
-            return this.Created(string.Empty, model);
+            return this.Ok(JsonResultWrapper.Create(model));
         }
 
         [HttpGet]
@@ -114,7 +115,7 @@
 
             this.VoteLink(true);
 
-            return this.Ok();
+            return this.Ok(JsonResultWrapper.Create(id));
         }
 
         [HttpGet]
@@ -127,7 +128,7 @@
 
             this.VoteLink(false);
 
-            return this.Ok();
+            return this.Ok(JsonResultWrapper.Create(id));
         }
 
         private void VoteLink(bool value)

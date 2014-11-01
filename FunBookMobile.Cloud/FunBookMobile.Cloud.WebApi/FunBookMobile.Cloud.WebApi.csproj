@@ -221,6 +221,7 @@
     <Compile Include="DataModels\DetailsJokeDataModel.cs" />
     <Compile Include="DataModels\DetailsLinkDataModel.cs" />
     <Compile Include="DataModels\DetailsPictureDataModel.cs" />
+    <Compile Include="DataModels\JsonResultWrapper.cs" />
     <Compile Include="DataModels\NewCommentDataModel.cs" />
     <Compile Include="DataModels\NewJokeDataModel.cs" />
     <Compile Include="DataModels\NewLinkDataModel.cs" />

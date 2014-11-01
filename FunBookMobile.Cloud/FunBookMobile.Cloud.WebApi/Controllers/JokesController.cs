@@ -58,7 +58,7 @@
 
             this.Data.SaveChanges();
 
-            return this.Created(string.Empty, joke.Id);
+            return this.Ok(JsonResultWrapper.Create(joke.Id));
         }
 
         [HttpGet]
@@ -80,7 +80,8 @@
                 this.Data.SaveChanges();
             }
 
-            return this.Ok(this.Data.Jokes.All().Where(j => j.Id == id).Select(DetailsJokeDataModel.FromJoke).FirstOrDefault());
+            return this.Ok(JsonResultWrapper.Create(
+                this.Data.Jokes.All().Where(j => j.Id == id).Select(DetailsJokeDataModel.FromJoke).FirstOrDefault()));
         }
 
         [HttpPost]
@@ -101,7 +102,7 @@
             this.Data.Jokes.Update(joke);
             this.Data.SaveChanges();
 
-            return this.Created(string.Empty, model);
+            return this.Ok(JsonResultWrapper.Create(model));
         }
 
         [HttpGet]
@@ -114,7 +115,7 @@
 
             this.VoteJoke(true);
 
-            return this.Ok();
+            return this.Ok(JsonResultWrapper.Create(id));
         }
 
         [HttpGet]
@@ -127,7 +128,7 @@
 
             this.VoteJoke(false);
 
-            return this.Ok();
+            return this.Ok(JsonResultWrapper.Create(id));
         }
 
         private void VoteJoke(bool value)
