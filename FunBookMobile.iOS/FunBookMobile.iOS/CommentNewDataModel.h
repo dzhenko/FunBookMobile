@@ -10,4 +10,7 @@
 
 @interface CommentNewDataModel : NSObject
 
+@property (strong, nonatomic) NSString* objId;
+@property (strong, nonatomic) NSString* text; // min len 3
+
 @end

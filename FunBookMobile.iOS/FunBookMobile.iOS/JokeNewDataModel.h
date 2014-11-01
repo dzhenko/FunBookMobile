@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface JokeNewDataModel : NSObject
-
+@property (strong, nonatomic) NSString* text; // min len 3
+@property (strong, nonatomic) NSString* title; // min len 3
+@property BOOL IsAnonymous;
+@property (strong, nonatomic) NSString* category;
 @end

@@ -10,4 +10,16 @@
 
 @interface PictureDetailsDataModel : NSObject
 
+@property (strong, nonatomic) NSString* objId;
+@property (strong, nonatomic) NSString* url;
+@property (strong, nonatomic) NSString* title;
+@property (strong, nonatomic) NSDate* created;
+@property (strong, nonatomic) NSString* creator;
+@property NSInteger likes;
+@property NSInteger hates;
+@property NSInteger views;
+
+// following commentDataModel
+@property (strong, nonatomic) NSArray* comments;
+
 @end

@@ -7,7 +7,19 @@
 //
 
 #import "appData.h"
+#import "HttpRequester.h"
 
-@implementation appData
+@implementation appData{
+    HttpRequester *requester;
+}
+
+-(instancetype) init {
+    if (self = [super init]) {
+        requester = [[HttpRequester alloc] init];
+    }
+    return self;
+}
+
+
 
 @end

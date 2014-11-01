@@ -16,6 +16,13 @@ namespace FunBookMobile.Cloud.WebApi.Controllers
 
         [AllowAnonymous]
         [HttpGet]
+        public IHttpActionResult Categories()
+        {
+            return this.Ok(JsonResultWrapper.Create(this.Data.Categories.All().Select(c => c.Name)));
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
         public IHttpActionResult Home()
         {
             return this.Ok(JsonResultWrapper.Create(new 

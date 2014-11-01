@@ -10,4 +10,10 @@
 
 @interface ContentOverviewDataModel : NSObject
 
+@property (strong, nonatomic) NSString* objId;
+@property (strong, nonatomic) NSString* title;
+@property NSInteger views;
+@property (strong, nonatomic) NSString* content;
+@property (strong, nonatomic) NSDate* date;
+
 @end

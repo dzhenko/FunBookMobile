@@ -12,10 +12,10 @@
 -(void) createRequest: (NSString*) method atUrl: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target action:(void (^)(id result))callback {
     
     NSMutableURLRequest* request =
-        [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     
     [request setHTTPMethod:method];
-
+    
     if (headers) {
         for(id key in headers) {
             [request setValue:[headers objectForKey:key] forKey:key];
@@ -33,12 +33,11 @@
     
     [NSURLConnection connectionWithRequest:request delegate: target];
     
-    // ...
     return;
-    id result = @"";
-    if (callback) {
-        callback(result);
-    }
+    // id result = @"";
+    // if (callback) {
+    //    callback(result);
+    //}
 }
 
 
