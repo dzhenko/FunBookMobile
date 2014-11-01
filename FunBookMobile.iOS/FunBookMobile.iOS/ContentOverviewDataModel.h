@@ -16,4 +16,8 @@
 @property (strong, nonatomic) NSString* content;
 @property (strong, nonatomic) NSDate* date;
 
+-(instancetype) initWithId:(NSString*)objId title:(NSString*)title views:
+(NSInteger)views content:(NSString*)content andDate:(NSDate*)date;
+
++(ContentOverviewDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary;
 @end

@@ -8,6 +8,11 @@
 
 #import "AppDelegate.h"
 
+//testing TODO: Remove this
+#import "ContentOverviewDataModel.h"
+#import "ContentHomeDataModel.h"
+#import "HttpRequester.h"
+
 @interface AppDelegate ()
 
 @end
@@ -16,8 +21,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // testing TODO: Remove this
+    
+    HttpRequester *requester = [[HttpRequester alloc] init];
+    [requester get:@"http://funbook.apphb.com/api/content/home" headers:nil withTarget:self action:nil];
+    
     // Override point for customization after application launch.
     return YES;
+}
+
+
+//testing TODO: Remove this
+-(void)connection:(NSURLRequest*) request didReceiveData:(NSData *)data{
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    ContentHomeDataModel *homeContent = [ContentHomeDataModel fromJsonDictionary:[json objectForKey:@"Result"]];
+    int a = 5;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

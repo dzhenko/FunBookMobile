@@ -34,6 +34,7 @@
 		849EAFFA1A05702900B08F24 /* HttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFF91A05702900B08F24 /* HttpRequester.m */; };
 		849EAFFD1A05710600B08F24 /* appData.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFFC1A05710600B08F24 /* appData.m */; };
 		849EB0031A05875A00B08F24 /* ContentHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EB0021A05875A00B08F24 /* ContentHomeDataModel.m */; };
+		84B5274A1A0595C900EE29C7 /* DateFormater.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B527491A0595C900EE29C7 /* DateFormater.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		849EAFFC1A05710600B08F24 /* appData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appData.m; sourceTree = "<group>"; };
 		849EB0011A05875A00B08F24 /* ContentHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentHomeDataModel.h; sourceTree = "<group>"; };
 		849EB0021A05875A00B08F24 /* ContentHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentHomeDataModel.m; sourceTree = "<group>"; };
+		84B527481A0595C900EE29C7 /* DateFormater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormater.h; sourceTree = "<group>"; };
+		84B527491A0595C900EE29C7 /* DateFormater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormater.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,7 @@
 		013013751A02614C0000E67D /* FunBookMobile.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				84B527471A0595AB00EE29C7 /* Helpers */,
 				849EAFD61A056DF100B08F24 /* Data */,
 				849EAFD51A056DDE00B08F24 /* Models */,
 				01BE50D51A054E78001490E8 /* Views */,
@@ -291,6 +295,15 @@
 			name = HttpRequester;
 			sourceTree = "<group>";
 		};
+		84B527471A0595AB00EE29C7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				84B527481A0595C900EE29C7 /* DateFormater.h */,
+				84B527491A0595C900EE29C7 /* DateFormater.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -397,6 +410,7 @@
 				849EAFFA1A05702900B08F24 /* HttpRequester.m in Sources */,
 				849EAFDE1A056F5800B08F24 /* ContentOverviewDataModel.m in Sources */,
 				0130137C1A02614C0000E67D /* AppDelegate.m in Sources */,
+				84B5274A1A0595C900EE29C7 /* DateFormater.m in Sources */,
 				849EAFE41A056F9000B08F24 /* CommentNewDataModel.m in Sources */,
 				01BE50B61A0536C6001490E8 /* RegisterViewController.m in Sources */,
 				0130137F1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld in Sources */,

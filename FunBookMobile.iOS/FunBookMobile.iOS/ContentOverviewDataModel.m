@@ -24,11 +24,11 @@
 
 +(ContentOverviewDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary {
     return [[ContentOverviewDataModel alloc]
-            initWithId:[jsonDictionary objectForKey:@"id"]
-                title:[jsonDictionary objectForKey:@"title"]
-                views:[[jsonDictionary objectForKey:@"views"] integerValue]
-                content:[jsonDictionary objectForKey:@"content"]
-                andDate:[jsonDictionary objectForKey:@"date"]];
+            initWithId:[[jsonDictionary objectForKey:@"Id"] stringValue]
+                title:[[jsonDictionary objectForKey:@"Title"] stringValue]
+                views:[[jsonDictionary objectForKey:@"Views"] integerValue]
+                content:[[jsonDictionary objectForKey:@"Content"] stringValue]
+                andDate:[[[NSDateFormatter alloc] init] dateFromString:[[jsonDictionary objectForKey:@"Date"] stringValue]]];
 }
 
 @end
