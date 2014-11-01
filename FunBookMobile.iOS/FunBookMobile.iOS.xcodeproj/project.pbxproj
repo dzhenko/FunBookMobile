@@ -15,6 +15,13 @@
 		013013871A02614C0000E67D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 013013861A02614C0000E67D /* Images.xcassets */; };
 		0130138A1A02614C0000E67D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 013013881A02614C0000E67D /* LaunchScreen.xib */; };
 		013013961A02614C0000E67D /* FunBookMobile_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 013013951A02614C0000E67D /* FunBookMobile_iOSTests.m */; };
+		01BE50B31A053570001490E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B21A053570001490E8 /* LoginViewController.m */; };
+		01BE50B61A0536C6001490E8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B51A0536C6001490E8 /* RegisterViewController.m */; };
+		01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B81A0537E6001490E8 /* AllFunViewController.m */; };
+		01BE50BC1A0538CF001490E8 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50BB1A0538CF001490E8 /* CreateViewController.m */; };
+		01BE50D71A054EB4001490E8 /* CreateJokeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50D61A054EB4001490E8 /* CreateJokeView.xib */; };
+		01BE50DC1A055B02001490E8 /* CreateLinkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50DB1A055B02001490E8 /* CreateLinkView.xib */; };
+		01BE50DE1A055C28001490E8 /* CreatePictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50DD1A055C28001490E8 /* CreatePictureView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +49,17 @@
 		0130138F1A02614C0000E67D /* FunBookMobile.iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunBookMobile.iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		013013941A02614C0000E67D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		013013951A02614C0000E67D /* FunBookMobile_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunBookMobile_iOSTests.m; sourceTree = "<group>"; };
+		01BE50B11A053570001490E8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		01BE50B21A053570001490E8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		01BE50B41A0536C6001490E8 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		01BE50B51A0536C6001490E8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		01BE50B71A0537E6001490E8 /* AllFunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllFunViewController.h; sourceTree = "<group>"; };
+		01BE50B81A0537E6001490E8 /* AllFunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllFunViewController.m; sourceTree = "<group>"; };
+		01BE50BA1A0538CF001490E8 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
+		01BE50BB1A0538CF001490E8 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
+		01BE50D61A054EB4001490E8 /* CreateJokeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateJokeView.xib; sourceTree = "<group>"; };
+		01BE50DB1A055B02001490E8 /* CreateLinkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateLinkView.xib; sourceTree = "<group>"; };
+		01BE50DD1A055C28001490E8 /* CreatePictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatePictureView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +101,8 @@
 		013013751A02614C0000E67D /* FunBookMobile.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				01BE50D51A054E78001490E8 /* Views */,
+				01BE50B01A0534B6001490E8 /* ViewControllers */,
 				0130137A1A02614C0000E67D /* AppDelegate.h */,
 				0130137B1A02614C0000E67D /* AppDelegate.m */,
 				013013801A02614C0000E67D /* ViewController.h */,
@@ -120,6 +140,31 @@
 				013013941A02614C0000E67D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01BE50B01A0534B6001490E8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				01BE50B11A053570001490E8 /* LoginViewController.h */,
+				01BE50B21A053570001490E8 /* LoginViewController.m */,
+				01BE50B41A0536C6001490E8 /* RegisterViewController.h */,
+				01BE50B51A0536C6001490E8 /* RegisterViewController.m */,
+				01BE50B71A0537E6001490E8 /* AllFunViewController.h */,
+				01BE50B81A0537E6001490E8 /* AllFunViewController.m */,
+				01BE50BA1A0538CF001490E8 /* CreateViewController.h */,
+				01BE50BB1A0538CF001490E8 /* CreateViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		01BE50D51A054E78001490E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01BE50D61A054EB4001490E8 /* CreateJokeView.xib */,
+				01BE50DB1A055B02001490E8 /* CreateLinkView.xib */,
+				01BE50DD1A055C28001490E8 /* CreatePictureView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +249,10 @@
 			files = (
 				013013851A02614C0000E67D /* Main.storyboard in Resources */,
 				0130138A1A02614C0000E67D /* LaunchScreen.xib in Resources */,
+				01BE50DC1A055B02001490E8 /* CreateLinkView.xib in Resources */,
 				013013871A02614C0000E67D /* Images.xcassets in Resources */,
+				01BE50D71A054EB4001490E8 /* CreateJokeView.xib in Resources */,
+				01BE50DE1A055C28001490E8 /* CreatePictureView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,9 +271,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0130137C1A02614C0000E67D /* AppDelegate.m in Sources */,
+				01BE50B61A0536C6001490E8 /* RegisterViewController.m in Sources */,
 				0130137F1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld in Sources */,
+				01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */,
+				01BE50BC1A0538CF001490E8 /* CreateViewController.m in Sources */,
 				013013821A02614C0000E67D /* ViewController.m in Sources */,
 				013013791A02614C0000E67D /* main.m in Sources */,
+				01BE50B31A053570001490E8 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +468,7 @@
 				0130139B1A02614C0000E67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0130139C1A02614C0000E67D /* Build configuration list for PBXNativeTarget "FunBookMobile.iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +477,7 @@
 				0130139E1A02614C0000E67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
