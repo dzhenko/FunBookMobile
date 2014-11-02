@@ -35,7 +35,6 @@
 -(void)connection:(NSURLRequest*) request didReceiveData:(NSData *)data{
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     ContentHomeDataModel *homeContent = [ContentHomeDataModel fromJsonDictionary:[json objectForKey:@"Result"]];
-    int a = 5;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -12,7 +12,7 @@
     using FunBookMobile.Cloud.WebApi.DataModels;
     using FunBookMobile.Cloud.ImageUploadProvider;
 
-    [Authorize]
+    //[Authorize]
     [EnableCors("*", "*", "*")]
     public class PicturesController : BaseApiController
     {

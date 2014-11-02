@@ -11,7 +11,7 @@
     using FunBookMobile.Cloud.Models;
     using FunBookMobile.Cloud.WebApi.DataModels;
 
-    [Authorize]
+    //[Authorize]
     [EnableCors("*", "*", "*")]
     public class LinksController : BaseApiController
     {

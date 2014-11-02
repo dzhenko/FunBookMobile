@@ -14,4 +14,11 @@
 @property (strong, nonatomic) NSString* text;
 @property (strong, nonatomic) NSString* created;
 
+-(instancetype) initWithUser:(NSString*)user
+                       text:(NSString*)text
+                       created:(NSString*)created;
+
++(CommentDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary;
+
++(NSArray*) arrayOfCommentsFromJsonDictionary: (NSArray*) jsonArray;
 @end

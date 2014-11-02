@@ -11,7 +11,7 @@
     using FunBookMobile.Cloud.WebApi.DataModels;
     using FunBookMobile.Cloud.Models;
 
-    [Authorize]
+    //[Authorize]
     [EnableCors("*", "*", "*")]
     public class JokesController : BaseApiController
     {

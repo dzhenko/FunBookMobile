@@ -13,4 +13,9 @@
 @property (strong, nonatomic) NSString* objId;
 @property (strong, nonatomic) NSString* text; // min len 3
 
+-(instancetype) initWithId:(NSString*)objId
+                      text:(NSString*)text;
+
++(CommentNewDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary;
+
 @end

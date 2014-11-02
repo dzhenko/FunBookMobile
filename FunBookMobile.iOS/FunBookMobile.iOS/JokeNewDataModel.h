@@ -13,4 +13,11 @@
 @property (strong, nonatomic) NSString* title; // min len 3
 @property BOOL IsAnonymous;
 @property (strong, nonatomic) NSString* category;
+
+-(instancetype) initWithText:(NSString*)text
+                       title:(NSString*)title
+                 IsAnonymous:(BOOL)IsAnonymous
+                 andCategory:(NSString*)category;
+
++(JokeNewDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary;
 @end
