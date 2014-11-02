@@ -11,13 +11,16 @@
 @interface LinkNewDataModel : NSObject
 @property (strong, nonatomic) NSString* url; // min len 3
 @property (strong, nonatomic) NSString* title; // min len 3
-@property BOOL IsAnonymous;
+@property BOOL isAnonymous;
 @property (strong, nonatomic) NSString* category;
 
 -(instancetype) initWithUrl:(NSString*)url
                        title:(NSString*)title
-                 IsAnonymous:(BOOL)IsAnonymous
+                 isAnonymous:(BOOL)isAnonymous
                  andCategory:(NSString*)category;
 
-+(LinkNewDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary;
++(LinkNewDataModel*) linkWithUrl:(NSString*)url
+                           title:(NSString*)title
+                     isAnonymous:(BOOL)isAnonymous
+                     andCategory:(NSString*)category;
 @end

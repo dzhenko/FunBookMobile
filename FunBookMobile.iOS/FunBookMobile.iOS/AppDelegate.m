@@ -12,6 +12,7 @@
 #import "ContentOverviewDataModel.h"
 #import "ContentHomeDataModel.h"
 #import "HttpRequester.h"
+#import "JokeDetailsDataModel.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +25,8 @@
     // testing TODO: Remove this
     
     HttpRequester *requester = [[HttpRequester alloc] init];
-    [requester get:@"http://funbook.apphb.com/api/content/home" headers:nil withTarget:self action:nil];
+    [requester get:@"http://funbook.apphb.com/api/jokes/details/2b49cc19-3816-4171-b708-24b0a69ed8b0"
+           headers:nil withTarget:self action:nil];
     
     // Override point for customization after application launch.
     return YES;
@@ -33,8 +35,8 @@
 
 //testing TODO: Remove this
 -(void)connection:(NSURLRequest*) request didReceiveData:(NSData *)data{
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    ContentHomeDataModel *homeContent = [ContentHomeDataModel fromJsonDictionary:[json objectForKey:@"Result"]];
+    //NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    //JokeDetailsDataModel *homeContent = [JokeDetailsDataModel fromJsonDictionary:[json objectForKey:@"Result"]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

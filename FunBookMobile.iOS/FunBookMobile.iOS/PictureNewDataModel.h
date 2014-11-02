@@ -12,13 +12,16 @@
 // some property holding the data ???
 @property (strong, nonatomic) NSString* data; //to be changed
 @property (strong, nonatomic) NSString* title; // min len 3
-@property BOOL IsAnonymous;
+@property BOOL isAnonymous;
 @property (strong, nonatomic) NSString* category;
 
 -(instancetype) initWithData:(NSString*)data
                         title:(NSString*)title
-                     IsAnonymous:(BOOL)IsAnonymous
+                     isAnonymous:(BOOL)isAnonymous
                  andCategory:(NSString*)category;
 
-+(PictureNewDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary;
++(PictureNewDataModel*) pictureWithData:(NSString*)data
+                                  title:(NSString*)title
+                            isAnonymous:(BOOL)isAnonymous
+                            andCategory:(NSString*)category;
 @end

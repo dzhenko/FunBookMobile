@@ -11,13 +11,16 @@
 @interface JokeNewDataModel : NSObject
 @property (strong, nonatomic) NSString* text; // min len 3
 @property (strong, nonatomic) NSString* title; // min len 3
-@property BOOL IsAnonymous;
+@property BOOL isAnonymous;
 @property (strong, nonatomic) NSString* category;
 
 -(instancetype) initWithText:(NSString*)text
                        title:(NSString*)title
-                 IsAnonymous:(BOOL)IsAnonymous
+                 isAnonymous:(BOOL)isAnonymous
                  andCategory:(NSString*)category;
 
-+(JokeNewDataModel*) fromJsonDictionary: (NSDictionary*) jsonDictionary;
++(JokeNewDataModel*) jokeWithText:(NSString*)text
+                            title:(NSString*)title
+                      isAnonymous:(BOOL)isAnonymous
+                      andCategory:(NSString*)category;
 @end
