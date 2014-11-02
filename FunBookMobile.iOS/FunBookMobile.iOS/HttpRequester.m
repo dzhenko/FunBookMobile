@@ -8,17 +8,33 @@
 
 #import "HttpRequester.h"
 
-@implementation HttpRequester
+@implementation HttpRequester{
+    NSString* baseUrl;
+}
+
+-(instancetype) initWithBaseUrl: (NSString*)theBaseUrl{
+    if (self=[super init]) {
+        baseUrl = theBaseUrl;
+    }
+    return self;
+}
+
++(HttpRequester*) requesterWithBaseUrl:(NSString*) baseUrl {
+    return [[HttpRequester alloc] initWithBaseUrl:baseUrl];
+}
+
 
 -(void)createRequest: (NSString*) method atUrl: (NSString*) url data: (NSData*)
          data headers: (NSDictionary*) headers withTarget: (NSObject*) target {
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSString* fullUrl = [NSString stringWithFormat:@"%@%@", baseUrl, url];
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
     
     [request setHTTPMethod:method];
     
     if (headers) {
         for(id key in headers) {
-            [request setValue:[headers objectForKey:key] forKey:key];
+            [request setValue:[headers objectForKey:key] forHTTPHeaderField:key];
         }
     }
     else {

@@ -9,6 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface AppData : NSObject
--(void) getHomeContentAndPerformSuccessBlock:(void (^)(id))successActionBlock
-                     orReactToErrorWithBlock:(void (^)(NSError*))errorActionBlock;
+-(void) loginUserWithEmail: (NSString*) email andPassword: (NSString*) password
+    AndPerformBlock:(void (^)(BOOL success))blockToPerform;
+-(void) registerUserWithEmail: (NSString*) email andPassword: (NSString*) password
+       AndPerformBlock:(void (^)(BOOL success))blockToPerform;
+-(void) logoutAndPerformBlock:(void (^)(BOOL success))blockToPerform;
+
+-(BOOL) isUserLoggedIn;
+-(NSString*) getUserName;
+
+-(void) getHomeContentAndPerformSuccessBlock:(void (^)(id data))successActionBlock
+                     orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
 @end

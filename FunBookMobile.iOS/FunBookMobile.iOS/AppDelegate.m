@@ -22,20 +22,22 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // sample usage of AppData class
     // testing TODO: Remove this
-    
     AppData* data = [[AppData alloc] init];
-    [data getHomeContentAndPerformSuccessBlock:^(id data){
-        NSLog(@"%@",data);
-    } orReactToErrorWithBlock:^(NSError* err){
-        NSLog(@"%@",err);
-    }];
-    //[data getHomeContentAndPerformAction:^(id data){
+    //[data getHomeContentAndPerformSuccessBlock:^(id data){
     //    NSLog(@"%@",data);
+    //} orReactToErrorWithBlock:^(NSError* error){
+    //    NSLog(@"%@",error);
     //}];
-    //HttpRequester *requester = [[HttpRequester alloc] init];
-    //[requester get:@"http://funbook.apphb.com/api/jokes/details/2b49cc19-3816-4171-b708-24b0a69ed8b0"
-    //       headers:nil withTarget:self action:nil];
+    
+    // registration example
+    [data registerUserWithEmail:@"qwe6@qwe.com" andPassword:@"qweqwe" AndPerformBlock:^(BOOL success) {
+        // depending on the value of success you can react here.
+        NSLog(@"%i",success);
+    }];
+    
+    
     
     // Override point for customization after application launch.
     return YES;
