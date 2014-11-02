@@ -13,6 +13,7 @@
 #import "ContentHomeDataModel.h"
 #import "HttpRequester.h"
 #import "JokeDetailsDataModel.h"
+#import "AppData.h"
 
 @interface AppDelegate ()
 
@@ -20,13 +21,21 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // testing TODO: Remove this
     
-    HttpRequester *requester = [[HttpRequester alloc] init];
-    [requester get:@"http://funbook.apphb.com/api/jokes/details/2b49cc19-3816-4171-b708-24b0a69ed8b0"
-           headers:nil withTarget:self action:nil];
+    AppData* data = [[AppData alloc] init];
+    [data getHomeContentAndPerformSuccessBlock:^(id data){
+        NSLog(@"%@",data);
+    } orReactToErrorWithBlock:^(NSError* err){
+        NSLog(@"%@",err);
+    }];
+    //[data getHomeContentAndPerformAction:^(id data){
+    //    NSLog(@"%@",data);
+    //}];
+    //HttpRequester *requester = [[HttpRequester alloc] init];
+    //[requester get:@"http://funbook.apphb.com/api/jokes/details/2b49cc19-3816-4171-b708-24b0a69ed8b0"
+    //       headers:nil withTarget:self action:nil];
     
     // Override point for customization after application launch.
     return YES;

@@ -22,6 +22,7 @@
 		01BE50D71A054EB4001490E8 /* CreateJokeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50D61A054EB4001490E8 /* CreateJokeView.xib */; };
 		01BE50DC1A055B02001490E8 /* CreateLinkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50DB1A055B02001490E8 /* CreateLinkView.xib */; };
 		01BE50DE1A055C28001490E8 /* CreatePictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50DD1A055C28001490E8 /* CreatePictureView.xib */; };
+		849B32E21A065786003E693A /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 849B32E11A065786003E693A /* AppData.m */; };
 		849EAFDE1A056F5800B08F24 /* ContentOverviewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFDD1A056F5800B08F24 /* ContentOverviewDataModel.m */; };
 		849EAFE11A056F7000B08F24 /* CommentDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFE01A056F7000B08F24 /* CommentDataModel.m */; };
 		849EAFE41A056F9000B08F24 /* CommentNewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFE31A056F9000B08F24 /* CommentNewDataModel.m */; };
@@ -32,7 +33,6 @@
 		849EAFF31A056FED00B08F24 /* JokeDetailsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFF21A056FED00B08F24 /* JokeDetailsDataModel.m */; };
 		849EAFF61A056FFB00B08F24 /* JokeNewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFF51A056FFB00B08F24 /* JokeNewDataModel.m */; };
 		849EAFFA1A05702900B08F24 /* HttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFF91A05702900B08F24 /* HttpRequester.m */; };
-		849EAFFD1A05710600B08F24 /* appData.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFFC1A05710600B08F24 /* appData.m */; };
 		849EB0031A05875A00B08F24 /* ContentHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EB0021A05875A00B08F24 /* ContentHomeDataModel.m */; };
 		84B5274A1A0595C900EE29C7 /* DateFormater.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B527491A0595C900EE29C7 /* DateFormater.m */; };
 /* End PBXBuildFile section */
@@ -73,6 +73,8 @@
 		01BE50D61A054EB4001490E8 /* CreateJokeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateJokeView.xib; sourceTree = "<group>"; };
 		01BE50DB1A055B02001490E8 /* CreateLinkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateLinkView.xib; sourceTree = "<group>"; };
 		01BE50DD1A055C28001490E8 /* CreatePictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatePictureView.xib; sourceTree = "<group>"; };
+		849B32E01A065786003E693A /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
+		849B32E11A065786003E693A /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
 		849EAFDC1A056F5800B08F24 /* ContentOverviewDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentOverviewDataModel.h; sourceTree = "<group>"; };
 		849EAFDD1A056F5800B08F24 /* ContentOverviewDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentOverviewDataModel.m; sourceTree = "<group>"; };
 		849EAFDF1A056F7000B08F24 /* CommentDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDataModel.h; sourceTree = "<group>"; };
@@ -93,8 +95,6 @@
 		849EAFF51A056FFB00B08F24 /* JokeNewDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeNewDataModel.m; sourceTree = "<group>"; };
 		849EAFF81A05702900B08F24 /* HttpRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequester.h; sourceTree = "<group>"; };
 		849EAFF91A05702900B08F24 /* HttpRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequester.m; sourceTree = "<group>"; };
-		849EAFFB1A05710600B08F24 /* appData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appData.h; sourceTree = "<group>"; };
-		849EAFFC1A05710600B08F24 /* appData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appData.m; sourceTree = "<group>"; };
 		849EB0011A05875A00B08F24 /* ContentHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentHomeDataModel.h; sourceTree = "<group>"; };
 		849EB0021A05875A00B08F24 /* ContentHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentHomeDataModel.m; sourceTree = "<group>"; };
 		84B527481A0595C900EE29C7 /* DateFormater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormater.h; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				849EAFF71A05701800B08F24 /* HttpRequester */,
-				849EAFFB1A05710600B08F24 /* appData.h */,
-				849EAFFC1A05710600B08F24 /* appData.m */,
+				849B32E01A065786003E693A /* AppData.h */,
+				849B32E11A065786003E693A /* AppData.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -416,6 +416,7 @@
 				0130137F1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld in Sources */,
 				849EAFE71A056FB300B08F24 /* PictureDetailsDataModel.m in Sources */,
 				849EAFED1A056FCF00B08F24 /* LinkDetailsDataModel.m in Sources */,
+				849B32E21A065786003E693A /* AppData.m in Sources */,
 				849EB0031A05875A00B08F24 /* ContentHomeDataModel.m in Sources */,
 				849EAFEA1A056FBF00B08F24 /* PictureNewDataModel.m in Sources */,
 				01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */,
@@ -425,7 +426,6 @@
 				849EAFF61A056FFB00B08F24 /* JokeNewDataModel.m in Sources */,
 				849EAFF01A056FDD00B08F24 /* LinkNewDataModel.m in Sources */,
 				013013821A02614C0000E67D /* ViewController.m in Sources */,
-				849EAFFD1A05710600B08F24 /* appData.m in Sources */,
 				013013791A02614C0000E67D /* main.m in Sources */,
 				01BE50B31A053570001490E8 /* LoginViewController.m in Sources */,
 			);

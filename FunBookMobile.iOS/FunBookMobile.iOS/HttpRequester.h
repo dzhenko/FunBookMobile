@@ -9,12 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface HttpRequester : NSObject
--(void) get: (NSString*) url headers: (NSDictionary*) headers withTarget: (NSObject*) target
-     action:(void (^)(id result))callback;
-
--(void) post: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target action:(void (^)(id result))callback;
-
--(void) put: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target action:(void (^)(id result))callback;
-
--(void) delete: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target action:(void (^)(id result))callback;
+-(void) get: (NSString*) url headers: (NSDictionary*) headers withTarget: (NSObject*) target;
+-(void) post: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target;
+-(void) put: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target;
+-(void) delete: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target;
 @end
