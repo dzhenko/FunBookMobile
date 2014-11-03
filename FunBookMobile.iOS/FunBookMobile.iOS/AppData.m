@@ -218,33 +218,174 @@
          orReactToErrorWithBlock:errorActionBlock];
 }
 
+//private method used to comment stuff
+-(void) privateCommentItemAtUrl:(NSString*)url WithId:(NSString*) objId commentText:(NSString*) text
+         AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    [self setSuccessCallbackBlock:^(id data) {
+        if (blockToPerform) {
+            blockToPerform(YES);
+        }
+    } andErrorCallBackBlock:^(NSError *error) {
+        if (blockToPerform) {
+            blockToPerform(NO);
+        }
+    }];
+    
+    NSDictionary* postDataAsDict = @{@"Id":objId,
+                                     @"Text":text};
+    
+    NSData* postData = [NSJSONSerialization dataWithJSONObject:postDataAsDict options:0 error:nil];
+    
+    [requester post:url data:postData headers:nil withTarget:self];
+
+}
+//private method used to hate/like stuff
+-(void) privateLikeOrHateItemAtUrl:(NSString*) url
+              AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    [self setSuccessCallbackBlock:^(id data) {
+        if (blockToPerform) {
+            blockToPerform(YES);
+        }
+    } andErrorCallBackBlock:^(NSError *error) {
+        if (blockToPerform) {
+            blockToPerform(NO);
+        }
+    }];
+    
+    [requester get:url headers:nil withTarget:self];
+}
+
 // jokes
 -(void) createJoke:(JokeNewDataModel*)model
-AndPerformSuccessBlock:(void (^)(NSString* createdObjId))successActionBlock
-orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
+        AndPerformSuccessBlock:(void (^)(NSString* createdObjId))successActionBlock
+        orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
+    [self setSuccessCallbackBlock:successActionBlock andErrorCallBackBlock:errorBlock];
     
+    NSDictionary* postDataAsDict = @{@"Text":model.text,
+                                     @"Title":model.title,
+                                     @"IsAnonymous":model.isAnonymous ? @"true" : @"false",
+                                     @"Category":model.category};
+    
+    NSData* postData = [NSJSONSerialization dataWithJSONObject:postDataAsDict options:0 error:nil];
+    
+    [requester post:@"jokes/create" data:postData headers:nil withTarget:self];
 }
 
 -(void) getJokeDetailsForId:(NSString*) objId
      AndPerformSuccessBlock:(void (^)(JokeDetailsDataModel* model))successActionBlock
     orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
+    [self setSuccessCallbackBlock:^(id data) {
+        JokeDetailsDataModel* model = [JokeDetailsDataModel fromJsonDictionary:data];
+        if (successActionBlock){
+            successActionBlock(model);
+        }
+    } andErrorCallBackBlock:errorActionBlock];
     
+    [requester get:[NSString stringWithFormat:@"%@%@", @"jokes/details/", objId] headers:nil withTarget:self];
 }
 
 -(void) commentJokeWithId:(NSString*) objId commentText:(NSString*) text
           AndPerformBlock:(void (^)(BOOL success))blockToPerform{
-    
+    [self privateCommentItemAtUrl:@"jokes/comment" WithId:objId commentText:text
+                  AndPerformBlock:blockToPerform];
 }
 
 -(void) likeJokeWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform{
-    
+    [self privateLikeOrHateItemAtUrl:[NSString stringWithFormat:@"%@%@", @"jokes/like/",objId]
+                     AndPerformBlock:blockToPerform];
 }
 
 -(void) hateJokeWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform{
-    
+    [self privateLikeOrHateItemAtUrl:[NSString stringWithFormat:@"%@%@", @"jokes/hate/",objId]
+                     AndPerformBlock:blockToPerform];
 }
 // links
+-(void) createLink:(LinkNewDataModel*)model
+AndPerformSuccessBlock:(void (^)(NSString* createdObjId))successActionBlock
+orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
+    [self setSuccessCallbackBlock:successActionBlock andErrorCallBackBlock:errorBlock];
+    
+    NSDictionary* postDataAsDict = @{@"URL":model.url,
+                                     @"Title":model.title,
+                                     @"IsAnonymous":model.isAnonymous ? @"true" : @"false",
+                                     @"Category":model.category};
+    
+    NSData* postData = [NSJSONSerialization dataWithJSONObject:postDataAsDict options:0 error:nil];
+    
+    [requester post:@"links/create" data:postData headers:nil withTarget:self];
 
+}
+
+-(void) getLinkDetailsForId:(NSString*) objId
+     AndPerformSuccessBlock:(void (^)(LinkDetailsDataModel* model))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
+    [self setSuccessCallbackBlock:^(id data) {
+        LinkDetailsDataModel* model = [LinkDetailsDataModel fromJsonDictionary:data];
+        if (successActionBlock){
+            successActionBlock(model);
+        }
+    } andErrorCallBackBlock:errorActionBlock];
+    
+    [requester get:[NSString stringWithFormat:@"%@%@", @"links/details/", objId] headers:nil withTarget:self];
+}
+
+-(void) commentLinkWithId:(NSString*) objId commentText:(NSString*) text
+          AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    [self privateCommentItemAtUrl:@"links/comment" WithId:objId commentText:text
+                  AndPerformBlock:blockToPerform];
+}
+
+-(void) likeLinkWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    [self privateLikeOrHateItemAtUrl:[NSString stringWithFormat:@"%@%@", @"links/like/",objId]
+                     AndPerformBlock:blockToPerform];
+}
+
+-(void) hateLinkWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    [self privateLikeOrHateItemAtUrl:[NSString stringWithFormat:@"%@%@", @"links/hate/",objId]
+                     AndPerformBlock:blockToPerform];
+}
 // pictures
+-(void) createPicture:(PictureNewDataModel*)model
+AndPerformSuccessBlock:(void (^)(NSString* createdObjId))successActionBlock
+orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
+    [self setSuccessCallbackBlock:successActionBlock andErrorCallBackBlock:errorBlock];
+    
+    NSDictionary* postDataAsDict = @{@"Data":model.data,
+                                     @"Title":model.title,
+                                     @"IsAnonymous":model.isAnonymous ? @"true" : @"false",
+                                     @"Category":model.category};
+    
+    NSData* postData = [NSJSONSerialization dataWithJSONObject:postDataAsDict options:0 error:nil];
+    
+    [requester post:@"pictures/create" data:postData headers:nil withTarget:self];
+}
 
+-(void) getPictureDetailsForId:(NSString*) objId
+        AndPerformSuccessBlock:(void (^)(PictureDetailsDataModel* model))successActionBlock
+       orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
+    [self setSuccessCallbackBlock:^(id data) {
+        PictureDetailsDataModel* model = [PictureDetailsDataModel fromJsonDictionary:data];
+        if (successActionBlock){
+            successActionBlock(model);
+        }
+    } andErrorCallBackBlock:errorActionBlock];
+    
+    [requester get:[NSString stringWithFormat:@"%@%@", @"pictures/details/", objId] headers:nil withTarget:self];
+}
+
+-(void) commentPictureWithId:(NSString*) objId commentText:(NSString*) text
+             AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    [self privateCommentItemAtUrl:@"pictures/comment" WithId:objId commentText:text
+                  AndPerformBlock:blockToPerform];
+}
+
+-(void) likePictureWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    [self privateLikeOrHateItemAtUrl:[NSString stringWithFormat:@"%@%@", @"pictures/like/",objId]
+                     AndPerformBlock:blockToPerform];
+}
+
+-(void) hatePictureWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    [self privateLikeOrHateItemAtUrl:[NSString stringWithFormat:@"%@%@", @"pictures/hate/",objId]
+                     AndPerformBlock:blockToPerform];
+}
 @end

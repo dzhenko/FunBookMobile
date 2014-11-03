@@ -75,6 +75,34 @@
 -(void) hateJokeWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform;
 
 // links
+-(void) createLink:(LinkNewDataModel*)model
+AndPerformSuccessBlock:(void (^)(NSString* createdObjId))successActionBlock
+orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) getLinkDetailsForId:(NSString*) objId
+     AndPerformSuccessBlock:(void (^)(LinkDetailsDataModel* model))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) commentLinkWithId:(NSString*) objId commentText:(NSString*) text
+          AndPerformBlock:(void (^)(BOOL success))blockToPerform;
+
+-(void) likeLinkWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform;
+
+-(void) hateLinkWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform;
 
 // pictures
+-(void) createPicture:(PictureNewDataModel*)model
+AndPerformSuccessBlock:(void (^)(NSString* createdObjId))successActionBlock
+orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) getPictureDetailsForId:(NSString*) objId
+     AndPerformSuccessBlock:(void (^)(PictureDetailsDataModel* model))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) commentPictureWithId:(NSString*) objId commentText:(NSString*) text
+          AndPerformBlock:(void (^)(BOOL success))blockToPerform;
+
+-(void) likePictureWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform;
+
+-(void) hatePictureWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform;
 @end

@@ -56,8 +56,21 @@
 //        int a = 5;
 //    } orReactToErrorWithBlock:nil];
     
-    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel *model) {
-        NSLog(@"%@",model);
+//    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel *model) {
+//        NSLog(@"%@",model);
+//    } orReactToErrorWithBlock:nil];
+    
+    [data createJoke:[JokeNewDataModel jokeWithText:@"testiOS" title:@"titleIos" isAnonymous:NO andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
+        NSLog(@"%@",createdObjId);
+        [data getJokeDetailsForId:createdObjId AndPerformSuccessBlock:^(JokeDetailsDataModel *model) {
+            NSLog(@"%@",model.objId);
+            [data commentJokeWithId:createdObjId commentText:@"testCommentiOS" AndPerformBlock:^(BOOL success) {
+                NSLog(@"%i",success);
+                [data likeJokeWithId:createdObjId AndPerformBlock:^(BOOL success) {
+                    NSLog(@"%i",success);
+                }];
+            }];
+        } orReactToErrorWithBlock:nil];
     } orReactToErrorWithBlock:nil];
     //        [data getJokesAllAtPage:1 AndPerformSuccessBlock:^(NSArray *model) {
     //            NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
