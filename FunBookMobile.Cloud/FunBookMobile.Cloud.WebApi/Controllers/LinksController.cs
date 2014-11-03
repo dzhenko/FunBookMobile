@@ -43,9 +43,9 @@
             };
 
             //TODO: Remove after restoring authorize attribute
-            if (joke.UserId == null)
+            if (link.UserId == null)
             {
-                joke.UserId = "3b7aca9e-bd08-4eae-b62e-d81a7d387957";
+                link.UserId = "3b7aca9e-bd08-4eae-b62e-d81a7d387957";
             }
 
             this.Data.Links.Add(link);
