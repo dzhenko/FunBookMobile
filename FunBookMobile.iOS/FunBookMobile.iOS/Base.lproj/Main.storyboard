@@ -97,7 +97,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="yQV-BN-b6K">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQV-BN-b6K">
                                 <rect key="frame" x="0.0" y="64" width="600" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
@@ -110,19 +110,30 @@
                                 </connections>
                             </tabBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wxc-Sh-LIE">
-                                <rect key="frame" x="0.0" y="113" width="600" height="443"/>
+                                <rect key="frame" x="0.0" y="113" width="600" height="330"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eif-oK-xaj">
+                                <rect key="frame" x="236" y="483" width="129" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="YqH-bq-RHv"/>
+                                </constraints>
+                                <state key="normal" title="Pick a Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Wxc-Sh-LIE" firstAttribute="top" secondItem="yQV-BN-b6K" secondAttribute="bottom" id="4LM-uq-cok"/>
-                            <constraint firstItem="yQV-BN-b6K" firstAttribute="top" secondItem="44a-mk-giM" secondAttribute="bottom" id="9mZ-3P-2hL"/>
-                            <constraint firstItem="Wxc-Sh-LIE" firstAttribute="bottom" secondItem="fBW-Fj-qkn" secondAttribute="top" id="Jdj-vv-nOa"/>
-                            <constraint firstAttribute="trailing" secondItem="yQV-BN-b6K" secondAttribute="trailing" id="MTg-fg-CNb"/>
-                            <constraint firstItem="Wxc-Sh-LIE" firstAttribute="leading" secondItem="Izy-V0-Nvc" secondAttribute="leading" id="PQu-MX-muf"/>
-                            <constraint firstItem="Wxc-Sh-LIE" firstAttribute="leading" secondItem="yQV-BN-b6K" secondAttribute="leading" id="xJd-3s-vad"/>
-                            <constraint firstItem="yQV-BN-b6K" firstAttribute="trailing" secondItem="Wxc-Sh-LIE" secondAttribute="trailing" id="yEu-pH-Ej0"/>
+                            <constraint firstItem="yQV-BN-b6K" firstAttribute="trailing" secondItem="Wxc-Sh-LIE" secondAttribute="trailing" id="1Ru-sG-MQU"/>
+                            <constraint firstItem="Wxc-Sh-LIE" firstAttribute="top" secondItem="yQV-BN-b6K" secondAttribute="bottom" id="Dof-Ex-YkR"/>
+                            <constraint firstItem="Wxc-Sh-LIE" firstAttribute="leading" secondItem="Izy-V0-Nvc" secondAttribute="leading" id="KeT-OM-yf0"/>
+                            <constraint firstItem="fBW-Fj-qkn" firstAttribute="top" secondItem="Eif-oK-xaj" secondAttribute="bottom" constant="43" id="OAk-bq-Jdz"/>
+                            <constraint firstItem="Wxc-Sh-LIE" firstAttribute="leading" secondItem="yQV-BN-b6K" secondAttribute="leading" id="PLp-YX-LsO"/>
+                            <constraint firstItem="yQV-BN-b6K" firstAttribute="top" secondItem="44a-mk-giM" secondAttribute="bottom" id="aaH-gC-TWH"/>
+                            <constraint firstAttribute="trailing" secondItem="yQV-BN-b6K" secondAttribute="trailing" id="cwA-TO-chz"/>
+                            <constraint firstItem="Eif-oK-xaj" firstAttribute="top" secondItem="Wxc-Sh-LIE" secondAttribute="bottom" constant="40" id="fuW-Jg-tc7"/>
+                            <constraint firstItem="Eif-oK-xaj" firstAttribute="centerX" secondItem="Wxc-Sh-LIE" secondAttribute="centerX" id="h8s-E8-hro"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Create" id="Xal-Sl-D3S"/>
@@ -130,6 +141,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="createView" destination="Wxc-Sh-LIE" id="5Ur-K6-hQJ"/>
+                        <outlet property="pickPhotoBtn" destination="Eif-oK-xaj" id="4kU-NJ-PI8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2U-cI-lDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
