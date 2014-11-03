@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011279151A07FCD700B9F5FE /* CreateJokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011279141A07FCD700B9F5FE /* CreateJokeViewController.m */; };
+		011279181A07FCE300B9F5FE /* CreateLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011279171A07FCE300B9F5FE /* CreateLinkViewController.m */; };
+		0112791B1A07FCF300B9F5FE /* CreatePictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0112791A1A07FCF300B9F5FE /* CreatePictureViewController.m */; };
+		0112791E1A07FD8300B9F5FE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0112791D1A07FD8300B9F5FE /* HomeViewController.m */; };
 		013013791A02614C0000E67D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 013013781A02614C0000E67D /* main.m */; };
 		0130137C1A02614C0000E67D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0130137B1A02614C0000E67D /* AppDelegate.m */; };
 		0130137F1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0130137D1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld */; };
@@ -15,6 +19,8 @@
 		013013871A02614C0000E67D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 013013861A02614C0000E67D /* Images.xcassets */; };
 		0130138A1A02614C0000E67D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 013013881A02614C0000E67D /* LaunchScreen.xib */; };
 		013013961A02614C0000E67D /* FunBookMobile_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 013013951A02614C0000E67D /* FunBookMobile_iOSTests.m */; };
+		016A99AA1A081CAD00A2E686 /* HomeTableUIViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016A99A91A081CAD00A2E686 /* HomeTableUIViewCell.xib */; };
+		016A99AD1A081D9400A2E686 /* HomeTableUIViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016A99AC1A081D9400A2E686 /* HomeTableUIViewCell.m */; };
 		01BE50B31A053570001490E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B21A053570001490E8 /* LoginViewController.m */; };
 		01BE50B61A0536C6001490E8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B51A0536C6001490E8 /* RegisterViewController.m */; };
 		01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B81A0537E6001490E8 /* AllFunViewController.m */; };
@@ -48,6 +54,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		011279131A07FCD700B9F5FE /* CreateJokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateJokeViewController.h; sourceTree = "<group>"; };
+		011279141A07FCD700B9F5FE /* CreateJokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateJokeViewController.m; sourceTree = "<group>"; };
+		011279161A07FCE300B9F5FE /* CreateLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateLinkViewController.h; sourceTree = "<group>"; };
+		011279171A07FCE300B9F5FE /* CreateLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateLinkViewController.m; sourceTree = "<group>"; };
+		011279191A07FCF300B9F5FE /* CreatePictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePictureViewController.h; sourceTree = "<group>"; };
+		0112791A1A07FCF300B9F5FE /* CreatePictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePictureViewController.m; sourceTree = "<group>"; };
+		0112791C1A07FD8300B9F5FE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		0112791D1A07FD8300B9F5FE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		013013731A02614C0000E67D /* FunBookMobile.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunBookMobile.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		013013771A02614C0000E67D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		013013781A02614C0000E67D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,6 +76,9 @@
 		0130138F1A02614C0000E67D /* FunBookMobile.iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunBookMobile.iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		013013941A02614C0000E67D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		013013951A02614C0000E67D /* FunBookMobile_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunBookMobile_iOSTests.m; sourceTree = "<group>"; };
+		016A99A91A081CAD00A2E686 /* HomeTableUIViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableUIViewCell.xib; sourceTree = "<group>"; };
+		016A99AB1A081D9400A2E686 /* HomeTableUIViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableUIViewCell.h; sourceTree = "<group>"; };
+		016A99AC1A081D9400A2E686 /* HomeTableUIViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableUIViewCell.m; sourceTree = "<group>"; };
 		01BE50B11A053570001490E8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		01BE50B21A053570001490E8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		01BE50B41A0536C6001490E8 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -195,6 +212,14 @@
 				01BE50B81A0537E6001490E8 /* AllFunViewController.m */,
 				01BE50BA1A0538CF001490E8 /* CreateViewController.h */,
 				01BE50BB1A0538CF001490E8 /* CreateViewController.m */,
+				011279131A07FCD700B9F5FE /* CreateJokeViewController.h */,
+				011279141A07FCD700B9F5FE /* CreateJokeViewController.m */,
+				011279161A07FCE300B9F5FE /* CreateLinkViewController.h */,
+				011279171A07FCE300B9F5FE /* CreateLinkViewController.m */,
+				011279191A07FCF300B9F5FE /* CreatePictureViewController.h */,
+				0112791A1A07FCF300B9F5FE /* CreatePictureViewController.m */,
+				0112791C1A07FD8300B9F5FE /* HomeViewController.h */,
+				0112791D1A07FD8300B9F5FE /* HomeViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -205,6 +230,9 @@
 				01BE50D61A054EB4001490E8 /* CreateJokeView.xib */,
 				01BE50DB1A055B02001490E8 /* CreateLinkView.xib */,
 				01BE50DD1A055C28001490E8 /* CreatePictureView.xib */,
+				016A99A91A081CAD00A2E686 /* HomeTableUIViewCell.xib */,
+				016A99AB1A081D9400A2E686 /* HomeTableUIViewCell.h */,
+				016A99AC1A081D9400A2E686 /* HomeTableUIViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -389,6 +417,7 @@
 				01BE50DC1A055B02001490E8 /* CreateLinkView.xib in Resources */,
 				013013871A02614C0000E67D /* Images.xcassets in Resources */,
 				01BE50D71A054EB4001490E8 /* CreateJokeView.xib in Resources */,
+				016A99AA1A081CAD00A2E686 /* HomeTableUIViewCell.xib in Resources */,
 				01BE50DE1A055C28001490E8 /* CreatePictureView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +439,7 @@
 				849EAFFA1A05702900B08F24 /* HttpRequester.m in Sources */,
 				849EAFDE1A056F5800B08F24 /* ContentOverviewDataModel.m in Sources */,
 				0130137C1A02614C0000E67D /* AppDelegate.m in Sources */,
+				0112791E1A07FD8300B9F5FE /* HomeViewController.m in Sources */,
 				84B5274A1A0595C900EE29C7 /* DateFormater.m in Sources */,
 				849EAFE41A056F9000B08F24 /* CommentNewDataModel.m in Sources */,
 				01BE50B61A0536C6001490E8 /* RegisterViewController.m in Sources */,
@@ -422,11 +452,15 @@
 				01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */,
 				849EAFE11A056F7000B08F24 /* CommentDataModel.m in Sources */,
 				01BE50BC1A0538CF001490E8 /* CreateViewController.m in Sources */,
+				0112791B1A07FCF300B9F5FE /* CreatePictureViewController.m in Sources */,
 				849EAFF31A056FED00B08F24 /* JokeDetailsDataModel.m in Sources */,
 				849EAFF61A056FFB00B08F24 /* JokeNewDataModel.m in Sources */,
 				849EAFF01A056FDD00B08F24 /* LinkNewDataModel.m in Sources */,
 				013013821A02614C0000E67D /* ViewController.m in Sources */,
+				011279181A07FCE300B9F5FE /* CreateLinkViewController.m in Sources */,
+				011279151A07FCD700B9F5FE /* CreateJokeViewController.m in Sources */,
 				013013791A02614C0000E67D /* main.m in Sources */,
+				016A99AD1A081D9400A2E686 /* HomeTableUIViewCell.m in Sources */,
 				01BE50B31A053570001490E8 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

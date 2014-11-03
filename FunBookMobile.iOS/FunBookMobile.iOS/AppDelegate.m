@@ -22,13 +22,13 @@
 @implementation AppDelegate
 -(void)testAllAppDataMethods{
     AppData* data = [[AppData alloc] init];
-    //[data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel* model){
-    
-    //    NSLog(@"%@",model);
-    //} orReactToErrorWithBlock:^(NSError* error){
-    
-    //    NSLog(@"%@",error);
-    //}];
+//    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel* model){
+//    
+//        NSLog(@"%@",model);
+//    } orReactToErrorWithBlock:^(NSError* error){
+//    
+//        NSLog(@"%@",error);
+//    }];
     
     // registration example
     //    [data loginUserWithEmail:@"qwe7@qwe.com" andPassword:@"qweqwe" AndPerformBlock:^(BOOL success) {

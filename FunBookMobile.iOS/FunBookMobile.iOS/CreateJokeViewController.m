@@ -1,24 +1,22 @@
 //
-//  CreateViewController.m
+//  CreateJokeViewController.m
 //  FunBookMobile.iOS
 //
-//  Created by Kris Kichev on 11/1/14.
+//  Created by Kris Kichev on 11/3/14.
 //  Copyright (c) 2014 TelerikAcademyTeamwork. All rights reserved.
 //
 
-#import "CreateViewController.h"
+#import "CreateJokeViewController.h"
 
-@interface CreateViewController ()
-
-@property (weak, nonatomic) IBOutlet UIButton *pickPhotoBtn;
+@interface CreateJokeViewController ()
 
 @end
 
-@implementation CreateViewController
+@implementation CreateJokeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
