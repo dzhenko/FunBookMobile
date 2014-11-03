@@ -165,6 +165,7 @@
     [requester get:@"content/home" headers:nil withTarget:self];
 }
 
+//private method used by all/find/jokes/links/pictures
 -(void)privateGetContentAtUrl:(NSString*)url AndPerformSuccessBlock:(void (^)(NSArray * models))successActionBlock orReactToErrorWithBlock:(void (^)(NSError *))errorActionBlock{
     [self setSuccessCallbackBlock:^(id data) {
         NSArray *recievedArray = (NSArray*)data;
@@ -218,7 +219,30 @@
 }
 
 // jokes
+-(void) createJoke:(JokeNewDataModel*)model
+AndPerformSuccessBlock:(void (^)(NSString* createdObjId))successActionBlock
+orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
+    
+}
 
+-(void) getJokeDetailsForId:(NSString*) objId
+     AndPerformSuccessBlock:(void (^)(JokeDetailsDataModel* model))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
+    
+}
+
+-(void) commentJokeWithId:(NSString*) objId commentText:(NSString*) text
+          AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    
+}
+
+-(void) likeJokeWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    
+}
+
+-(void) hateJokeWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    
+}
 // links
 
 // pictures

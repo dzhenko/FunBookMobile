@@ -58,6 +58,12 @@
                 UserId = this.User.Identity.GetUserId()
             };
 
+            //TODO: Remove after restoring authorize attribute
+            if (picture.UserId == null)
+            {
+                picture.UserId = "3b7aca9e-bd08-4eae-b62e-d81a7d387957";
+            }
+
             this.Data.Pictures.Add(picture);
 
             foreach (var tagName in tags)

@@ -46,19 +46,19 @@
     //        NSLog(@"%@",error);
     //    }];
     
-    [data getContentFindWithText:@"momma" AtPage:1 AndPerformSuccessBlock:^(NSArray *models) {
-        ContentOverviewDataModel *joke = (ContentOverviewDataModel*)models[0];
-        int a = 5;
-    } orReactToErrorWithBlock:nil];
+//    [data getContentFindWithText:@"momma" AtPage:1 AndPerformSuccessBlock:^(NSArray *models) {
+//        ContentOverviewDataModel *joke = (ContentOverviewDataModel*)models[0];
+//        int a = 5;
+//    } orReactToErrorWithBlock:nil];
     
 //    [data getLinksAllAtPage:1 AndPerformSuccessBlock:^(NSArray *models) {
 //        ContentOverviewDataModel *joke = (ContentOverviewDataModel*)models[0];
 //        int a = 5;
 //    } orReactToErrorWithBlock:nil];
     
-//    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel *model) {
-//        NSLog(@"%@",model);
-//    } orReactToErrorWithBlock:nil];
+    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel *model) {
+        NSLog(@"%@",model);
+    } orReactToErrorWithBlock:nil];
     //        [data getJokesAllAtPage:1 AndPerformSuccessBlock:^(NSArray *model) {
     //            NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
     //            NSLog(@"%@",model);

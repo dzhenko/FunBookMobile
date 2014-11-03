@@ -67,6 +67,12 @@
     AndPerformSuccessBlock:(void (^)(JokeDetailsDataModel* model))successActionBlock
     orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
 
+-(void) commentJokeWithId:(NSString*) objId commentText:(NSString*) text
+          AndPerformBlock:(void (^)(BOOL success))blockToPerform;
+
+-(void) likeJokeWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform;
+
+-(void) hateJokeWithId:(NSString*) objId AndPerformBlock:(void (^)(BOOL success))blockToPerform;
 
 // links
 
