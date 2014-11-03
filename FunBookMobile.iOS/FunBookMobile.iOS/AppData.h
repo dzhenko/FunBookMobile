@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ContentHomeDataModel.h"
+
 @interface AppData : NSObject
 -(void) loginUserWithEmail: (NSString*) email andPassword: (NSString*) password
     AndPerformBlock:(void (^)(BOOL success))blockToPerform;

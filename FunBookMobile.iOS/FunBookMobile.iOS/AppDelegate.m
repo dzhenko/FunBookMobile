@@ -25,17 +25,17 @@
     // sample usage of AppData class
     // testing TODO: Remove this
     AppData* data = [[AppData alloc] init];
-    //[data getHomeContentAndPerformSuccessBlock:^(id data){
-    //    NSLog(@"%@",data);
-    //} orReactToErrorWithBlock:^(NSError* error){
-    //    NSLog(@"%@",error);
-    //}];
+    [data getHomeContentAndPerformSuccessBlock:^(id data){
+        NSLog(@"%@",data);
+    } orReactToErrorWithBlock:^(NSError* error){
+        NSLog(@"%@",error);
+    }];
     
     // registration example
-    [data registerUserWithEmail:@"qwe6@qwe.com" andPassword:@"qweqwe" AndPerformBlock:^(BOOL success) {
-        // depending on the value of success you can react here.
-        NSLog(@"%i",success);
-    }];
+    //[data registerUserWithEmail:@"qwe6@qwe.com" andPassword:@"qweqwe" AndPerformBlock:^(BOOL success) {
+    //    // depending on the value of success you can react here.
+    //    NSLog(@"%i",success);
+    //}];
     
     
     

@@ -34,16 +34,6 @@
     errorBlock = errorActionBlock;
 }
 
--(void)connection:(NSURLRequest*) request didReceiveResponse:(NSURLResponse *)response {
-    NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
-    if (statusCode / 100 == 2 && successBlock) {
-        successBlock(@"Successful registration");
-    }
-    else if(errorBlock) {
-        errorBlock(@"No response from server");
-    }
-}
-
 -(void)connection:(NSURLRequest*) request didReceiveData:(NSData *)data{
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     

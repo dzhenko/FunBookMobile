@@ -20,6 +20,7 @@
     using FunBookMobile.Cloud.WebApi.Models;
     using FunBookMobile.Cloud.WebApi.Providers;
     using FunBookMobile.Cloud.WebApi.Results;
+    using FunBookMobile.Cloud.WebApi.DataModels;
 
     [Authorize]
     [RoutePrefix("api/Account")]
@@ -73,7 +74,7 @@
         public IHttpActionResult Logout()
         {
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
-            return Ok();
+            return Ok(JsonResultWrapper.Create("success"));
         }
 
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
@@ -339,7 +340,7 @@
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return Ok(JsonResultWrapper.Create("success"));
         }
 
         // POST api/Account/RegisterExternal
