@@ -10,6 +10,15 @@
 
 #import "ContentHomeDataModel.h"
 
+#import "JokeDetailsDataModel.h"
+#import "JokeNewDataModel.h"
+
+#import "LinkDetailsDataModel.h"
+#import "LinkNewDataModel.h"
+
+#import "PictureDetailsDataModel.h"
+#import "PictureNewDataModel.h"
+
 @interface AppData : NSObject
 // account
 -(void) loginUserWithEmail: (NSString*) email andPassword: (NSString*) password
@@ -47,4 +56,19 @@
 -(void) getContentFindWithText:(NSString*) text AtPage:(NSInteger) page
      AndPerformSuccessBlock:(void (^)(NSArray* models))successActionBlock
     orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+
+// jokes
+-(void) createJoke:(JokeNewDataModel*)model
+    AndPerformSuccessBlock:(void (^)(NSString* createdObjId))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) getJokeDetailsForId:(NSString*) objId
+    AndPerformSuccessBlock:(void (^)(JokeDetailsDataModel* model))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+
+// links
+
+// pictures
 @end

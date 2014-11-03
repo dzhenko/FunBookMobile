@@ -38,7 +38,15 @@
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
     if([[json objectForKey:@"Message"] isEqualToString:@"The request is invalid."]) {
-        errorBlock(json);
+        if (errorBlock) {
+            errorBlock(json);
+        }
+        return;
+    }
+    if([[json objectForKey:@"Message"] isEqualToString:@"Authorization has been denied for this request."]) {
+        if (errorBlock) {
+            errorBlock(json);
+        }
         return;
     }
     
@@ -208,5 +216,11 @@
           AndPerformSuccessBlock:successActionBlock
          orReactToErrorWithBlock:errorActionBlock];
 }
+
+// jokes
+
+// links
+
+// pictures
 
 @end
