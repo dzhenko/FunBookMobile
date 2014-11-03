@@ -11,6 +11,7 @@
 #import "ContentHomeDataModel.h"
 
 @interface AppData : NSObject
+// account
 -(void) loginUserWithEmail: (NSString*) email andPassword: (NSString*) password
     AndPerformBlock:(void (^)(BOOL success))blockToPerform;
 -(void) registerUserWithEmail: (NSString*) email andPassword: (NSString*) password
@@ -20,6 +21,30 @@
 -(BOOL) isUserLoggedIn;
 -(NSString*) getUserName;
 
--(void) getHomeContentAndPerformSuccessBlock:(void (^)(id data))successActionBlock
+// content
+-(void) getCategoriesAllAndPerformSuccessBlock:(void (^)(NSArray* categories))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) getContentHomeAndPerformSuccessBlock:(void (^)(ContentHomeDataModel* model))successActionBlock
                      orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) getContentAllAtPage:(NSInteger) page
+     AndPerformSuccessBlock:(void (^)(NSArray* models))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) getJokesAllAtPage:(NSInteger) page
+     AndPerformSuccessBlock:(void (^)(NSArray* models))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) getLinksAllAtPage:(NSInteger) page
+     AndPerformSuccessBlock:(void (^)(NSArray* models))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) getPicturesAllAtPage:(NSInteger) page
+     AndPerformSuccessBlock:(void (^)(NSArray* models))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
+
+-(void) getContentFindWithText:(NSString*) text AtPage:(NSInteger) page
+     AndPerformSuccessBlock:(void (^)(NSArray* models))successActionBlock
+    orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock;
 @end

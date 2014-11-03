@@ -24,20 +24,54 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // sample usage of AppData class
     // testing TODO: Remove this
-    AppData* data = [[AppData alloc] init];
-    [data getHomeContentAndPerformSuccessBlock:^(id data){
-        NSLog(@"%@",data);
-    } orReactToErrorWithBlock:^(NSError* error){
-        NSLog(@"%@",error);
-    }];
     
-    // registration example
-    //[data registerUserWithEmail:@"qwe6@qwe.com" andPassword:@"qweqwe" AndPerformBlock:^(BOOL success) {
-    //    // depending on the value of success you can react here.
-    //    NSLog(@"%i",success);
+    AppData* data = [[AppData alloc] init];
+    //[data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel* model){
+    //    NSLog(@"%@",model);
+    //} orReactToErrorWithBlock:^(NSError* error){
+    //    NSLog(@"%@",error);
     //}];
     
+    // registration example
+//    [data loginUserWithEmail:@"qwe7@qwe.com" andPassword:@"qweqwe" AndPerformBlock:^(BOOL success) {
+//        // depending on the value of success you can react here.
+//        NSLog(@"%i",success);
+//        [data logoutAndPerformBlock:^(BOOL success) {
+//            NSLog(@"%i", success);
+//        }];
+//    }];
     
+//    [data getContentAllAtPage:1 AndPerformSuccessBlock:^(NSArray *model) {
+//        NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
+//        NSLog(@"%@",model);
+//    } orReactToErrorWithBlock:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+    
+//        [data getJokesAllAtPage:1 AndPerformSuccessBlock:^(NSArray *model) {
+//            NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
+//            NSLog(@"%@",model);
+//        } orReactToErrorWithBlock:^(NSError *error) {
+//            NSLog(@"%@",error);
+//        }];
+//    
+//    [data getLinksAllAtPage:1 AndPerformSuccessBlock:^(NSArray *model) {
+//        NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
+//        NSLog(@"%@",model);
+//    } orReactToErrorWithBlock:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+//    
+//    [data getPicturesAllAtPage:1 AndPerformSuccessBlock:^(NSArray *model) {
+//        NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
+//        NSLog(@"%@",model);
+//    } orReactToErrorWithBlock:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+    
+//    [data getCategoriesAllAndPerformSuccessBlock:^(NSArray *categories) {
+//        NSLog(@"%@", categories[0]);
+//    } orReactToErrorWithBlock:nil];
     
     // Override point for customization after application launch.
     return YES;
