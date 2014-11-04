@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "HomeTableUIViewCell.h"
 #import "AppData.h"
+#import "HomeDetailsViewController.h"
 
 @interface HomeViewController ()
 
@@ -23,6 +24,7 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     [super viewDidLoad];
     
     AppData* data = [[AppData alloc] init];
+    
     [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel* model){
         homeModel = model;
         [self.homeTable reloadData];
@@ -121,14 +123,44 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     }
 }
 
-/*
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self performSegueWithIdentifier:@"fromHomeToDetails" sender:nil];
+    
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+    HomeDetailsViewController *vc = [segue destinationViewController];
+    NSIndexPath *path = [self.homeTable indexPathForSelectedRow];
+    if (path.section == 0) {
+        if (path.row == 0) {
+            vc.modelFromHome = homeModel.lastJoke;
+            vc.type = @"joke";
+        } else if (path.row == 1){
+            vc.modelFromHome = homeModel.lastLink;
+            vc.type = @"link";
+        } else if (path.row == 2){
+            vc.modelFromHome = homeModel.lastPicture;
+            vc.type = @"picture";
+        }
+    } else {
+        if (path.row == 0) {
+            vc.modelFromHome = homeModel.bestJoke;
+            vc.type = @"joke";
+        } else if (path.row == 1){
+            vc.modelFromHome = homeModel.bestLink;
+            vc.type = @"link";
+        } else if (path.row == 2){
+            vc.modelFromHome = homeModel.bestPicture;
+            vc.type = @"picture";
+        }
+    }
+    
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end
