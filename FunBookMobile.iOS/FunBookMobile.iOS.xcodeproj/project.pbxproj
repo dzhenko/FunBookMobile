@@ -21,6 +21,9 @@
 		013013961A02614C0000E67D /* FunBookMobile_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 013013951A02614C0000E67D /* FunBookMobile_iOSTests.m */; };
 		016400DB1A091D9200B955DB /* HomeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016400DA1A091D9200B955DB /* HomeDetailsViewController.m */; };
 		016400DE1A09239E00B955DB /* AddCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016400DD1A09239E00B955DB /* AddCommentViewController.m */; };
+		016401161A0937B000B955DB /* AllJokesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016401151A0937B000B955DB /* AllJokesViewController.m */; };
+		016401191A0937BB00B955DB /* AllLinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016401181A0937BB00B955DB /* AllLinksViewController.m */; };
+		0164011C1A0937CC00B955DB /* AllPicturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0164011B1A0937CC00B955DB /* AllPicturesViewController.m */; };
 		016A99AA1A081CAD00A2E686 /* HomeTableUIViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016A99A91A081CAD00A2E686 /* HomeTableUIViewCell.xib */; };
 		016A99AD1A081D9400A2E686 /* HomeTableUIViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016A99AC1A081D9400A2E686 /* HomeTableUIViewCell.m */; };
 		01BE50B31A053570001490E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B21A053570001490E8 /* LoginViewController.m */; };
@@ -82,6 +85,12 @@
 		016400DA1A091D9200B955DB /* HomeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailsViewController.m; sourceTree = "<group>"; };
 		016400DC1A09239E00B955DB /* AddCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentViewController.h; sourceTree = "<group>"; };
 		016400DD1A09239E00B955DB /* AddCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentViewController.m; sourceTree = "<group>"; };
+		016401141A0937B000B955DB /* AllJokesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllJokesViewController.h; sourceTree = "<group>"; };
+		016401151A0937B000B955DB /* AllJokesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllJokesViewController.m; sourceTree = "<group>"; };
+		016401171A0937BB00B955DB /* AllLinksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllLinksViewController.h; sourceTree = "<group>"; };
+		016401181A0937BB00B955DB /* AllLinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllLinksViewController.m; sourceTree = "<group>"; };
+		0164011A1A0937CC00B955DB /* AllPicturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllPicturesViewController.h; sourceTree = "<group>"; };
+		0164011B1A0937CC00B955DB /* AllPicturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllPicturesViewController.m; sourceTree = "<group>"; };
 		016A99A91A081CAD00A2E686 /* HomeTableUIViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableUIViewCell.xib; sourceTree = "<group>"; };
 		016A99AB1A081D9400A2E686 /* HomeTableUIViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableUIViewCell.h; sourceTree = "<group>"; };
 		016A99AC1A081D9400A2E686 /* HomeTableUIViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableUIViewCell.m; sourceTree = "<group>"; };
@@ -230,6 +239,12 @@
 				016400DA1A091D9200B955DB /* HomeDetailsViewController.m */,
 				016400DC1A09239E00B955DB /* AddCommentViewController.h */,
 				016400DD1A09239E00B955DB /* AddCommentViewController.m */,
+				016401141A0937B000B955DB /* AllJokesViewController.h */,
+				016401151A0937B000B955DB /* AllJokesViewController.m */,
+				016401171A0937BB00B955DB /* AllLinksViewController.h */,
+				016401181A0937BB00B955DB /* AllLinksViewController.m */,
+				0164011A1A0937CC00B955DB /* AllPicturesViewController.h */,
+				0164011B1A0937CC00B955DB /* AllPicturesViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -461,6 +476,7 @@
 				849EAFEA1A056FBF00B08F24 /* PictureNewDataModel.m in Sources */,
 				01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */,
 				849EAFE11A056F7000B08F24 /* CommentDataModel.m in Sources */,
+				016401161A0937B000B955DB /* AllJokesViewController.m in Sources */,
 				01BE50BC1A0538CF001490E8 /* CreateViewController.m in Sources */,
 				016400DE1A09239E00B955DB /* AddCommentViewController.m in Sources */,
 				0112791B1A07FCF300B9F5FE /* CreatePictureViewController.m in Sources */,
@@ -470,9 +486,11 @@
 				013013821A02614C0000E67D /* ViewController.m in Sources */,
 				011279181A07FCE300B9F5FE /* CreateLinkViewController.m in Sources */,
 				011279151A07FCD700B9F5FE /* CreateJokeViewController.m in Sources */,
+				0164011C1A0937CC00B955DB /* AllPicturesViewController.m in Sources */,
 				013013791A02614C0000E67D /* main.m in Sources */,
 				016A99AD1A081D9400A2E686 /* HomeTableUIViewCell.m in Sources */,
 				016400DB1A091D9200B955DB /* HomeDetailsViewController.m in Sources */,
+				016401191A0937BB00B955DB /* AllLinksViewController.m in Sources */,
 				01BE50B31A053570001490E8 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
