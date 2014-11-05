@@ -8,6 +8,7 @@
 
 #import "HomeDetailsViewController.h"
 #import "AppData.h"
+#import "AppDelegate.h"
 #import "CommentDataModel.h"
 #import "AddCommentViewController.h"
 
@@ -28,52 +29,16 @@ static AppData* data;
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(600, 700)];
     comments = [[NSArray alloc] init];
-    data = [[AppData alloc] init];
+    
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    data = app.data;
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if ([self.type isEqualToString:@"joke"]) {
-        [data getJokeDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(JokeDetailsDataModel *model) {
-            jokeModel = model;
-            self.modelTitle.text = jokeModel.title;
-            self.modelText.text = jokeModel.text;
-            self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", jokeModel.views];
-            // todo: add category
-            self.modelDate.text = jokeModel.created;
-            comments = jokeModel.comments;
-            [self.picker reloadAllComponents];
-        } orReactToErrorWithBlock:^(NSError *error) {
-            
-        } ];
-    } else if ([self.type isEqualToString:@"link"]){
-        [data getLinkDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(LinkDetailsDataModel *model) {
-            linkModel = model;
-            self.modelTitle.text = linkModel.title;
-            self.modelText.text = linkModel.url;
-            self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.views];
-            // todo: add category
-            self.modelDate.text = linkModel.created;
-            comments = linkModel.comments;
-            [self.picker reloadAllComponents];
-        } orReactToErrorWithBlock:^(NSError *error) {
-            
-        }];
-    } else if ([self.type isEqualToString:@"picture"]){
-        [data getPictureDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(PictureDetailsDataModel *model) {
-            pictureModel = model;
-            self.modelTitle.text = pictureModel.title;
-            [self getImageFromURL];
-            self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.views];
-            // todo: add category
-            self.modelDate.text = pictureModel.created;
-            comments = pictureModel.comments;
-            [self.picker reloadAllComponents];
-        } orReactToErrorWithBlock:^(NSError *error) {
-            
-        }];
-    }
+    
+    [self visualizeData];
 }
 
 -(void)getImageFromURL{
@@ -95,7 +60,7 @@ static AppData* data;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Picker datasource
+#pragma mark - Picker Datasource Methods
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
@@ -105,7 +70,7 @@ static AppData* data;
     return [comments count];
 }
 
-#pragma mark - Picker delegate
+#pragma mark - Picker Delegate Methods
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
@@ -138,15 +103,94 @@ static AppData* data;
     
 }
 
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
     AddCommentViewController *vc = [segue destinationViewController];
-    // Pass the selected object to the new view controller.
     vc.type = self.type;
     vc.modelId = self.modelFromHome.objId;
+}
+
+#pragma mark - Private Methods
+
+- (IBAction)hateBtnPressed:(UIButton *)sender {
+    if ([self.type isEqualToString:@"joke"]) {
+        [data hateJokeWithId:jokeModel.objId AndPerformBlock:^(BOOL success) {
+            NSLog(@"hated");
+        }];
+    } else if ([self.type isEqualToString:@"link"]){
+        [data hateLinkWithId:linkModel.objId AndPerformBlock:^(BOOL success) {
+            NSLog(@"hated");
+        }];
+    } else if ([self.type isEqualToString:@"picture"]){
+        [data hatePictureWithId:pictureModel.objId AndPerformBlock:^(BOOL success) {
+            NSLog(@"hated");
+        }];
+    }
+}
+
+- (IBAction)likeBtnPressed:(UIButton *)sender {
+    if ([self.type isEqualToString:@"joke"]) {
+        [data likeJokeWithId:jokeModel.objId AndPerformBlock:^(BOOL success) {
+            NSLog(@"liked");
+        }];
+    } else if ([self.type isEqualToString:@"link"]){
+        [data likeLinkWithId:linkModel.objId AndPerformBlock:^(BOOL success) {
+            NSLog(@"liked");
+        }];
+    } else if ([self.type isEqualToString:@"picture"]){
+        [data likePictureWithId:pictureModel.objId AndPerformBlock:^(BOOL success) {
+            NSLog(@"liked");
+        }];
+    }
+}
+
+-(void)visualizeData{
+    if ([self.type isEqualToString:@"joke"]) {
+        [data getJokeDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(JokeDetailsDataModel *model) {
+            jokeModel = model;
+            self.modelTitle.text = jokeModel.title;
+            self.modelText.text = jokeModel.text;
+            self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", jokeModel.views];
+            self.modelHatesCount.text = [[NSString alloc] initWithFormat:@"%i", jokeModel.hates];
+            self.modelLikesCount.text = [[NSString alloc] initWithFormat:@"%i", jokeModel.likes];
+            self.modelDate.text = jokeModel.created;
+            comments = jokeModel.comments;
+            [self.picker reloadAllComponents];
+        } orReactToErrorWithBlock:^(NSError *error) {
+            
+        } ];
+    } else if ([self.type isEqualToString:@"link"]){
+        [data getLinkDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(LinkDetailsDataModel *model) {
+            linkModel = model;
+            self.modelTitle.text = linkModel.title;
+            self.modelText.text = linkModel.url;
+            self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.views];
+            self.modelHatesCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.hates];
+            self.modelLikesCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.likes];
+            // todo: add category
+            self.modelDate.text = linkModel.created;
+            comments = linkModel.comments;
+            [self.picker reloadAllComponents];
+        } orReactToErrorWithBlock:^(NSError *error) {
+            
+        }];
+    } else if ([self.type isEqualToString:@"picture"]){
+        [data getPictureDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(PictureDetailsDataModel *model) {
+            pictureModel = model;
+            self.modelTitle.text = pictureModel.title;
+            [self getImageFromURL];
+            self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.views];
+            self.modelHatesCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.hates];
+            self.modelLikesCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.likes];
+            // todo: add category
+            self.modelDate.text = pictureModel.created;
+            comments = pictureModel.comments;
+            [self.picker reloadAllComponents];
+        } orReactToErrorWithBlock:^(NSError *error) {
+            
+        }];
+    }
 }
 
 @end

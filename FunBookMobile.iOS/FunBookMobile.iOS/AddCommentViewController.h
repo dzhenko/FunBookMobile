@@ -11,8 +11,9 @@
 @interface AddCommentViewController : UIViewController
 
 - (IBAction)addCommentBtnPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *commentText;
 
-@property (weak, nonatomic) IBOutlet UITextField *commentTextField;
+
 @property NSString *type;
 @property NSString *modelId;
 

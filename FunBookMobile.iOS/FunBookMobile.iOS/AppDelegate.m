@@ -20,8 +20,9 @@
 @end
 
 @implementation AppDelegate
+
 -(void)testAllAppDataMethods{
-    AppData* data = [[AppData alloc] init];
+    //AppData* data = [[AppData alloc] init];
 //    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel* model){
 //    
 //        NSLog(@"%@",model);
@@ -103,7 +104,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // sample usage of AppData class
     // testing TODO: Remove this
-    
+    _data = [[AppData alloc] init];
     [self testAllAppDataMethods];
     
     

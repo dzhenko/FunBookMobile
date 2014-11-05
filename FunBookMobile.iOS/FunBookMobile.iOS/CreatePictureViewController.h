@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreatePictureViewController : UIViewController
+@interface CreatePictureViewController : UIViewController<UIImagePickerControllerDelegate ,UINavigationBarDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *pictureCategory;
+@property (weak, nonatomic) IBOutlet UITextField *pictureTitle;
+
+- (IBAction)createBtnPressed:(UIButton *)sender;
+- (IBAction)switchValueChanged:(UISwitch *)sender;
+- (IBAction)pickPhotoBtnPressed:(UIButton *)sender;
 
 @end

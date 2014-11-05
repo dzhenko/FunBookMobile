@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *allJokesTable;
 
 - (IBAction)stepperValueChanged:(UIStepper *)sender;
+//- (IBAction)nextButtonPressed:(UIButton *)sender;
+//- (IBAction)prevButtonPressed:(UIButton *)sender;
 
 @end

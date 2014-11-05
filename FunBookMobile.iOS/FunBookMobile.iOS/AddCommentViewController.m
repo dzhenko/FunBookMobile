@@ -8,6 +8,7 @@
 
 #import "AddCommentViewController.h"
 #import "AppData.h"
+#import "AppDelegate.h"
 
 @interface AddCommentViewController ()
 
@@ -20,12 +21,14 @@ static AppData *data;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    data = app.data;
+    
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    data = [[AppData alloc] init];
     // Dispose of any resources that can be recreated.
 }
 
@@ -40,22 +43,22 @@ static AppData *data;
  */
 
 - (IBAction)addCommentBtnPressed:(id)sender {
-    
-    if ([self.commentTextField.text length] != 0) {
+    if ([self.commentText.text length] != 0) {
         NSLog(@"Test");
         if ([self.type isEqualToString:@"joke"]) {
-            NSLog(@"Test");
-            NSLog(@"%@", self.commentTextField.text);
-            [data commentJokeWithId:self.modelId commentText:self.commentTextField.text AndPerformBlock:^(BOOL success) {
-                NSLog(@"succesfully commented!");
+            NSLog(@"%@ %@", self.modelId, self.commentText.text);
+            [data commentJokeWithId:self.modelId commentText:self.commentText.text AndPerformBlock:^(BOOL success) {
+                NSLog(@"successfully commented!");
             }];
         } else if ([self.type isEqualToString:@"link"]){
-            [data commentLinkWithId:self.modelId commentText:self.commentTextField.text AndPerformBlock:^(BOOL success) {
-                NSLog(@"succesfully commented!");
+            NSLog(@"%@ %@", self.modelId, self.commentText.text);
+            [data commentLinkWithId:self.modelId commentText:self.commentText.text AndPerformBlock:^(BOOL success) {
+                NSLog(@"successfully commented!");
             }];
         } else if ([self.type isEqualToString:@"picture"]){
-            [data commentPictureWithId:self.modelId commentText:self.commentTextField.text AndPerformBlock:^(BOOL success) {
-                NSLog(@"succesfully commented!");
+            NSLog(@"%@ %@", self.modelId, self.commentText.text);
+            [data commentPictureWithId:self.modelId commentText:self.commentText.text AndPerformBlock:^(BOOL success) {
+                NSLog(@"successfully commented!");
             }];
         }
     }

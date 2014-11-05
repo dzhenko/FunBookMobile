@@ -7,6 +7,8 @@
 //
 
 #import "CreateJokeViewController.h"
+#import "AppData.h"
+#import "AppDelegate.h"
 
 @interface CreateJokeViewController ()
 
@@ -14,9 +16,15 @@
 
 @implementation CreateJokeViewController
 
+static BOOL isAnonymous;
+static AppData *data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    data = app.data;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +41,32 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)switchValueChanged:(UISwitch *)sender {
+    if([sender isOn]){
+        isAnonymous = YES;
+    } else{
+        isAnonymous = NO;
+    }
+}
+
+- (IBAction)createBtnPressed:(UIButton *)sender {
+    
+    NSString *jokeText = self.jokeText.text;
+    NSString *jokeTitle = self.jokeTitle.text;
+    NSString *jokeCategory = self.jokeCategory.text;
+    
+    [self createJokeWithText:jokeText title:jokeTitle andCategory:nil];
+    
+}
+
+-(void) createJokeWithText:(NSString *)text title:(NSString *)title andCategory:(NSString *)category{
+    
+    [data createJoke:[JokeNewDataModel jokeWithText:text title:title isAnonymous:isAnonymous andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
+        NSLog(@"Successfuly added!");
+    } orReactToErrorWithBlock:^(NSError *error) {
+        NSLog(@"error");
+    }];
+}
 
 @end

@@ -9,6 +9,7 @@
 #import "AllJokesViewController.h"
 #import "HomeTableUIViewCell.h"
 #import "AppData.h"
+#import "AppDelegate.h"
 #import "HomeDetailsViewController.h"
 
 @interface AllJokesViewController ()
@@ -28,7 +29,9 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     page = 1;
     jokeModels = [[NSArray alloc] init];
     allJokeModels = [[NSMutableArray alloc] init];
-    data = [[AppData alloc] init];
+    
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    data = app.data;
     
     [data getJokesAllAtPage:page AndPerformSuccessBlock:^(NSArray *models) {
         [allJokeModels addObject:models];
@@ -39,7 +42,6 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     }];
     
     UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
-    
     [self.allJokesTable registerNib:nib forCellReuseIdentifier:cellIdentifier];
     
 }
@@ -95,7 +97,7 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"Title / Content / Created";
+    return @"All Jokes";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -157,4 +159,5 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
 //        [_allJokesTable reloadData];
 //    }
 //}
+
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "AppData.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -14,9 +16,12 @@
 
 @implementation LoginViewController
 
+static AppData *data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    data = app.data;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +39,15 @@
 }
 */
 
+- (IBAction)loginBtnPressed:(UIButton *)sender {
+    NSString *userEmail = self.userEmail.text;
+    NSString *userPassword = self.userPassword.text;
+    if ((userEmail.length != 0) && (userPassword.length != 0)) {
+        [data loginUserWithEmail:userEmail andPassword:userPassword AndPerformBlock:^(BOOL success) {
+            NSLog(@"successfully logged in");
+            NSLog(@"%hhd", data.isUserLoggedIn);
+            NSLog(@"%@", data.getUserName);
+        }];
+    }
+}
 @end

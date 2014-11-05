@@ -9,6 +9,7 @@
 #import "AllLinksViewController.h"
 #import "HomeTableUIViewCell.h"
 #import "AppData.h"
+#import "AppDelegate.h"
 #import "HomeDetailsViewController.h"
 
 @interface AllLinksViewController ()
@@ -27,7 +28,9 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     
     page = 1;
     linkModels = [[NSArray alloc] init];
-    data = [[AppData alloc] init];
+    
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    data = app.data;
     
     [data getLinksAllAtPage:page AndPerformSuccessBlock:^(NSArray *models) {
         linkModels = models;
@@ -37,7 +40,6 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     }];
     
     UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
-    
     [self.allLinksTable registerNib:nib forCellReuseIdentifier:cellIdentifier];
 }
 
@@ -91,7 +93,7 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"Title / Content / Created";
+    return @"All Links";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

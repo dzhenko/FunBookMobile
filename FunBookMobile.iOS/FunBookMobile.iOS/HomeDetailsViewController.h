@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *modelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *modelText;
 @property (weak, nonatomic) IBOutlet UILabel *modelViewsCount;
-@property (weak, nonatomic) IBOutlet UILabel *modelCategory;
+@property (weak, nonatomic) IBOutlet UILabel *modelHatesCount;
+@property (weak, nonatomic) IBOutlet UILabel *modelLikesCount;
 @property (weak, nonatomic) IBOutlet UILabel *modelDate;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -23,5 +24,8 @@
 
 @property (strong, nonatomic) ContentOverviewDataModel *modelFromHome;
 @property (strong, nonatomic) NSString *type;
+
+- (IBAction)hateBtnPressed:(UIButton *)sender;
+- (IBAction)likeBtnPressed:(UIButton *)sender;
 
 @end

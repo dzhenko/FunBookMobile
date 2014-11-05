@@ -7,6 +7,8 @@
 //
 
 #import "CreateLinkViewController.h"
+#import "AppData.h"
+#import "AppDelegate.h"
 
 @interface CreateLinkViewController ()
 
@@ -14,9 +16,14 @@
 
 @implementation CreateLinkViewController
 
+static BOOL isAnonymous;
+static AppData *data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    data = app.data;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +40,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)switchValueChanged:(UISwitch *)sender {
+    if([sender isOn]){
+        isAnonymous = YES;
+    } else{
+        isAnonymous = NO;
+    }
+}
+
+- (IBAction)createBtnPressed:(UIButton *)sender {
+    NSString *linkUrl = self.linkUrl.text;
+    NSString *linkTitle = self.linkTitle.text;
+    NSString *linkCategory = self.linkCategory.text;
+    
+    [self createLinkWithUrl:linkUrl title:linkTitle andCategory:nil];
+}
+
+-(void) createLinkWithUrl:(NSString *)url title:(NSString *)title andCategory:(NSString *)category{
+    [data createLink:[LinkNewDataModel linkWithUrl:url title:title isAnonymous:isAnonymous andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
+        NSLog(@"Successfuly added!");
+    } orReactToErrorWithBlock:^(NSError *error) {
+        NSLog(@"error");
+    }];
+}
 
 @end

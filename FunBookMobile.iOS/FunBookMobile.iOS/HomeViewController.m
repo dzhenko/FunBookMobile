@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "HomeTableUIViewCell.h"
 #import "AppData.h"
+#import "AppDelegate.h"
 #import "HomeDetailsViewController.h"
 
 @interface HomeViewController ()
@@ -17,35 +18,29 @@
 
 @implementation HomeViewController
 
+static AppData* data;
 static ContentHomeDataModel *homeModel;
 static NSString *cellIdentifier = @"HomeTableUIViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    data = app.data;
+    NSLog(@"%@", data.getUserName);
+    [self setCustomTableCellForReusing];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
-    AppData* data = [[AppData alloc] init];
-    
-    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel* model){
-        homeModel = model;
-        [self.homeTable reloadData];
-        NSLog(@"%@",model);
-    } orReactToErrorWithBlock:^(NSError* error){
-        
-        NSLog(@"%@",error);
-    }];
-    
-    
-    UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
-    
-    [self.homeTable registerNib:nib forCellReuseIdentifier:cellIdentifier];
+    [self getHomeContent];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableView Datasource Methods
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
@@ -123,6 +118,8 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     }
 }
 
+#pragma mark - UITableView Delegate Methods
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self performSegueWithIdentifier:@"fromHomeToDetails" sender:nil];
@@ -131,7 +128,6 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     HomeDetailsViewController *vc = [segue destinationViewController];
@@ -161,6 +157,24 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     }
     
     // Pass the selected object to the new view controller.
+}
+
+#pragma mark - Private Methods
+
+-(void)setCustomTableCellForReusing{
+    UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
+    [self.homeTable registerNib:nib forCellReuseIdentifier:cellIdentifier];
+}
+
+-(void)getHomeContent{
+    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel* model){
+        homeModel = model;
+        [self.homeTable reloadData];
+        NSLog(@"%@",model);
+    } orReactToErrorWithBlock:^(NSError* error){
+        
+        NSLog(@"%@",error);
+    }];
 }
 
 @end
