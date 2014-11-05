@@ -7,15 +7,8 @@
 
     public class NewPictureDataModel
     {
-        /*
-         We must decide how to pass data from the iphone - stream/ byte[], base64string ?
-         * */
-
-        //[Required]
-        //public MemoryStream Stream { get; set; }
-
-        //[Required]
-        //public string Base64String { get; set; }
+        [Required]
+        public string Data { get; set; }
 
         [MinLength(3)]
         [Required]

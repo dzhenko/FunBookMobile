@@ -46,7 +46,7 @@
 
             var tags = Regex.Split(model.Title, @"\W+").Where(tag => tag.Length > 2).ToArray();
 
-            var url = backendServices.UrlFromBase64Image(/*TODO: */ "Finish this part", category.Name, tags);
+            var url = backendServices.UrlFromBase64Image(model.Data, category.Name, tags);
 
             var picture = new Picture()
             {
