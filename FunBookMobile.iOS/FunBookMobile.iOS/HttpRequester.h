@@ -13,8 +13,11 @@
 
 +(HttpRequester*) requesterWithBaseUrl:(NSString*) baseUrl;
 
--(void) get: (NSString*) url headers: (NSDictionary*) headers withTarget: (NSObject*) target;
--(void) post: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target;
--(void) put: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target;
--(void) delete: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target;
+-(void) get: (NSString*) url headers: (NSDictionary*) headers withTarget: (NSObject*) target
+andAuthorization:(NSString*) authorization;
+-(void) post: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target andAuthorization:(NSString*) authorization;
+-(void) put: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target
+andAuthorization:(NSString*) authorization;
+-(void) delete: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target
+andAuthorization:(NSString*) authorization;
 @end

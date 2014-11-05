@@ -11,9 +11,6 @@
 
 @implementation AppData{
     HttpRequester *requester;
-    NSString *authorizationToken;
-    NSString *username;
-    
     void (^successBlock)(id);
     void (^errorBlock)(id);
 }
@@ -23,7 +20,8 @@
 -(instancetype) init {
     if (self = [super init]) {
         requester = [HttpRequester requesterWithBaseUrl:@"http://funbook.apphb.com/api/"];
-        authorizationToken = nil;
+        self.authorizationToken = nil;
+        self.loggedUserName = nil;
     }
     return self;
 }
@@ -74,10 +72,10 @@
            AndPerformBlock:(void (^)(BOOL success))blockToPerform{
     NSString *postString = [NSString stringWithFormat:@"Username=%@&Password=%@&Grant_Type=password",email,password];
     NSData *postData = [postString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    
+    __weak typeof (self) weakSelf = self;
     [self setSuccessCallbackBlock:^(id data) {
-        authorizationToken = [NSString stringWithFormat:@"%@ %@", @"bearer", [(NSDictionary*)data objectForKey:@"access_token"]];
-        username = [(NSDictionary*)data objectForKey:@"userName"];
+        weakSelf.authorizationToken = [NSString stringWithFormat:@"%@ %@", @"bearer", [(NSDictionary*)data objectForKey:@"access_token"]];
+        weakSelf.loggedUserName = [(NSDictionary*)data objectForKey:@"userName"];
         if(blockToPerform){
             blockToPerform(YES);
         }
@@ -89,7 +87,7 @@
     
     [requester post:@"account/login" data:postData
             headers:[NSDictionary dictionaryWithObjectsAndKeys:
-                     @"Content-Type", @"application/x-www-form-urlencoded", nil] withTarget:self];
+                     @"Content-Type", @"application/x-www-form-urlencoded", nil] withTarget:self andAuthorization:nil];
 }
 
 -(void) registerUserWithEmail: (NSString*) email andPassword: (NSString*) password
@@ -109,13 +107,14 @@
     
     [requester post:@"account/register" data:postData
             headers:[NSDictionary dictionaryWithObjectsAndKeys:
-                     @"Content-Type", @"application/x-www-form-urlencoded", nil] withTarget:self];
+                     @"Content-Type", @"application/x-www-form-urlencoded", nil] withTarget:self andAuthorization:nil];
 }
 
 -(void) logoutAndPerformBlock:(void (^)(BOOL success))blockToPerform{
+    __weak typeof (self) weakSelf = self;
     [self setSuccessCallbackBlock:^(id data) {
-        authorizationToken = nil;
-        username = nil;
+        weakSelf.authorizationToken = nil;
+        weakSelf.loggedUserName = nil;
         if (blockToPerform) {
             blockToPerform(YES);
         }
@@ -126,17 +125,14 @@
     }];
     
     [requester post:@"account/logout" data:nil
-            headers:[NSDictionary dictionaryWithObjectsAndKeys:
-                     @"Authorization", authorizationToken, nil] withTarget:self];
+            headers:nil
+         withTarget:self andAuthorization:weakSelf.authorizationToken];
 
 }
 
--(NSString*) getUserName {
-    return username;
-}
 
 -(BOOL) isUserLoggedIn {
-    return authorizationToken != nil;
+    return self.authorizationToken != nil;
 }
 
 
@@ -150,7 +146,7 @@
         }
     } andErrorCallBackBlock:errorActionBlock];
     
-    [requester get:@"content/categories" headers:nil withTarget:self];
+    [requester get:@"content/categories" headers:nil withTarget:self andAuthorization:nil];
 }
 
 -(void) getContentHomeAndPerformSuccessBlock:(void (^)(ContentHomeDataModel* model))successActionBlock
@@ -162,7 +158,7 @@
         }
     } andErrorCallBackBlock:errorActionBlock];
     
-    [requester get:@"content/home" headers:nil withTarget:self];
+    [requester get:@"content/home" headers:nil withTarget:self andAuthorization:nil];
 }
 
 //private method used by all/find/jokes/links/pictures
@@ -179,7 +175,7 @@
         }
     } andErrorCallBackBlock:errorActionBlock];
     
-    [requester get:url headers:nil withTarget:self];
+    [requester get:url headers:nil withTarget:self andAuthorization:nil];
 }
 
 -(void)getContentAllAtPage:(NSInteger)page AndPerformSuccessBlock:(void (^)(NSArray * models))successActionBlock orReactToErrorWithBlock:(void (^)(NSError *))errorActionBlock{
@@ -236,7 +232,8 @@
     
     NSData* postData = [NSJSONSerialization dataWithJSONObject:postDataAsDict options:0 error:nil];
     
-    [requester post:url data:postData headers:nil withTarget:self];
+    [requester post:url data:postData headers:nil
+         withTarget:self andAuthorization:self.authorizationToken];
 
 }
 //private method used to hate/like stuff
@@ -252,7 +249,7 @@
         }
     }];
     
-    [requester get:url headers:nil withTarget:self];
+    [requester get:url headers:nil withTarget:self andAuthorization:self.authorizationToken];
 }
 
 // jokes
@@ -268,7 +265,9 @@
     
     NSData* postData = [NSJSONSerialization dataWithJSONObject:postDataAsDict options:0 error:nil];
     
-    [requester post:@"jokes/create" data:postData headers:nil withTarget:self];
+    [requester post:@"jokes/create" data:postData
+     headers:nil
+         withTarget:self andAuthorization:self.authorizationToken];
 }
 
 -(void) getJokeDetailsForId:(NSString*) objId
@@ -281,7 +280,9 @@
         }
     } andErrorCallBackBlock:errorActionBlock];
     
-    [requester get:[NSString stringWithFormat:@"%@%@", @"jokes/details/", objId] headers:nil withTarget:self];
+    [requester get:[NSString stringWithFormat:@"%@%@", @"jokes/details/", objId]
+           headers:nil
+        withTarget:self andAuthorization:self.authorizationToken];
 }
 
 -(void) commentJokeWithId:(NSString*) objId commentText:(NSString*) text
@@ -312,7 +313,9 @@ orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
     
     NSData* postData = [NSJSONSerialization dataWithJSONObject:postDataAsDict options:0 error:nil];
     
-    [requester post:@"links/create" data:postData headers:nil withTarget:self];
+    [requester post:@"links/create" data:postData
+            headers:nil
+         withTarget:self andAuthorization:self.authorizationToken];
 
 }
 
@@ -326,7 +329,9 @@ orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
         }
     } andErrorCallBackBlock:errorActionBlock];
     
-    [requester get:[NSString stringWithFormat:@"%@%@", @"links/details/", objId] headers:nil withTarget:self];
+    [requester get:[NSString stringWithFormat:@"%@%@", @"links/details/", objId]
+           headers:nil
+        withTarget:self andAuthorization:self.authorizationToken];
 }
 
 -(void) commentLinkWithId:(NSString*) objId commentText:(NSString*) text
@@ -357,7 +362,9 @@ orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
     
     NSData* postData = [NSJSONSerialization dataWithJSONObject:postDataAsDict options:0 error:nil];
     
-    [requester post:@"pictures/create" data:postData headers:nil withTarget:self];
+    [requester post:@"pictures/create" data:postData
+            headers:nil
+         withTarget:self andAuthorization:self.authorizationToken];
 }
 
 -(void) getPictureDetailsForId:(NSString*) objId
@@ -370,7 +377,9 @@ orReactToErrorWithBlock:(void (^)(NSError* error))errorActionBlock{
         }
     } andErrorCallBackBlock:errorActionBlock];
     
-    [requester get:[NSString stringWithFormat:@"%@%@", @"pictures/details/", objId] headers:nil withTarget:self];
+    [requester get:[NSString stringWithFormat:@"%@%@", @"pictures/details/", objId]
+           headers:nil
+        withTarget:self andAuthorization:self.authorizationToken];
 }
 
 -(void) commentPictureWithId:(NSString*) objId commentText:(NSString*) text

@@ -25,7 +25,7 @@
 
 
 -(void)createRequest: (NSString*) method atUrl: (NSString*) url data: (NSData*)
-         data headers: (NSDictionary*) headers withTarget: (NSObject*) target {
+         data headers: (NSDictionary*) headers withTarget: (NSObject*) target andAuthorization:(NSString*) authorization{
     NSString* fullUrl = [NSString stringWithFormat:@"%@%@", baseUrl, url];
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
@@ -42,6 +42,10 @@
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     }
     
+    if (authorization) {
+        [request setValue:authorization forHTTPHeaderField:@"Authorization"];
+    }
+    
     if (data) {
         [request setHTTPBody:data];
     }
@@ -49,20 +53,21 @@
     [NSURLConnection connectionWithRequest:request delegate: target];
 }
 
--(void) get: (NSString*) url headers: (NSDictionary*) headers withTarget: (NSObject*) target {
-    [self createRequest:@"GET" atUrl:url data:nil headers:headers withTarget:target];
+-(void) get: (NSString*) url headers: (NSDictionary*) headers withTarget: (NSObject*) target
+    andAuthorization:(NSString*) authorization{
+    [self createRequest:@"GET" atUrl:url data:nil headers:headers withTarget:target andAuthorization: authorization];
 }
 
--(void) post: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target {
-    [self createRequest:@"POST" atUrl:url data:data headers:headers withTarget:target];
+-(void) post: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target andAuthorization:(NSString*) authorization{
+    [self createRequest:@"POST" atUrl:url data:data headers:headers withTarget:target andAuthorization: authorization];
 }
 
--(void) put: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target  {
-    [self createRequest:@"PUT" atUrl:url data:data headers:headers withTarget:target];
+-(void) put: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target  andAuthorization:(NSString*) authorization{
+    [self createRequest:@"PUT" atUrl:url data:data headers:headers withTarget:target andAuthorization: authorization];
 }
 
--(void) delete: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target {
-    [self createRequest:@"DELETE" atUrl:url data:data headers:headers withTarget:target];
+-(void) delete: (NSString*) url data: (NSData*) data headers: (NSDictionary*) headers withTarget: (NSObject*) target andAuthorization:(NSString*) authorization{
+    [self createRequest:@"DELETE" atUrl:url data:data headers:headers withTarget:target andAuthorization: authorization];
 }
 
 @end

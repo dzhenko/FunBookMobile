@@ -28,7 +28,8 @@
 -(void) logoutAndPerformBlock:(void (^)(BOOL success))blockToPerform;
 
 -(BOOL) isUserLoggedIn;
--(NSString*) getUserName;
+@property (strong, nonatomic) NSString* authorizationToken;
+@property (strong, nonatomic) NSString* loggedUserName;
 
 // content
 -(void) getCategoriesAllAndPerformSuccessBlock:(void (^)(NSArray* categories))successActionBlock
