@@ -9,6 +9,7 @@
 #import "AllLinksViewController.h"
 #import "HomeTableUIViewCell.h"
 #import "AppData.h"
+#import "HomeDetailsViewController.h"
 
 @interface AllLinksViewController ()
 
@@ -93,15 +94,22 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     return @"Title / Content / Created";
 }
 
-/*
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self performSegueWithIdentifier:@"FromAllLinksToDetails" sender:nil];
+    
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    HomeDetailsViewController *vc = [segue destinationViewController];
+    NSIndexPath *path = [self.allLinksTable indexPathForSelectedRow];
+    
+    vc.modelFromHome = linkModels[path.row];
+    vc.type = @"link";
 }
-*/
 
 - (IBAction)stepperValueChanged:(UIStepper *)sender {
     page = [sender value];

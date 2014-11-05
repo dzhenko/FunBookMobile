@@ -9,6 +9,7 @@
 #import "AllJokesViewController.h"
 #import "HomeTableUIViewCell.h"
 #import "AppData.h"
+#import "HomeDetailsViewController.h"
 
 @interface AllJokesViewController ()
 
@@ -19,15 +20,18 @@
 static AppData *data;
 static NSInteger page;
 static NSArray *jokeModels;
+static NSMutableArray *allJokeModels;
 static NSString *cellIdentifier = @"HomeTableUIViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     page = 1;
     jokeModels = [[NSArray alloc] init];
+    allJokeModels = [[NSMutableArray alloc] init];
     data = [[AppData alloc] init];
     
     [data getJokesAllAtPage:page AndPerformSuccessBlock:^(NSArray *models) {
+        [allJokeModels addObject:models];
         jokeModels = models;
         [self.allJokesTable reloadData];
     } orReactToErrorWithBlock:^(NSError *error) {
@@ -94,15 +98,22 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     return @"Title / Content / Created";
 }
 
-/*
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self performSegueWithIdentifier:@"FromAllJokesToDetails" sender:nil];
+    
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    HomeDetailsViewController *vc = [segue destinationViewController];
+    NSIndexPath *path = [self.allJokesTable indexPathForSelectedRow];
+    
+    vc.modelFromHome = jokeModels[path.row];
+    vc.type = @"joke";
 }
-*/
 
 - (IBAction)stepperValueChanged:(UIStepper *)sender {
     page = [sender value];
@@ -115,4 +126,35 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
         
     }];
 }
+
+//- (IBAction)nextButtonPressed:(id)sender {
+//    page++;
+//    NSLog(@"%d", page );
+//    if ((page - 1) == allJokeModels.count - 1) {
+//        jokeModels = allJokeModels[page-1];
+//        [_allJokesTable reloadData];
+//    } else {
+//        [data getJokesAllAtPage:page AndPerformSuccessBlock:^(NSArray *models) {
+//            [allJokeModels addObject:models];
+//            jokeModels = models;
+//            NSLog(@"loaded");
+//            [_allJokesTable reloadData];
+//        } orReactToErrorWithBlock:^(NSError *error) {
+//            
+//        }];
+//    }
+//}
+//
+//- (IBAction)prevButtonPressed:(id)sender {
+//    page--;
+//    NSLog(@"%d", page );
+//    if (page == 0) {
+//        page = 1;
+//        jokeModels = allJokeModels[page -1 ];
+//        [_allJokesTable reloadData];
+//    } else {
+//        jokeModels = allJokeModels[page - 1];
+//        [_allJokesTable reloadData];
+//    }
+//}
 @end

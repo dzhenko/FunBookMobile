@@ -123,7 +123,7 @@ static AppData* data;
         
         pickerLabel = [[UILabel alloc] initWithFrame:frame];
         
-        [pickerLabel setTextAlignment:UITextAlignmentLeft];
+        [pickerLabel setTextAlignment:UITextAlignmentCenter];
         
         [pickerLabel setBackgroundColor:[UIColor clearColor]];
         //here you can play with fonts

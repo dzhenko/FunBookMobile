@@ -11,6 +11,7 @@
 @interface AllJokesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *allJokesTable;
+
 - (IBAction)stepperValueChanged:(UIStepper *)sender;
 
 @end

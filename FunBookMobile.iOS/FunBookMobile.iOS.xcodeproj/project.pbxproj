@@ -219,32 +219,12 @@
 		01BE50B01A0534B6001490E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				01BE50B11A053570001490E8 /* LoginViewController.h */,
-				01BE50B21A053570001490E8 /* LoginViewController.m */,
-				01BE50B41A0536C6001490E8 /* RegisterViewController.h */,
-				01BE50B51A0536C6001490E8 /* RegisterViewController.m */,
-				01BE50B71A0537E6001490E8 /* AllFunViewController.h */,
-				01BE50B81A0537E6001490E8 /* AllFunViewController.m */,
-				01BE50BA1A0538CF001490E8 /* CreateViewController.h */,
-				01BE50BB1A0538CF001490E8 /* CreateViewController.m */,
-				011279131A07FCD700B9F5FE /* CreateJokeViewController.h */,
-				011279141A07FCD700B9F5FE /* CreateJokeViewController.m */,
-				011279161A07FCE300B9F5FE /* CreateLinkViewController.h */,
-				011279171A07FCE300B9F5FE /* CreateLinkViewController.m */,
-				011279191A07FCF300B9F5FE /* CreatePictureViewController.h */,
-				0112791A1A07FCF300B9F5FE /* CreatePictureViewController.m */,
-				0112791C1A07FD8300B9F5FE /* HomeViewController.h */,
-				0112791D1A07FD8300B9F5FE /* HomeViewController.m */,
-				016400D91A091D9200B955DB /* HomeDetailsViewController.h */,
-				016400DA1A091D9200B955DB /* HomeDetailsViewController.m */,
+				01D5B6831A0A5A0600F59A52 /* LoginRegister */,
+				01D5B6821A0A59BF00F59A52 /* Create */,
+				01D5B6811A0A59B300F59A52 /* All */,
+				01D5B6801A0A59AD00F59A52 /* Home */,
 				016400DC1A09239E00B955DB /* AddCommentViewController.h */,
 				016400DD1A09239E00B955DB /* AddCommentViewController.m */,
-				016401141A0937B000B955DB /* AllJokesViewController.h */,
-				016401151A0937B000B955DB /* AllJokesViewController.m */,
-				016401171A0937BB00B955DB /* AllLinksViewController.h */,
-				016401181A0937BB00B955DB /* AllLinksViewController.m */,
-				0164011A1A0937CC00B955DB /* AllPicturesViewController.h */,
-				0164011B1A0937CC00B955DB /* AllPicturesViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -260,6 +240,58 @@
 				016A99AC1A081D9400A2E686 /* HomeTableUIViewCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		01D5B6801A0A59AD00F59A52 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0112791C1A07FD8300B9F5FE /* HomeViewController.h */,
+				0112791D1A07FD8300B9F5FE /* HomeViewController.m */,
+				016400D91A091D9200B955DB /* HomeDetailsViewController.h */,
+				016400DA1A091D9200B955DB /* HomeDetailsViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		01D5B6811A0A59B300F59A52 /* All */ = {
+			isa = PBXGroup;
+			children = (
+				016401141A0937B000B955DB /* AllJokesViewController.h */,
+				016401151A0937B000B955DB /* AllJokesViewController.m */,
+				016401171A0937BB00B955DB /* AllLinksViewController.h */,
+				016401181A0937BB00B955DB /* AllLinksViewController.m */,
+				0164011A1A0937CC00B955DB /* AllPicturesViewController.h */,
+				0164011B1A0937CC00B955DB /* AllPicturesViewController.m */,
+				01BE50B71A0537E6001490E8 /* AllFunViewController.h */,
+				01BE50B81A0537E6001490E8 /* AllFunViewController.m */,
+			);
+			name = All;
+			sourceTree = "<group>";
+		};
+		01D5B6821A0A59BF00F59A52 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				01BE50BA1A0538CF001490E8 /* CreateViewController.h */,
+				01BE50BB1A0538CF001490E8 /* CreateViewController.m */,
+				011279131A07FCD700B9F5FE /* CreateJokeViewController.h */,
+				011279141A07FCD700B9F5FE /* CreateJokeViewController.m */,
+				011279161A07FCE300B9F5FE /* CreateLinkViewController.h */,
+				011279171A07FCE300B9F5FE /* CreateLinkViewController.m */,
+				011279191A07FCF300B9F5FE /* CreatePictureViewController.h */,
+				0112791A1A07FCF300B9F5FE /* CreatePictureViewController.m */,
+			);
+			name = Create;
+			sourceTree = "<group>";
+		};
+		01D5B6831A0A5A0600F59A52 /* LoginRegister */ = {
+			isa = PBXGroup;
+			children = (
+				01BE50B11A053570001490E8 /* LoginViewController.h */,
+				01BE50B21A053570001490E8 /* LoginViewController.m */,
+				01BE50B41A0536C6001490E8 /* RegisterViewController.h */,
+				01BE50B51A0536C6001490E8 /* RegisterViewController.m */,
+			);
+			name = LoginRegister;
 			sourceTree = "<group>";
 		};
 		849EAFD51A056DDE00B08F24 /* Models */ = {
