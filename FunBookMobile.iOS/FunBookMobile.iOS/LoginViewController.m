@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "AppData.h"
 #import "AppDelegate.h"
+#import "HomeViewController.h"
 
 @interface LoginViewController ()
 
@@ -17,6 +18,7 @@
 @implementation LoginViewController
 
 static AppData *data;
+static UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,10 +46,14 @@ static AppData *data;
     NSString *userPassword = self.userPassword.text;
     if ((userEmail.length != 0) && (userPassword.length != 0)) {
         [data loginUserWithEmail:userEmail andPassword:userPassword AndPerformBlock:^(BOOL success) {
-            NSLog(@"successfully logged in");
-            NSLog(@"%hhd", data.isUserLoggedIn);
-            NSLog(@"%@", data.getUserName);
+            alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Successfully logged in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+            [self performSegueWithIdentifier:@"fromLoginToHome" sender:self];
         }];
+    } else {
+        alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Wrong credentials or no such user, try to register first" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
     }
 }
+
 @end

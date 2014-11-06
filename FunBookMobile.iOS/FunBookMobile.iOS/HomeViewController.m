@@ -26,7 +26,6 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     [super viewDidLoad];
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     data = app.data;
-    NSLog(@"%@", data.getUserName);
     [self setCustomTableCellForReusing];
 }
 

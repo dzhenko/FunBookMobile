@@ -33,6 +33,7 @@
 		01BE50D71A054EB4001490E8 /* CreateJokeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50D61A054EB4001490E8 /* CreateJokeView.xib */; };
 		01BE50DC1A055B02001490E8 /* CreateLinkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50DB1A055B02001490E8 /* CreateLinkView.xib */; };
 		01BE50DE1A055C28001490E8 /* CreatePictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50DD1A055C28001490E8 /* CreatePictureView.xib */; };
+		01D5B6BC1A0ADB9300F59A52 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D5B6BB1A0ADB9300F59A52 /* UserViewController.m */; };
 		849B32E21A065786003E693A /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 849B32E11A065786003E693A /* AppData.m */; };
 		849EAFDE1A056F5800B08F24 /* ContentOverviewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFDD1A056F5800B08F24 /* ContentOverviewDataModel.m */; };
 		849EAFE11A056F7000B08F24 /* CommentDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFE01A056F7000B08F24 /* CommentDataModel.m */; };
@@ -105,6 +106,8 @@
 		01BE50D61A054EB4001490E8 /* CreateJokeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateJokeView.xib; sourceTree = "<group>"; };
 		01BE50DB1A055B02001490E8 /* CreateLinkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateLinkView.xib; sourceTree = "<group>"; };
 		01BE50DD1A055C28001490E8 /* CreatePictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatePictureView.xib; sourceTree = "<group>"; };
+		01D5B6BA1A0ADB9300F59A52 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		01D5B6BB1A0ADB9300F59A52 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		849B32E01A065786003E693A /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
 		849B32E11A065786003E693A /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
 		849EAFDC1A056F5800B08F24 /* ContentOverviewDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentOverviewDataModel.h; sourceTree = "<group>"; };
@@ -219,6 +222,7 @@
 		01BE50B01A0534B6001490E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				01D5B6B91A0ADB7D00F59A52 /* User */,
 				01D5B6831A0A5A0600F59A52 /* LoginRegister */,
 				01D5B6821A0A59BF00F59A52 /* Create */,
 				01D5B6811A0A59B300F59A52 /* All */,
@@ -292,6 +296,15 @@
 				01BE50B51A0536C6001490E8 /* RegisterViewController.m */,
 			);
 			name = LoginRegister;
+			sourceTree = "<group>";
+		};
+		01D5B6B91A0ADB7D00F59A52 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				01D5B6BA1A0ADB9300F59A52 /* UserViewController.h */,
+				01D5B6BB1A0ADB9300F59A52 /* UserViewController.m */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		849EAFD51A056DDE00B08F24 /* Models */ = {
@@ -506,6 +519,7 @@
 				849B32E21A065786003E693A /* AppData.m in Sources */,
 				849EB0031A05875A00B08F24 /* ContentHomeDataModel.m in Sources */,
 				849EAFEA1A056FBF00B08F24 /* PictureNewDataModel.m in Sources */,
+				01D5B6BC1A0ADB9300F59A52 /* UserViewController.m in Sources */,
 				01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */,
 				849EAFE11A056F7000B08F24 /* CommentDataModel.m in Sources */,
 				016401161A0937B000B955DB /* AllJokesViewController.m in Sources */,

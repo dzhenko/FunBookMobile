@@ -32,23 +32,23 @@
 //    }];
     
      //registration example
-        [data loginUserWithEmail:@"qwe7@qwe.com" andPassword:@"qweqwe" AndPerformBlock:^(BOOL success) {
-            // depending on the value of success you can react here.
-            NSLog(@"%i",success);
-            
-            [data createJoke:[JokeNewDataModel jokeWithText:@"testiOS" title:@"titleIos" isAnonymous:NO andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
-                NSLog(@"%@",createdObjId);
-                [data getJokeDetailsForId:createdObjId AndPerformSuccessBlock:^(JokeDetailsDataModel *model) {
-                    NSLog(@"%@",model.objId);
-                    [data commentJokeWithId:createdObjId commentText:@"testCommentiOS" AndPerformBlock:^(BOOL success) {
-                        NSLog(@"%i",success);
-                        [data likeJokeWithId:createdObjId AndPerformBlock:^(BOOL success) {
-                            NSLog(@"%i",success);
-                        }];
-                    }];
-                } orReactToErrorWithBlock:nil];
-            } orReactToErrorWithBlock:nil];
-        }];
+//        [data loginUserWithEmail:@"qwe7@qwe.com" andPassword:@"qweqwe" AndPerformBlock:^(BOOL success) {
+//            // depending on the value of success you can react here.
+//            NSLog(@"%i",success);
+//            
+//            [data createJoke:[JokeNewDataModel jokeWithText:@"testiOS" title:@"titleIos" isAnonymous:NO andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
+//                NSLog(@"%@",createdObjId);
+//                [data getJokeDetailsForId:createdObjId AndPerformSuccessBlock:^(JokeDetailsDataModel *model) {
+//                    NSLog(@"%@",model.objId);
+//                    [data commentJokeWithId:createdObjId commentText:@"testCommentiOS" AndPerformBlock:^(BOOL success) {
+//                        NSLog(@"%i",success);
+//                        [data likeJokeWithId:createdObjId AndPerformBlock:^(BOOL success) {
+//                            NSLog(@"%i",success);
+//                        }];
+//                    }];
+//                } orReactToErrorWithBlock:nil];
+//            } orReactToErrorWithBlock:nil];
+//        }];
     
     
     

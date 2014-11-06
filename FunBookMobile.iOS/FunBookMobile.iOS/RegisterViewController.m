@@ -17,6 +17,7 @@
 @implementation RegisterViewController
 
 static AppData *data;
+static UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,8 +47,13 @@ static AppData *data;
     NSString *userConfirmPassword = self.userConfirmPassword.text;
     if ((userEmail.length != 0) && (userPassword.length != 0) && (userConfirmPassword.length != 0)) {
         [data registerUserWithEmail:userEmail andPassword:userPassword AndPerformBlock:^(BOOL success) {
-            NSLog(@"Successfully registered");
+            alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Successfully registered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
         }];
+    } else {
+        alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Wrong input" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
     }
 }
+
 @end

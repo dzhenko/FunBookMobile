@@ -10,8 +10,5 @@
 
 @interface ViewController : UIViewController
 
-- (IBAction)btnPressed:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UITextField *textfield;
-
 @end
 

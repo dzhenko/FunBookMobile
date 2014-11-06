@@ -10,7 +10,7 @@
 #import "AppData.h"
 #import "AppDelegate.h"
 
-@interface CreatePictureViewController ()
+@interface CreatePictureViewController ()<UIImagePickerControllerDelegate ,UINavigationBarDelegate>
 
 @end
 
