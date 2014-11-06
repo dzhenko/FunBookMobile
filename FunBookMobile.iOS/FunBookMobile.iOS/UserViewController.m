@@ -46,6 +46,7 @@ static AppData *data;
         NSDictionary *address = mark.addressDictionary;
         NSString *city = [address objectForKey:@"City"];
         NSString *country = [address objectForKey:@"Country"];
+        NSLog(@"%@", address);
         
         self.cityLabel.text = city;
         self.countryLabel.text = country;

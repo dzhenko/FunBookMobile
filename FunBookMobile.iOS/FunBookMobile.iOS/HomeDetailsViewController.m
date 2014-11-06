@@ -145,6 +145,29 @@ static AppData* data;
     }
 }
 
+- (IBAction)handlePinch:(UIPinchGestureRecognizer *)sender {
+    CGFloat lastScaleFactor = 1;
+    CGFloat factor = [(UIPinchGestureRecognizer *) sender scale];
+    
+    if (factor > 1) { // zooming in
+        self.imageView.transform = CGAffineTransformMakeScale(
+                                                              lastScaleFactor + (factor - 1),
+                                                              lastScaleFactor + (factor - 1));
+    } else { // zooming out
+        self.imageView.transform = CGAffineTransformMakeScale(
+                                                              lastScaleFactor * factor,
+                                                              lastScaleFactor * factor);
+    }
+    
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (factor > 1) {
+            lastScaleFactor += (factor - 1);
+        } else {
+            lastScaleFactor *= factor;
+        }
+    }
+}
+
 -(void)visualizeData{
     if ([self.type isEqualToString:@"joke"]) {
         [data getJokeDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(JokeDetailsDataModel *model) {

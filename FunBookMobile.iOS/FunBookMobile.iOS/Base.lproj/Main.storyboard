@@ -244,8 +244,12 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="skZ-KS-2l8">
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="skZ-KS-2l8">
                                         <rect key="frame" x="16" y="94" width="568" height="180"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="I2C-qt-UFf" appends="YES" id="vK8-WS-cRM"/>
+                                        </connections>
                                     </imageView>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yk0-xm-aOV">
                                         <rect key="frame" x="-8" y="394" width="600" height="180"/>
@@ -454,6 +458,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejo-2l-eHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="I2C-qt-UFf">
+                    <connections>
+                        <action selector="handlePinch:" destination="g1n-4d-WEZ" id="l6x-BP-Nas"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1397" y="1930"/>
         </scene>
