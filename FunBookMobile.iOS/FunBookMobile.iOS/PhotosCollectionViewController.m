@@ -197,10 +197,20 @@ static NSString * const reuseIdentifier = @"Cell";
     NSError *error = nil;
     
     NSArray *fetchedAlbums = [[CoreDataHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    
-    self.albums = [fetchedAlbums mutableCopy];
-    
-    self.album = self.albums[self.albums.count - 1];
+    if (fetchedAlbums.count == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You have no albums yet, create one" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+        [self albumWithName:@"My Album"];
+        fetchedAlbums = [[CoreDataHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+        self.albums = [fetchedAlbums mutableCopy];
+        
+        self.album = self.albums[0];
+        
+    } else {
+        self.albums = [fetchedAlbums mutableCopy];
+        
+        self.album = self.albums[0];
+    }
 }
 
 @end
