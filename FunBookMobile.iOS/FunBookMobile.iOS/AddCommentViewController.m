@@ -17,6 +17,7 @@
 @implementation AddCommentViewController
 
 static AppData *data;
+static UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,21 +45,23 @@ static AppData *data;
 
 - (IBAction)addCommentBtnPressed:(id)sender {
     if ([self.commentText.text length] != 0) {
-        NSLog(@"Test");
         if ([self.type isEqualToString:@"joke"]) {
-            NSLog(@"%@ %@", self.modelId, self.commentText.text);
             [data commentJokeWithId:self.modelId commentText:self.commentText.text AndPerformBlock:^(BOOL success) {
-                NSLog(@"successfully commented!");
+                alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Commented" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alertView show];
+                [self performSegueWithIdentifier:@"unwindBackToDetails" sender:self];
             }];
         } else if ([self.type isEqualToString:@"link"]){
-            NSLog(@"%@ %@", self.modelId, self.commentText.text);
             [data commentLinkWithId:self.modelId commentText:self.commentText.text AndPerformBlock:^(BOOL success) {
-                NSLog(@"successfully commented!");
+                alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Commented" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alertView show];
+                [self performSegueWithIdentifier:@"unwindBackToDetails" sender:self];
             }];
         } else if ([self.type isEqualToString:@"picture"]){
-            NSLog(@"%@ %@", self.modelId, self.commentText.text);
             [data commentPictureWithId:self.modelId commentText:self.commentText.text AndPerformBlock:^(BOOL success) {
-                NSLog(@"successfully commented!");
+                alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Commented" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alertView show];
+                [self performSegueWithIdentifier:@"unwindBackToDetails" sender:self];
             }];
         }
     }

@@ -118,7 +118,6 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     NSLog(@"%d", page );
     [data getPicturesAllAtPage:page AndPerformSuccessBlock:^(NSArray *models) {
         pictureModels = models;
-        NSLog(@"loaded");
         [_allPicturesTable reloadData];
     } orReactToErrorWithBlock:^(NSError *error) {
         

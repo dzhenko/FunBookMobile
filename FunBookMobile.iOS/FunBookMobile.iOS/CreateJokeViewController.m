@@ -18,6 +18,7 @@
 
 static BOOL isAnonymous;
 static AppData *data;
+static UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,7 +55,6 @@ static AppData *data;
     
     NSString *jokeText = self.jokeText.text;
     NSString *jokeTitle = self.jokeTitle.text;
-    NSString *jokeCategory = self.jokeCategory.text;
     
     [self createJokeWithText:jokeText title:jokeTitle andCategory:nil];
     
@@ -63,7 +63,8 @@ static AppData *data;
 -(void) createJokeWithText:(NSString *)text title:(NSString *)title andCategory:(NSString *)category{
     
     [data createJoke:[JokeNewDataModel jokeWithText:text title:title isAnonymous:isAnonymous andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
-        NSLog(@"Successfuly added!");
+        alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Created" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
     } orReactToErrorWithBlock:^(NSError *error) {
         NSLog(@"error");
     }];

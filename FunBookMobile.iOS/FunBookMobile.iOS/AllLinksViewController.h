@@ -11,6 +11,7 @@
 @interface AllLinksViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *allLinksTable;
+
 - (IBAction)stepperValueChanged:(UIStepper *)sender;
 
 @end

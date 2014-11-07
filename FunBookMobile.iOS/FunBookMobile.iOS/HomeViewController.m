@@ -169,7 +169,6 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel* model){
         homeModel = model;
         [self.homeTable reloadData];
-        NSLog(@"%@",model);
     } orReactToErrorWithBlock:^(NSError* error){
         
         NSLog(@"%@",error);

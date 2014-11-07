@@ -118,7 +118,6 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     NSLog(@"%d", page );
     [data getLinksAllAtPage:page AndPerformSuccessBlock:^(NSArray *models) {
         linkModels = models;
-        NSLog(@"loaded");
         [_allLinksTable reloadData];
     } orReactToErrorWithBlock:^(NSError *error) {
         

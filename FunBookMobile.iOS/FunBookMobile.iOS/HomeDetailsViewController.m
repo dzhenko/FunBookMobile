@@ -23,6 +23,7 @@ static LinkDetailsDataModel *linkModel;
 static PictureDetailsDataModel *pictureModel;
 static NSArray *comments;
 static AppData* data;
+static UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -122,15 +123,18 @@ static AppData* data;
 - (IBAction)hateBtnPressed:(UIButton *)sender {
     if ([self.type isEqualToString:@"joke"]) {
         [data hateJokeWithId:jokeModel.objId AndPerformBlock:^(BOOL success) {
-            NSLog(@"hated");
+            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Hated" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }];
     } else if ([self.type isEqualToString:@"link"]){
         [data hateLinkWithId:linkModel.objId AndPerformBlock:^(BOOL success) {
-            NSLog(@"hated");
+            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Hated" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }];
     } else if ([self.type isEqualToString:@"picture"]){
         [data hatePictureWithId:pictureModel.objId AndPerformBlock:^(BOOL success) {
-            NSLog(@"hated");
+            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Hated" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }];
     }
 }
@@ -138,39 +142,19 @@ static AppData* data;
 - (IBAction)likeBtnPressed:(UIButton *)sender {
     if ([self.type isEqualToString:@"joke"]) {
         [data likeJokeWithId:jokeModel.objId AndPerformBlock:^(BOOL success) {
-            NSLog(@"liked");
+            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Liked" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }];
     } else if ([self.type isEqualToString:@"link"]){
         [data likeLinkWithId:linkModel.objId AndPerformBlock:^(BOOL success) {
-            NSLog(@"liked");
+            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Liked" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }];
     } else if ([self.type isEqualToString:@"picture"]){
         [data likePictureWithId:pictureModel.objId AndPerformBlock:^(BOOL success) {
-            NSLog(@"liked");
+            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Liked" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }];
-    }
-}
-
-- (IBAction)handlePinch:(UIPinchGestureRecognizer *)sender {
-    CGFloat lastScaleFactor = 1;
-    CGFloat factor = [(UIPinchGestureRecognizer *) sender scale];
-    
-    if (factor > 1) { // zooming in
-        self.imageView.transform = CGAffineTransformMakeScale(
-                                                              lastScaleFactor + (factor - 1),
-                                                              lastScaleFactor + (factor - 1));
-    } else { // zooming out
-        self.imageView.transform = CGAffineTransformMakeScale(
-                                                              lastScaleFactor * factor,
-                                                              lastScaleFactor * factor);
-    }
-    
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        if (factor > 1) {
-            lastScaleFactor += (factor - 1);
-        } else {
-            lastScaleFactor *= factor;
-        }
     }
 }
 
@@ -235,6 +219,10 @@ static AppData* data;
 
 -(void)labelTap{
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:linkModel.url]];
+}
+
+-(IBAction)unwindBackToDetails:(UIStoryboardSegue*)segue{
+    
 }
 
 @end

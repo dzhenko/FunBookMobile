@@ -122,7 +122,6 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     NSLog(@"%d", page );
     [data getJokesAllAtPage:page AndPerformSuccessBlock:^(NSArray *models) {
         jokeModels = models;
-        NSLog(@"loaded");
         [_allJokesTable reloadData];
     } orReactToErrorWithBlock:^(NSError *error) {
         

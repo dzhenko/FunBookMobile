@@ -11,6 +11,7 @@
 @interface AllPicturesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *allPicturesTable;
+
 - (IBAction)stepperValueChanged:(UIStepper *)sender;
 
 @end

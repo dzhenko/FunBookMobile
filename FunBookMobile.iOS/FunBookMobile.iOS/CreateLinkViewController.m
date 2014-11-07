@@ -18,6 +18,7 @@
 
 static BOOL isAnonymous;
 static AppData *data;
+static UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,14 +53,14 @@ static AppData *data;
 - (IBAction)createBtnPressed:(UIButton *)sender {
     NSString *linkUrl = self.linkUrl.text;
     NSString *linkTitle = self.linkTitle.text;
-    NSString *linkCategory = self.linkCategory.text;
     
     [self createLinkWithUrl:linkUrl title:linkTitle andCategory:nil];
 }
 
 -(void) createLinkWithUrl:(NSString *)url title:(NSString *)title andCategory:(NSString *)category{
     [data createLink:[LinkNewDataModel linkWithUrl:url title:title isAnonymous:isAnonymous andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
-        NSLog(@"Successfuly added!");
+        alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Created" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
     } orReactToErrorWithBlock:^(NSError *error) {
         NSLog(@"error");
     }];

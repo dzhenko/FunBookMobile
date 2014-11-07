@@ -20,6 +20,7 @@
 static CLLocationManager *locationManager;
 static CLPlacemark *mark;
 static AppData *data;
+static UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,7 +47,6 @@ static AppData *data;
         NSDictionary *address = mark.addressDictionary;
         NSString *city = [address objectForKey:@"City"];
         NSString *country = [address objectForKey:@"Country"];
-        NSLog(@"%@", address);
         
         self.cityLabel.text = city;
         self.countryLabel.text = country;
@@ -80,6 +80,8 @@ static AppData *data;
 - (IBAction)loggOutBtnPressed:(UIButton *)sender {
     if (data.isUserLoggedIn) {
         [data logoutAndPerformBlock:^(BOOL success) {
+            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully logged out" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
             [self performSegueWithIdentifier:@"fromUserToLogin" sender:self];
         }];
     }

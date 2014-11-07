@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *linkCategory;
 @property (weak, nonatomic) IBOutlet UITextField *linkTitle;
 @property (weak, nonatomic) IBOutlet UITextField *linkUrl;
+
 - (IBAction)switchValueChanged:(UISwitch *)sender;
 - (IBAction)createBtnPressed:(UIButton *)sender;
 

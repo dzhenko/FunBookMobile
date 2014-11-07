@@ -19,6 +19,7 @@
 
 static BOOL isAnonymous;
 static AppData *data;
+static UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,7 +50,8 @@ static AppData *data;
     NSString *pictureTitle = self.pictureTitle.text;
     
     [data createPicture:[PictureNewDataModel pictureWithData:encodedString title:pictureTitle isAnonymous:isAnonymous andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
-        NSLog(@"Successfuly added!");
+        alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Created" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
     } orReactToErrorWithBlock:^(NSError *error) {
         NSLog(@"error");
     }];

@@ -198,7 +198,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSArray *fetchedAlbums = [[CoreDataHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];
     if (fetchedAlbums.count == 0) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You have no albums yet, create one" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Add some photos" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
         [self albumWithName:@"My Album"];
         fetchedAlbums = [[CoreDataHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];

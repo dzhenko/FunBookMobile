@@ -17,6 +17,4 @@
 - (IBAction)switchValueChanged:(UISwitch *)sender;
 - (IBAction)createBtnPressed:(UIButton *)sender;
 
-
-
 @end

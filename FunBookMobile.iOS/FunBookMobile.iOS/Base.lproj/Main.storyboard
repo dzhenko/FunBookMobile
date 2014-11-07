@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gWZ-N2-ZZO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r8s-fm-PEd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -49,6 +49,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="xs9-2n-NbN" firstAttribute="top" secondItem="bL8-y3-cOI" secondAttribute="bottom" constant="31" id="0Yf-nM-4gX"/>
                             <constraint firstItem="iKP-eW-BeW" firstAttribute="trailing" secondItem="duT-1j-JdD" secondAttribute="trailing" id="4Mp-Cf-QDs"/>
@@ -63,6 +64,9 @@
                             <constraint firstItem="LpZ-T7-d7C" firstAttribute="top" secondItem="duT-1j-JdD" secondAttribute="bottom" constant="194" id="v8c-Za-Ge8"/>
                             <constraint firstItem="duT-1j-JdD" firstAttribute="leading" secondItem="iKP-eW-BeW" secondAttribute="leading" id="y8Y-D1-fd4"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Awk-2d-5aD" appends="YES" id="gO9-Wl-log"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="af5-us-CKe"/>
                     <connections>
@@ -72,6 +76,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZs-yX-UT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="Awk-2d-5aD">
+                    <connections>
+                        <segue destination="arH-xG-Y8L" kind="presentation" id="7ww-ph-ilf"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="186" y="-710"/>
         </scene>
@@ -238,9 +247,6 @@
                                     <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="skZ-KS-2l8">
                                         <rect key="frame" x="16" y="94" width="568" height="180"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="I2C-qt-UFf" appends="YES" id="vK8-WS-cRM"/>
-                                        </connections>
                                     </imageView>
                                     <label opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkW-lZ-Oux">
                                         <rect key="frame" x="16" y="94" width="568" height="170"/>
@@ -458,11 +464,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejo-2l-eHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="I2C-qt-UFf">
-                    <connections>
-                        <action selector="handlePinch:" destination="g1n-4d-WEZ" id="l6x-BP-Nas"/>
-                    </connections>
-                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="I2C-qt-UFf"/>
             </objects>
             <point key="canvasLocation" x="-1397" y="1930"/>
         </scene>
@@ -504,9 +506,11 @@
                     </view>
                     <connections>
                         <outlet property="commentText" destination="ZIV-pp-oEm" id="UEo-sL-pz5"/>
+                        <segue destination="luv-qT-y1n" kind="unwind" identifier="unwindBackToDetails" unwindAction="unwindBackToDetails:" id="bc5-85-ecV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="no9-vq-V6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="luv-qT-y1n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1397" y="2816"/>
         </scene>
@@ -1128,8 +1132,12 @@
                                     <action selector="deleteBtnPressed:" destination="mjX-PI-UP7" eventType="touchUpInside" id="ArO-Yn-i5R"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="98d-zc-uke">
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="98d-zc-uke">
                                 <rect key="frame" x="0.0" y="64" width="600" height="406"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Vts-On-eae" appends="YES" id="fZK-gq-3FU"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1149,6 +1157,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0id-G3-wTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="Vts-On-eae">
+                    <connections>
+                        <action selector="handlePinch:" destination="mjX-PI-UP7" id="fET-cX-o56"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4764" y="291"/>
         </scene>
@@ -1160,7 +1173,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="q0F-x0-EHS">
-                            <size key="itemSize" width="155" height="155"/>
+                            <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1170,7 +1183,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -1194,7 +1207,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1gk-8x-TT3">
-                            <size key="itemSize" width="155" height="155"/>
+                            <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1204,7 +1217,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -1272,28 +1285,39 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="20j-X4-yrq" firstAttribute="top" secondItem="oJC-Yp-U2F" secondAttribute="bottom" constant="37" id="3Vt-um-Vcq"/>
-                            <constraint firstItem="Fdr-EC-3gY" firstAttribute="top" secondItem="Ofj-Yj-Por" secondAttribute="bottom" constant="33" id="54d-KD-M3T"/>
-                            <constraint firstItem="20j-X4-yrq" firstAttribute="trailing" secondItem="rk3-I8-YN7" secondAttribute="trailing" id="AAc-aa-qKr"/>
-                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="top" secondItem="Fdr-EC-3gY" secondAttribute="bottom" constant="35" id="LYg-mb-PQY"/>
-                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="trailing" secondItem="Fdr-EC-3gY" secondAttribute="trailing" id="Zt4-B1-Lfd"/>
-                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="trailing" secondItem="20j-X4-yrq" secondAttribute="trailing" id="eiX-0C-Neu"/>
-                            <constraint firstItem="Fdr-EC-3gY" firstAttribute="leading" secondItem="2ef-4m-2fH" secondAttribute="leadingMargin" id="fTb-Hl-OC3"/>
-                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="leading" secondItem="20j-X4-yrq" secondAttribute="leading" id="nRa-lf-l9X"/>
-                            <constraint firstItem="Fdr-EC-3gY" firstAttribute="trailing" secondItem="2ef-4m-2fH" secondAttribute="trailingMargin" id="qtV-XG-ZuK"/>
-                            <constraint firstItem="20j-X4-yrq" firstAttribute="leading" secondItem="rk3-I8-YN7" secondAttribute="leading" id="rmr-qU-7kZ"/>
-                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="leading" secondItem="Fdr-EC-3gY" secondAttribute="leading" id="taF-vq-j5d"/>
-                            <constraint firstItem="rk3-I8-YN7" firstAttribute="top" secondItem="20j-X4-yrq" secondAttribute="bottom" constant="83" id="z26-Aw-OgW"/>
+                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="leading" secondItem="2ef-4m-2fH" secondAttribute="leadingMargin" id="01q-mW-ppa"/>
+                            <constraint firstItem="rk3-I8-YN7" firstAttribute="trailing" secondItem="20j-X4-yrq" secondAttribute="trailing" id="4fH-WK-pAg"/>
+                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="leading" secondItem="20j-X4-yrq" secondAttribute="leading" id="5gm-5o-1ga"/>
+                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="trailing" secondItem="2ef-4m-2fH" secondAttribute="trailingMargin" id="9Zw-mz-PCA"/>
+                            <constraint firstItem="Fdr-EC-3gY" firstAttribute="top" secondItem="Ofj-Yj-Por" secondAttribute="bottom" constant="77" id="QsJ-AK-fhd"/>
+                            <constraint firstItem="rk3-I8-YN7" firstAttribute="top" secondItem="20j-X4-yrq" secondAttribute="bottom" constant="83" id="R3M-qI-rse"/>
+                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="leading" secondItem="Fdr-EC-3gY" secondAttribute="leading" id="TSp-bq-c0C"/>
+                            <constraint firstItem="rk3-I8-YN7" firstAttribute="leading" secondItem="20j-X4-yrq" secondAttribute="leading" id="VBY-Ba-Jzw"/>
+                            <constraint firstItem="20j-X4-yrq" firstAttribute="trailing" secondItem="oJC-Yp-U2F" secondAttribute="trailing" id="d1G-bs-gnk"/>
+                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="top" secondItem="Fdr-EC-3gY" secondAttribute="bottom" constant="35" id="dKD-dh-LVZ"/>
+                            <constraint firstItem="oJC-Yp-U2F" firstAttribute="trailing" secondItem="Fdr-EC-3gY" secondAttribute="trailing" id="vjc-NO-mK0"/>
+                            <constraint firstItem="20j-X4-yrq" firstAttribute="top" secondItem="oJC-Yp-U2F" secondAttribute="bottom" constant="37" id="wmQ-ly-hvo"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="t2f-tT-NVI" appends="YES" id="LHx-3D-9BA"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="userConfirmPassword" destination="20j-X4-yrq" id="0M9-Mj-B65"/>
                         <outlet property="userEmail" destination="Fdr-EC-3gY" id="kz8-cl-XVU"/>
                         <outlet property="userPassword" destination="oJC-Yp-U2F" id="cxh-k8-pay"/>
+                        <segue destination="I3T-gH-rZ2" kind="unwind" identifier="unwindBackToLogin" unwindAction="unwindBackToLogin:" id="JBI-vy-B7z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbG-a3-HVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="I3T-gH-rZ2" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="right" id="t2f-tT-NVI">
+                    <connections>
+                        <segue destination="eUS-4Z-pJh" kind="presentation" id="Cax-pF-WMU"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1009" y="-710"/>
         </scene>
@@ -1376,7 +1400,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ntb-Zo-aei"/>
         <segue reference="BYT-CT-i0G"/>
+        <segue reference="Cax-pF-WMU"/>
+        <segue reference="7ww-ph-ilf"/>
+        <segue reference="Ntb-Zo-aei"/>
     </inferredMetricsTieBreakers>
 </document>

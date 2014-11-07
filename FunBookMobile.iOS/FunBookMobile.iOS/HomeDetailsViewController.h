@@ -27,6 +27,5 @@
 
 - (IBAction)hateBtnPressed:(UIButton *)sender;
 - (IBAction)likeBtnPressed:(UIButton *)sender;
-- (IBAction)handlePinch:(UIPinchGestureRecognizer *)sender;
 
 @end

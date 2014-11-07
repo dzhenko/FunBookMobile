@@ -49,6 +49,7 @@ static UIAlertView *alertView;
         [data registerUserWithEmail:userEmail andPassword:userPassword AndPerformBlock:^(BOOL success) {
             alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Successfully registered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alertView show];
+            [self performSegueWithIdentifier:@"unwindBackToLogin" sender:self];
         }];
     } else {
         alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Wrong input" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

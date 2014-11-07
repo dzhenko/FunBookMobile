@@ -17,5 +17,7 @@
 
 - (IBAction)addFilterBtnPressed:(UIButton *)sender;
 - (IBAction)deleteBtnPressed:(UIButton *)sender;
+- (IBAction)handlePinch:(UIPinchGestureRecognizer *)sender;
+
 
 @end
