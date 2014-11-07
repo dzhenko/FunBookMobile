@@ -41,19 +41,11 @@ static AppData* data;
     [self visualizeData];
 }
 
--(void)getImageFromURL{
-    NSURL *imageURL = [NSURL URLWithString:pictureModel.url];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            self.imageView.image = [UIImage imageWithData:imageData];
-        });
-    });
+-(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event{
     
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -112,6 +104,20 @@ static AppData* data;
 }
 
 #pragma mark - Private Methods
+
+-(void)getImageFromURL{
+    NSURL *imageURL = [NSURL URLWithString:pictureModel.url];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Update the UI
+            self.imageView.image = [UIImage imageWithData:imageData];
+        });
+    });
+    
+}
 
 - (IBAction)hateBtnPressed:(UIButton *)sender {
     if ([self.type isEqualToString:@"joke"]) {
@@ -184,14 +190,17 @@ static AppData* data;
             
         } ];
     } else if ([self.type isEqualToString:@"link"]){
+//        [self.view bringSubviewToFront:self.modelText];
         [data getLinkDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(LinkDetailsDataModel *model) {
             linkModel = model;
             self.modelTitle.text = linkModel.title;
             self.modelText.text = linkModel.url;
+            
+            [self setHyperlinkText];
+            
             self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.views];
             self.modelHatesCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.hates];
             self.modelLikesCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.likes];
-            // todo: add category
             self.modelDate.text = linkModel.created;
             comments = linkModel.comments;
             [self.picker reloadAllComponents];
@@ -199,6 +208,7 @@ static AppData* data;
             
         }];
     } else if ([self.type isEqualToString:@"picture"]){
+//        [self.view bringSubviewToFront:self.imageView];
         [data getPictureDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(PictureDetailsDataModel *model) {
             pictureModel = model;
             self.modelTitle.text = pictureModel.title;
@@ -206,7 +216,6 @@ static AppData* data;
             self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.views];
             self.modelHatesCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.hates];
             self.modelLikesCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.likes];
-            // todo: add category
             self.modelDate.text = pictureModel.created;
             comments = pictureModel.comments;
             [self.picker reloadAllComponents];
@@ -214,6 +223,18 @@ static AppData* data;
             
         }];
     }
+}
+
+-(void)setHyperlinkText{
+    self.modelText.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap)];
+    tapGesture.numberOfTapsRequired = 1;
+    [self.modelText addGestureRecognizer:tapGesture];
+}
+
+-(void)labelTap{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:linkModel.url]];
 }
 
 @end

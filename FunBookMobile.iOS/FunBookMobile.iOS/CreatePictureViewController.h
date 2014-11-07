@@ -12,9 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *pictureCategory;
 @property (weak, nonatomic) IBOutlet UITextField *pictureTitle;
+@property (strong, nonatomic) UIImage *image;
 
 - (IBAction)createBtnPressed:(UIButton *)sender;
 - (IBAction)switchValueChanged:(UISwitch *)sender;
-- (IBAction)pickPhotoBtnPressed:(UIButton *)sender;
 
 @end

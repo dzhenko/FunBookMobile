@@ -9,6 +9,7 @@
 #import "CreatePictureViewController.h"
 #import "AppData.h"
 #import "AppDelegate.h"
+#import "PhotosCollectionViewController.h"
 
 @interface CreatePictureViewController ()<UIImagePickerControllerDelegate ,UINavigationBarDelegate>
 
@@ -18,7 +19,6 @@
 
 static BOOL isAnonymous;
 static AppData *data;
-static UIImage *image;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,14 +41,12 @@ static UIImage *image;
 */
 
 - (IBAction)createBtnPressed:(UIButton *)sender {
-    
-    
-    NSData *imageData = UIImageJPEGRepresentation(image, 90);
+        
+    NSData *imageData = UIImageJPEGRepresentation(self.image, 90);
     
     NSString *encodedString = [imageData base64EncodedStringWithOptions:0];
     
     NSString *pictureTitle = self.pictureTitle.text;
-    NSString *pictureCategory = self.pictureCategory.text;
     
     [data createPicture:[PictureNewDataModel pictureWithData:encodedString title:pictureTitle isAnonymous:isAnonymous andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
         NSLog(@"Successfuly added!");
@@ -65,30 +63,25 @@ static UIImage *image;
     }
 }
 
-- (IBAction)pickPhotoBtnPressed:(UIButton *)sender {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]){
-        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    }
-    
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
 #pragma mark - UIimagePickerControllerDelegate
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    image = info[UIImagePickerControllerEditedImage];
-    if (!image) {
-        image = info[UIImagePickerControllerOriginalImage];
+    self.image = info[UIImagePickerControllerEditedImage];
+    if (!self.image) {
+        self.image = info[UIImagePickerControllerOriginalImage];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Private Methods
+
+-(IBAction)unwindBackToCreatePicture:(UIStoryboardSegue*)segue{
+    PhotosCollectionViewController *sourceVC = [segue sourceViewController];
+    self.image = sourceVC.cellForCreate.imageView.image;
 }
 
 @end

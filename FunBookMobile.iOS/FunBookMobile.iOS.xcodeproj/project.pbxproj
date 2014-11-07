@@ -26,6 +26,14 @@
 		0164011C1A0937CC00B955DB /* AllPicturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0164011B1A0937CC00B955DB /* AllPicturesViewController.m */; };
 		016A99AA1A081CAD00A2E686 /* HomeTableUIViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016A99A91A081CAD00A2E686 /* HomeTableUIViewCell.xib */; };
 		016A99AD1A081D9400A2E686 /* HomeTableUIViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016A99AC1A081D9400A2E686 /* HomeTableUIViewCell.m */; };
+		01888E571A0CE85B00EF6EFC /* PhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01888E561A0CE85B00EF6EFC /* PhotosCollectionViewController.m */; };
+		01888E5A1A0CE9FB00EF6EFC /* PhotosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01888E591A0CE9FB00EF6EFC /* PhotosCollectionViewCell.m */; };
+		01888E5F1A0CEDCD00EF6EFC /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01888E5E1A0CEDCD00EF6EFC /* CoreDataHelper.m */; };
+		01888E651A0CFFF100EF6EFC /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 01888E641A0CFFF100EF6EFC /* Photo.m */; };
+		01888E681A0CFFF200EF6EFC /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 01888E671A0CFFF200EF6EFC /* Album.m */; };
+		01888E6C1A0D00CE00EF6EFC /* PictureDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01888E6B1A0D00CE00EF6EFC /* PictureDataTransformer.m */; };
+		01888E6F1A0D152F00EF6EFC /* PhotoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01888E6E1A0D152F00EF6EFC /* PhotoDetailsViewController.m */; };
+		01888E721A0D1A9600EF6EFC /* FiltersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01888E711A0D1A9600EF6EFC /* FiltersCollectionViewController.m */; };
 		01BE50B31A053570001490E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B21A053570001490E8 /* LoginViewController.m */; };
 		01BE50B61A0536C6001490E8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B51A0536C6001490E8 /* RegisterViewController.m */; };
 		01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BE50B81A0537E6001490E8 /* AllFunViewController.m */; };
@@ -95,6 +103,22 @@
 		016A99A91A081CAD00A2E686 /* HomeTableUIViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableUIViewCell.xib; sourceTree = "<group>"; };
 		016A99AB1A081D9400A2E686 /* HomeTableUIViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableUIViewCell.h; sourceTree = "<group>"; };
 		016A99AC1A081D9400A2E686 /* HomeTableUIViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableUIViewCell.m; sourceTree = "<group>"; };
+		01888E551A0CE85B00EF6EFC /* PhotosCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCollectionViewController.h; sourceTree = "<group>"; };
+		01888E561A0CE85B00EF6EFC /* PhotosCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCollectionViewController.m; sourceTree = "<group>"; };
+		01888E581A0CE9FB00EF6EFC /* PhotosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCollectionViewCell.h; sourceTree = "<group>"; };
+		01888E591A0CE9FB00EF6EFC /* PhotosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCollectionViewCell.m; sourceTree = "<group>"; };
+		01888E5D1A0CEDCD00EF6EFC /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		01888E5E1A0CEDCD00EF6EFC /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		01888E631A0CFFF100EF6EFC /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = ../Photo.h; sourceTree = "<group>"; };
+		01888E641A0CFFF100EF6EFC /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = ../Photo.m; sourceTree = "<group>"; };
+		01888E661A0CFFF200EF6EFC /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Album.h; path = ../Album.h; sourceTree = "<group>"; };
+		01888E671A0CFFF200EF6EFC /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Album.m; path = ../Album.m; sourceTree = "<group>"; };
+		01888E6A1A0D00CE00EF6EFC /* PictureDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureDataTransformer.h; sourceTree = "<group>"; };
+		01888E6B1A0D00CE00EF6EFC /* PictureDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureDataTransformer.m; sourceTree = "<group>"; };
+		01888E6D1A0D152F00EF6EFC /* PhotoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailsViewController.h; sourceTree = "<group>"; };
+		01888E6E1A0D152F00EF6EFC /* PhotoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailsViewController.m; sourceTree = "<group>"; };
+		01888E701A0D1A9600EF6EFC /* FiltersCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersCollectionViewController.h; sourceTree = "<group>"; };
+		01888E711A0D1A9600EF6EFC /* FiltersCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersCollectionViewController.m; sourceTree = "<group>"; };
 		01BE50B11A053570001490E8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		01BE50B21A053570001490E8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		01BE50B41A0536C6001490E8 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -175,6 +199,7 @@
 		013013751A02614C0000E67D /* FunBookMobile.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				01888E691A0D005400EF6EFC /* CoreData */,
 				84B527471A0595AB00EE29C7 /* Helpers */,
 				849EAFD61A056DF100B08F24 /* Data */,
 				849EAFD51A056DDE00B08F24 /* Models */,
@@ -219,6 +244,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		01888E691A0D005400EF6EFC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				01888E661A0CFFF200EF6EFC /* Album.h */,
+				01888E671A0CFFF200EF6EFC /* Album.m */,
+				01888E631A0CFFF100EF6EFC /* Photo.h */,
+				01888E641A0CFFF100EF6EFC /* Photo.m */,
+				01888E6A1A0D00CE00EF6EFC /* PictureDataTransformer.h */,
+				01888E6B1A0D00CE00EF6EFC /* PictureDataTransformer.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		01BE50B01A0534B6001490E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +280,8 @@
 				016A99A91A081CAD00A2E686 /* HomeTableUIViewCell.xib */,
 				016A99AB1A081D9400A2E686 /* HomeTableUIViewCell.h */,
 				016A99AC1A081D9400A2E686 /* HomeTableUIViewCell.m */,
+				01888E581A0CE9FB00EF6EFC /* PhotosCollectionViewCell.h */,
+				01888E591A0CE9FB00EF6EFC /* PhotosCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -275,6 +315,8 @@
 		01D5B6821A0A59BF00F59A52 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				01888E551A0CE85B00EF6EFC /* PhotosCollectionViewController.h */,
+				01888E561A0CE85B00EF6EFC /* PhotosCollectionViewController.m */,
 				01BE50BA1A0538CF001490E8 /* CreateViewController.h */,
 				01BE50BB1A0538CF001490E8 /* CreateViewController.m */,
 				011279131A07FCD700B9F5FE /* CreateJokeViewController.h */,
@@ -283,6 +325,10 @@
 				011279171A07FCE300B9F5FE /* CreateLinkViewController.m */,
 				011279191A07FCF300B9F5FE /* CreatePictureViewController.h */,
 				0112791A1A07FCF300B9F5FE /* CreatePictureViewController.m */,
+				01888E6D1A0D152F00EF6EFC /* PhotoDetailsViewController.h */,
+				01888E6E1A0D152F00EF6EFC /* PhotoDetailsViewController.m */,
+				01888E701A0D1A9600EF6EFC /* FiltersCollectionViewController.h */,
+				01888E711A0D1A9600EF6EFC /* FiltersCollectionViewController.m */,
 			);
 			name = Create;
 			sourceTree = "<group>";
@@ -398,6 +444,8 @@
 			children = (
 				84B527481A0595C900EE29C7 /* DateFormater.h */,
 				84B527491A0595C900EE29C7 /* DateFormater.m */,
+				01888E5D1A0CEDCD00EF6EFC /* CoreDataHelper.h */,
+				01888E5E1A0CEDCD00EF6EFC /* CoreDataHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -506,19 +554,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01888E5F1A0CEDCD00EF6EFC /* CoreDataHelper.m in Sources */,
 				849EAFFA1A05702900B08F24 /* HttpRequester.m in Sources */,
 				849EAFDE1A056F5800B08F24 /* ContentOverviewDataModel.m in Sources */,
+				01888E721A0D1A9600EF6EFC /* FiltersCollectionViewController.m in Sources */,
 				0130137C1A02614C0000E67D /* AppDelegate.m in Sources */,
 				0112791E1A07FD8300B9F5FE /* HomeViewController.m in Sources */,
 				84B5274A1A0595C900EE29C7 /* DateFormater.m in Sources */,
+				01888E6C1A0D00CE00EF6EFC /* PictureDataTransformer.m in Sources */,
 				849EAFE41A056F9000B08F24 /* CommentNewDataModel.m in Sources */,
+				01888E681A0CFFF200EF6EFC /* Album.m in Sources */,
 				01BE50B61A0536C6001490E8 /* RegisterViewController.m in Sources */,
 				0130137F1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld in Sources */,
 				849EAFE71A056FB300B08F24 /* PictureDetailsDataModel.m in Sources */,
 				849EAFED1A056FCF00B08F24 /* LinkDetailsDataModel.m in Sources */,
 				849B32E21A065786003E693A /* AppData.m in Sources */,
+				01888E6F1A0D152F00EF6EFC /* PhotoDetailsViewController.m in Sources */,
 				849EB0031A05875A00B08F24 /* ContentHomeDataModel.m in Sources */,
 				849EAFEA1A056FBF00B08F24 /* PictureNewDataModel.m in Sources */,
+				01888E5A1A0CE9FB00EF6EFC /* PhotosCollectionViewCell.m in Sources */,
+				01888E651A0CFFF100EF6EFC /* Photo.m in Sources */,
 				01D5B6BC1A0ADB9300F59A52 /* UserViewController.m in Sources */,
 				01BE50B91A0537E6001490E8 /* AllFunViewController.m in Sources */,
 				849EAFE11A056F7000B08F24 /* CommentDataModel.m in Sources */,
@@ -526,6 +581,7 @@
 				01BE50BC1A0538CF001490E8 /* CreateViewController.m in Sources */,
 				016400DE1A09239E00B955DB /* AddCommentViewController.m in Sources */,
 				0112791B1A07FCF300B9F5FE /* CreatePictureViewController.m in Sources */,
+				01888E571A0CE85B00EF6EFC /* PhotosCollectionViewController.m in Sources */,
 				849EAFF31A056FED00B08F24 /* JokeDetailsDataModel.m in Sources */,
 				849EAFF61A056FFB00B08F24 /* JokeNewDataModel.m in Sources */,
 				849EAFF01A056FDD00B08F24 /* LinkNewDataModel.m in Sources */,
