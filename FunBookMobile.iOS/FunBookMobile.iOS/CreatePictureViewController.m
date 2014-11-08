@@ -52,6 +52,7 @@ static UIAlertView *alertView;
     [data createPicture:[PictureNewDataModel pictureWithData:encodedString title:pictureTitle isAnonymous:isAnonymous andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
         alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Created" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
+        [self performSegueWithIdentifier:@"unwindBackToCreate" sender:self];
     } orReactToErrorWithBlock:^(NSError *error) {
         NSLog(@"error");
     }];

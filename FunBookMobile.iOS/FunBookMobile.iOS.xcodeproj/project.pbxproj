@@ -11,6 +11,8 @@
 		011279181A07FCE300B9F5FE /* CreateLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011279171A07FCE300B9F5FE /* CreateLinkViewController.m */; };
 		0112791B1A07FCF300B9F5FE /* CreatePictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0112791A1A07FCF300B9F5FE /* CreatePictureViewController.m */; };
 		0112791E1A07FD8300B9F5FE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0112791D1A07FD8300B9F5FE /* HomeViewController.m */; };
+		012022DB1A0E92E10062EDA8 /* InternetConnectionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 012022DA1A0E92E10062EDA8 /* InternetConnectionHelper.m */; };
+		012022DE1A0E93970062EDA8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 012022DD1A0E93970062EDA8 /* Reachability.m */; };
 		013013791A02614C0000E67D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 013013781A02614C0000E67D /* main.m */; };
 		0130137C1A02614C0000E67D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0130137B1A02614C0000E67D /* AppDelegate.m */; };
 		0130137F1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0130137D1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld */; };
@@ -76,6 +78,10 @@
 		0112791A1A07FCF300B9F5FE /* CreatePictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePictureViewController.m; sourceTree = "<group>"; };
 		0112791C1A07FD8300B9F5FE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		0112791D1A07FD8300B9F5FE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		012022D91A0E92E10062EDA8 /* InternetConnectionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetConnectionHelper.h; sourceTree = "<group>"; };
+		012022DA1A0E92E10062EDA8 /* InternetConnectionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetConnectionHelper.m; sourceTree = "<group>"; };
+		012022DC1A0E938A0062EDA8 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		012022DD1A0E93970062EDA8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		013013731A02614C0000E67D /* FunBookMobile.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunBookMobile.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		013013771A02614C0000E67D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		013013781A02614C0000E67D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -442,10 +448,14 @@
 		84B527471A0595AB00EE29C7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				012022DD1A0E93970062EDA8 /* Reachability.m */,
+				012022DC1A0E938A0062EDA8 /* Reachability.h */,
 				84B527481A0595C900EE29C7 /* DateFormater.h */,
 				84B527491A0595C900EE29C7 /* DateFormater.m */,
 				01888E5D1A0CEDCD00EF6EFC /* CoreDataHelper.h */,
 				01888E5E1A0CEDCD00EF6EFC /* CoreDataHelper.m */,
+				012022D91A0E92E10062EDA8 /* InternetConnectionHelper.h */,
+				012022DA1A0E92E10062EDA8 /* InternetConnectionHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -564,6 +574,7 @@
 				01888E6C1A0D00CE00EF6EFC /* PictureDataTransformer.m in Sources */,
 				849EAFE41A056F9000B08F24 /* CommentNewDataModel.m in Sources */,
 				01888E681A0CFFF200EF6EFC /* Album.m in Sources */,
+				012022DE1A0E93970062EDA8 /* Reachability.m in Sources */,
 				01BE50B61A0536C6001490E8 /* RegisterViewController.m in Sources */,
 				0130137F1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld in Sources */,
 				849EAFE71A056FB300B08F24 /* PictureDetailsDataModel.m in Sources */,
@@ -571,6 +582,7 @@
 				849B32E21A065786003E693A /* AppData.m in Sources */,
 				01888E6F1A0D152F00EF6EFC /* PhotoDetailsViewController.m in Sources */,
 				849EB0031A05875A00B08F24 /* ContentHomeDataModel.m in Sources */,
+				012022DB1A0E92E10062EDA8 /* InternetConnectionHelper.m in Sources */,
 				849EAFEA1A056FBF00B08F24 /* PictureNewDataModel.m in Sources */,
 				01888E5A1A0CE9FB00EF6EFC /* PhotosCollectionViewCell.m in Sources */,
 				01888E651A0CFFF100EF6EFC /* Photo.m in Sources */,

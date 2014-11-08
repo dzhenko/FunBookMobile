@@ -10,7 +10,6 @@
 
 @interface CreatePictureViewController : UIViewController<UIImagePickerControllerDelegate ,UINavigationBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *pictureCategory;
 @property (weak, nonatomic) IBOutlet UITextField *pictureTitle;
 @property (strong, nonatomic) UIImage *image;
 

@@ -10,9 +10,9 @@
 
 @interface CreateJokeViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *jokeCategory;
 @property (weak, nonatomic) IBOutlet UITextField *jokeTitle;
 @property (weak, nonatomic) IBOutlet UITextField *jokeText;
+@property (weak, nonatomic) IBOutlet UIPickerView *categoriesPicker;
 
 - (IBAction)switchValueChanged:(UISwitch *)sender;
 - (IBAction)createBtnPressed:(UIButton *)sender;

@@ -160,53 +160,85 @@ static UIAlertView *alertView;
 
 -(void)visualizeData{
     if ([self.type isEqualToString:@"joke"]) {
-        [data getJokeDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(JokeDetailsDataModel *model) {
-            jokeModel = model;
-            self.modelTitle.text = jokeModel.title;
-            self.modelText.text = jokeModel.text;
-            self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", jokeModel.views];
-            self.modelHatesCount.text = [[NSString alloc] initWithFormat:@"%i", jokeModel.hates];
-            self.modelLikesCount.text = [[NSString alloc] initWithFormat:@"%i", jokeModel.likes];
-            self.modelDate.text = jokeModel.created;
-            comments = jokeModel.comments;
-            [self.picker reloadAllComponents];
-        } orReactToErrorWithBlock:^(NSError *error) {
-            
-        } ];
+        [self getJokeDetails];
     } else if ([self.type isEqualToString:@"link"]){
-//        [self.view bringSubviewToFront:self.modelText];
-        [data getLinkDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(LinkDetailsDataModel *model) {
-            linkModel = model;
-            self.modelTitle.text = linkModel.title;
-            self.modelText.text = linkModel.url;
-            
-            [self setHyperlinkText];
-            
-            self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.views];
-            self.modelHatesCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.hates];
-            self.modelLikesCount.text = [[NSString alloc] initWithFormat:@"%i", linkModel.likes];
-            self.modelDate.text = linkModel.created;
-            comments = linkModel.comments;
-            [self.picker reloadAllComponents];
-        } orReactToErrorWithBlock:^(NSError *error) {
-            
-        }];
+        [self getLinkDetails];
     } else if ([self.type isEqualToString:@"picture"]){
-//        [self.view bringSubviewToFront:self.imageView];
-        [data getPictureDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(PictureDetailsDataModel *model) {
-            pictureModel = model;
-            self.modelTitle.text = pictureModel.title;
-            [self getImageFromURL];
-            self.modelViewsCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.views];
-            self.modelHatesCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.hates];
-            self.modelLikesCount.text = [[NSString alloc] initWithFormat:@"%i", pictureModel.likes];
-            self.modelDate.text = pictureModel.created;
-            comments = pictureModel.comments;
-            [self.picker reloadAllComponents];
-        } orReactToErrorWithBlock:^(NSError *error) {
-            
-        }];
+        [self getPictureDetails];
     }
+}
+
+-(void)getJokeDetails{
+    [data getJokeDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(JokeDetailsDataModel *model) {
+        jokeModel = model;
+        
+        [self makeLabel:self.modelTitle animationBetweenText:self.modelTitle.text andNewText:jokeModel.title];
+        
+        [self makeLabel:self.modelText animationBetweenText:self.modelText.text andNewText:jokeModel.text];
+        
+        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", jokeModel.views]];
+        
+        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", jokeModel.hates]];
+        
+        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", jokeModel.likes]];
+        
+        [self makeLabel:self.modelDate animationBetweenText:self.modelDate.text andNewText:jokeModel.created];
+        
+        comments = jokeModel.comments;
+        [self.picker reloadAllComponents];
+    } orReactToErrorWithBlock:^(NSError *error) {
+        
+    } ];
+
+}
+
+-(void)getLinkDetails{
+    [data getLinkDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(LinkDetailsDataModel *model) {
+        linkModel = model;
+        
+        [self makeLabel:self.modelTitle animationBetweenText:self.modelTitle.text andNewText:linkModel.title];
+        
+        [self makeLabel:self.modelText animationBetweenText:self.modelText.text andNewText:linkModel.url];
+        
+        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", linkModel.views]];
+        
+        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", linkModel.hates]];
+        
+        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", linkModel.likes]];
+        
+        [self makeLabel:self.modelDate animationBetweenText:self.modelDate.text andNewText:linkModel.created];
+        
+        [self setHyperlinkText];
+        
+        comments = linkModel.comments;
+        [self.picker reloadAllComponents];
+    } orReactToErrorWithBlock:^(NSError *error) {
+        
+    }];
+
+}
+
+-(void)getPictureDetails{
+    [data getPictureDetailsForId:self.modelFromHome.objId AndPerformSuccessBlock:^(PictureDetailsDataModel *model) {
+        pictureModel = model;
+        
+        [self makeLabel:self.modelTitle animationBetweenText:self.modelTitle.text andNewText:pictureModel.title];
+        
+        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", pictureModel.views]];
+        
+        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", pictureModel.hates]];
+        
+        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", pictureModel.likes]];
+        
+        [self makeLabel:self.modelDate animationBetweenText:self.modelDate.text andNewText:pictureModel.created];
+        
+        [self getImageFromURL];
+        
+        comments = pictureModel.comments;
+        [self.picker reloadAllComponents];
+    } orReactToErrorWithBlock:^(NSError *error) {
+        
+    }];
 }
 
 -(void)setHyperlinkText{
@@ -219,6 +251,16 @@ static UIAlertView *alertView;
 
 -(void)labelTap{
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:linkModel.url]];
+}
+
+-(void)makeLabel:(UILabel *)label animationBetweenText:(NSString *)text andNewText:(NSString *)newText{
+    [UIView beginAnimations:text context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:1.0f];
+    [label setAlpha:0];
+    [label setText:newText];
+    [label setAlpha:1];
+    [UIView commitAnimations];
 }
 
 -(IBAction)unwindBackToDetails:(UIStoryboardSegue*)segue{
