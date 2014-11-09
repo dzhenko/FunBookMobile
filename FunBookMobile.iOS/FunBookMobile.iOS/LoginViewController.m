@@ -55,15 +55,23 @@ static InternetConnectionHelper *internetCheker;
     } else {
         NSString *userEmail = self.userEmail.text;
         NSString *userPassword = self.userPassword.text;
-        if ((userEmail.length != 0) && (userPassword.length != 0) && (userEmail.length != 1) && (userPassword.length != 1)) {
+        if (userEmail.length > 2 && userPassword.length > 2) {
             [data loginUserWithEmail:userEmail andPassword:userPassword AndPerformBlock:^(BOOL success) {
-                alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Successfully logged in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alertView show];
-                [self performSegueWithIdentifier:@"fromLoginToHome" sender:self];
+                if (success) {
+                    [[[UIAlertView alloc] initWithTitle:nil message:@"Successfully logged in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]
+                     show];
+                    
+                    [self performSegueWithIdentifier:@"fromLoginToHome" sender:self];
+                }
+                else {
+                    [[[UIAlertView alloc] initWithTitle:nil message:@"Invalid email / password combination" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]
+                     show];
+                }
             }];
         } else {
-            alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Wrong credentials or no such user, try to register first" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alertView show];
+            NSString* msg = userEmail.length == 0 ? @"Email must be valid" : @"Password must be at least 3 symbols";
+            [[[UIAlertView alloc] initWithTitle:nil message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]
+             show];
         }
     }
 }

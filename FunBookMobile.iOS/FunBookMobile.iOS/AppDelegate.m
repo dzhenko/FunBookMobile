@@ -15,6 +15,13 @@
 
 @implementation AppDelegate
 
+-(instancetype) init {
+    if (self = [super init]) {
+        self.data = [[AppData alloc] init];
+    }
+    return self;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
     [[UIDevice currentDevice] batteryLevel];

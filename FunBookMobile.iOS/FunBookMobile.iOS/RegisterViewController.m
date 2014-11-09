@@ -56,16 +56,34 @@ static UIAlertView *alertView;
         NSString *userEmail = self.userEmail.text;
         NSString *userPassword = self.userPassword.text;
         NSString *userConfirmPassword = self.userConfirmPassword.text;
-        if ((userEmail.length != 0) && (userPassword.length != 0) && (userConfirmPassword.length != 0)
-            && (userEmail.length != 1) && (userPassword.length != 1) && (userConfirmPassword.length != 1)) {
-            [data registerUserWithEmail:userEmail andPassword:userPassword AndPerformBlock:^(BOOL success) {
-                alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Successfully registered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alertView show];
-                [self performSegueWithIdentifier:@"unwindBackToLogin" sender:self];
-            }];
+        
+        if (userEmail.length > 2 && userPassword.length > 2) {
+            if ([userPassword isEqualToString:userConfirmPassword]) {
+                [data registerUserWithEmail:userEmail andPassword:userPassword AndPerformBlock:^(BOOL success) {
+                    if (success) {
+                        [[[UIAlertView alloc] initWithTitle:nil message:@"Successfully registered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]
+                         show];
+                        
+                        [self performSegueWithIdentifier:@"unwindBackToLogin" sender:self];
+                    }
+                    else {
+                        [[[UIAlertView alloc] initWithTitle:nil message:@"User with same email already exists" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]
+                         show];
+                    }
+                }];
+            }
+            else {
+                [[[UIAlertView alloc] initWithTitle:nil message:@"User with same email already exists" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]
+                 show];
+            }
+            
+            
         } else {
-            alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Input must be longer than 1" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alertView show];
+            NSString* msg = userEmail.length < 2
+                ? @"Email must be valid!" : @"Password must be at least 2 symbols";
+            
+            [[[UIAlertView alloc] initWithTitle:nil message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]
+             show];
         }
     }
 }
