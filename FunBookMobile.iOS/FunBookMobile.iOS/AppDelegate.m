@@ -21,7 +21,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryStatus) name:UIDeviceBatteryLevelDidChangeNotification object:nil];
     
-    
     // Override point for customization after application launch.
     return YES;
 }

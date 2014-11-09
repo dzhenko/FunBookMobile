@@ -63,13 +63,13 @@
 }
 
 -(void)connection:(NSURLRequest*) request didFailWithError:(NSError *)error{
-    [[[UIAlertView alloc] initWithTitle:@"Fatal Error"
-                                message:@"Internet connection is required to run this app properly"
-                               delegate:nil
-                      cancelButtonTitle:@"Ok"
-                      otherButtonTitles:nil, nil]
-     show];
-    
+//    [[[UIAlertView alloc] initWithTitle:@"Fatal Error"
+//                                message:@"Internet connection is required to run this app properly"
+//                               delegate:nil
+//                      cancelButtonTitle:@"Ok"
+//                      otherButtonTitles:nil, nil]
+//     show];
+//    
     if(errorBlock) {
         errorBlock(error);
     }
