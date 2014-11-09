@@ -79,14 +79,14 @@ static NSString *cellIdentifier = @"HomeTableUIViewCell";
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(20, 1, 320, 20);
     label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor colorWithRed:175.0f/255.0f green:202.0f/255.0f blue:87.0f/255.0f alpha:0.75f];
+    label.textColor = [UIColor colorWithRed:238.0f/255.0f green:57.0f/255.0f blue:99.0f/255.0f alpha:0.75f];
     label.shadowColor = [UIColor grayColor];
     label.shadowOffset = CGSizeMake(-1.0, 1.0);
     label.font = [UIFont boldSystemFontOfSize:16];
     label.text = sectionTitle;
     
     UIView *view = [[UIView alloc] init];
-    view.backgroundColor = [UIColor grayColor];
+    view.backgroundColor = [UIColor clearColor];
     [view addSubview:label];
     
     return view;

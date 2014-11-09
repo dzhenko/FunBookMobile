@@ -55,7 +55,7 @@ static InternetConnectionHelper *internetCheker;
     } else {
         NSString *userEmail = self.userEmail.text;
         NSString *userPassword = self.userPassword.text;
-        if (userEmail.length > 2 && userPassword.length > 2) {
+        if (userEmail.length > 5 && userPassword.length > 5) {
             [data loginUserWithEmail:userEmail andPassword:userPassword AndPerformBlock:^(BOOL success) {
                 if (success) {
                     [[[UIAlertView alloc] initWithTitle:nil message:@"Successfully logged in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]

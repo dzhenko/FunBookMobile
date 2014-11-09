@@ -123,18 +123,15 @@ static UIAlertView *alertView;
 - (IBAction)hateBtnPressed:(UIButton *)sender {
     if ([self.type isEqualToString:@"joke"]) {
         [data hateJokeWithId:jokeModel.objId AndPerformBlock:^(BOOL success) {
-            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Hated" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [self visualizeData];
         }];
     } else if ([self.type isEqualToString:@"link"]){
         [data hateLinkWithId:linkModel.objId AndPerformBlock:^(BOOL success) {
-            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Hated" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [self visualizeData];
         }];
     } else if ([self.type isEqualToString:@"picture"]){
         [data hatePictureWithId:pictureModel.objId AndPerformBlock:^(BOOL success) {
-            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Hated" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [self visualizeData];
         }];
     }
 }
@@ -142,18 +139,15 @@ static UIAlertView *alertView;
 - (IBAction)likeBtnPressed:(UIButton *)sender {
     if ([self.type isEqualToString:@"joke"]) {
         [data likeJokeWithId:jokeModel.objId AndPerformBlock:^(BOOL success) {
-            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Liked" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [self visualizeData];
         }];
     } else if ([self.type isEqualToString:@"link"]){
         [data likeLinkWithId:linkModel.objId AndPerformBlock:^(BOOL success) {
-            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Liked" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [self visualizeData];
         }];
     } else if ([self.type isEqualToString:@"picture"]){
         [data likePictureWithId:pictureModel.objId AndPerformBlock:^(BOOL success) {
-            alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Liked" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [self visualizeData];
         }];
     }
 }
