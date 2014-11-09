@@ -21,11 +21,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *btn;
+@property (weak, nonatomic) IBOutlet UILabel *labelCreator;
 
 @property (strong, nonatomic) ContentOverviewDataModel *modelFromHome;
 @property (strong, nonatomic) NSString *type;
 
 - (IBAction)hateBtnPressed:(UIButton *)sender;
 - (IBAction)likeBtnPressed:(UIButton *)sender;
+- (IBAction)callBtnPressed:(UIButton *)sender;
 
 @end

@@ -158,6 +158,9 @@ static UIAlertView *alertView;
     }
 }
 
+- (IBAction)callBtnPressed:(UIButton *)sender {
+}
+
 -(void)visualizeData{
     if ([self.type isEqualToString:@"joke"]) {
         [self getJokeDetails];

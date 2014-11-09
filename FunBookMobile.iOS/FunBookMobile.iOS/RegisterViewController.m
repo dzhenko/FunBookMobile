@@ -57,7 +57,7 @@ static UIAlertView *alertView;
         NSString *userPassword = self.userPassword.text;
         NSString *userConfirmPassword = self.userConfirmPassword.text;
         
-        if (userEmail.length > 2 && userPassword.length > 2) {
+        if (userEmail.length > 5 && userPassword.length > 5) {
             if ([userPassword isEqualToString:userConfirmPassword]) {
                 [data registerUserWithEmail:userEmail andPassword:userPassword AndPerformBlock:^(BOOL success) {
                     if (success) {
