@@ -56,6 +56,8 @@
 		849EAFF61A056FFB00B08F24 /* JokeNewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFF51A056FFB00B08F24 /* JokeNewDataModel.m */; };
 		849EAFFA1A05702900B08F24 /* HttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFF91A05702900B08F24 /* HttpRequester.m */; };
 		849EB0031A05875A00B08F24 /* ContentHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EB0021A05875A00B08F24 /* ContentHomeDataModel.m */; };
+		84A33DFC1A0F655D005B572D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A33DFB1A0F655D005B572D /* Default.png */; };
+		84A33DFE1A0F6567005B572D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A33DFD1A0F6567005B572D /* Default@2x.png */; };
 		84B5274A1A0595C900EE29C7 /* DateFormater.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B527491A0595C900EE29C7 /* DateFormater.m */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +164,8 @@
 		849EAFF91A05702900B08F24 /* HttpRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequester.m; sourceTree = "<group>"; };
 		849EB0011A05875A00B08F24 /* ContentHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentHomeDataModel.h; sourceTree = "<group>"; };
 		849EB0021A05875A00B08F24 /* ContentHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentHomeDataModel.m; sourceTree = "<group>"; };
+		84A33DFB1A0F655D005B572D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		84A33DFD1A0F6567005B572D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		84B527481A0595C900EE29C7 /* DateFormater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormater.h; sourceTree = "<group>"; };
 		84B527491A0595C900EE29C7 /* DateFormater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormater.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +191,7 @@
 		0130136A1A02614C0000E67D = {
 			isa = PBXGroup;
 			children = (
+				84A33DFD1A0F6567005B572D /* Default@2x.png */,
 				013013751A02614C0000E67D /* FunBookMobile.iOS */,
 				013013921A02614C0000E67D /* FunBookMobile.iOSTests */,
 				013013741A02614C0000E67D /* Products */,
@@ -217,6 +222,7 @@
 				013013811A02614C0000E67D /* ViewController.m */,
 				013013831A02614C0000E67D /* Main.storyboard */,
 				013013861A02614C0000E67D /* Images.xcassets */,
+				84A33DFB1A0F655D005B572D /* Default.png */,
 				013013881A02614C0000E67D /* LaunchScreen.xib */,
 				0130137D1A02614C0000E67D /* FunBookMobile_iOS.xcdatamodeld */,
 				013013761A02614C0000E67D /* Supporting Files */,
@@ -543,6 +549,8 @@
 				013013851A02614C0000E67D /* Main.storyboard in Resources */,
 				0130138A1A02614C0000E67D /* LaunchScreen.xib in Resources */,
 				01BE50DC1A055B02001490E8 /* CreateLinkView.xib in Resources */,
+				84A33DFE1A0F6567005B572D /* Default@2x.png in Resources */,
+				84A33DFC1A0F655D005B572D /* Default.png in Resources */,
 				013013871A02614C0000E67D /* Images.xcassets in Resources */,
 				01BE50D71A054EB4001490E8 /* CreateJokeView.xib in Resources */,
 				016A99AA1A081CAD00A2E686 /* HomeTableUIViewCell.xib in Resources */,

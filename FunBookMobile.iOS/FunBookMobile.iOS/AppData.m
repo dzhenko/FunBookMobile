@@ -9,6 +9,8 @@
 #import "AppData.h"
 #import "HttpRequester.h"
 
+#import "AppDelegate.h"
+
 @implementation AppData{
     HttpRequester *requester;
     void (^successBlock)(id);
@@ -61,6 +63,13 @@
 }
 
 -(void)connection:(NSURLRequest*) request didFailWithError:(NSError *)error{
+    [[[UIAlertView alloc] initWithTitle:@"Fatal Error"
+                                message:@"Internet connection is required to run this app properly"
+                               delegate:nil
+                      cancelButtonTitle:@"Ok"
+                      otherButtonTitles:nil, nil]
+     show];
+    
     if(errorBlock) {
         errorBlock(error);
     }
@@ -123,6 +132,8 @@
             blockToPerform(NO);
         }
     }];
+    
+    NSManagedObjectContext* ctx = [[NSManagedObjectContext alloc] init];	
     
     [requester post:@"account/logout" data:nil
             headers:nil

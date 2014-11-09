@@ -8,12 +8,6 @@
 
 #import "AppDelegate.h"
 
-//testing TODO: Remove this
-#import "ContentOverviewDataModel.h"
-#import "ContentHomeDataModel.h"
-#import "HttpRequester.h"
-#import "JokeDetailsDataModel.h"
-#import "AppData.h"
 
 @interface AppDelegate ()
 
@@ -21,95 +15,29 @@
 
 @implementation AppDelegate
 
--(void)testAllAppDataMethods{
-    //AppData* data = [[AppData alloc] init];
-//    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel* model){
-//    
-//        NSLog(@"%@",model);
-//    } orReactToErrorWithBlock:^(NSError* error){
-//    
-//        NSLog(@"%@",error);
-//    }];
-    
-     //registration example
-//        [data loginUserWithEmail:@"qwe7@qwe.com" andPassword:@"qweqwe" AndPerformBlock:^(BOOL success) {
-//            // depending on the value of success you can react here.
-//            NSLog(@"%i",success);
-//            
-//            [data createJoke:[JokeNewDataModel jokeWithText:@"testiOS" title:@"titleIos" isAnonymous:NO andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
-//                NSLog(@"%@",createdObjId);
-//                [data getJokeDetailsForId:createdObjId AndPerformSuccessBlock:^(JokeDetailsDataModel *model) {
-//                    NSLog(@"%@",model.objId);
-//                    [data commentJokeWithId:createdObjId commentText:@"testCommentiOS" AndPerformBlock:^(BOOL success) {
-//                        NSLog(@"%i",success);
-//                        [data likeJokeWithId:createdObjId AndPerformBlock:^(BOOL success) {
-//                            NSLog(@"%i",success);
-//                        }];
-//                    }];
-//                } orReactToErrorWithBlock:nil];
-//            } orReactToErrorWithBlock:nil];
-//        }];
-    
-    
-    
-    
-    //    [data getContentAllAtPage:1 AndPerformSuccessBlock:^(NSArray *models) {
-    //        NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
-    //        NSLog(@"%@",model);
-    //    } orReactToErrorWithBlock:^(NSError *error) {
-    //        NSLog(@"%@",error);
-    //    }];
-    
-//    [data getContentFindWithText:@"momma" AtPage:1 AndPerformSuccessBlock:^(NSArray *models) {
-//        ContentOverviewDataModel *joke = (ContentOverviewDataModel*)models[0];
-//        int a = 5;
-//    } orReactToErrorWithBlock:nil];
-    
-//    [data getLinksAllAtPage:1 AndPerformSuccessBlock:^(NSArray *models) {
-//        ContentOverviewDataModel *joke = (ContentOverviewDataModel*)models[0];
-//        int a = 5;
-//    } orReactToErrorWithBlock:nil];
-    
-//    [data getContentHomeAndPerformSuccessBlock:^(ContentHomeDataModel *model) {
-//        NSLog(@"%@",model);
-//    } orReactToErrorWithBlock:nil];
-    
-    //        [data getJokesAllAtPage:1 AndPerformSuccessBlock:^(NSArray *model) {
-    //            NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
-    //            NSLog(@"%@",model);
-    //        } orReactToErrorWithBlock:^(NSError *error) {
-    //            NSLog(@"%@",error);
-    //        }];
-    //
-    //    [data getLinksAllAtPage:1 AndPerformSuccessBlock:^(NSArray *models) {
-    //        NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
-    //        NSLog(@"%@",model);
-    //    } orReactToErrorWithBlock:^(NSError *error) {
-    //        NSLog(@"%@",error);
-    //    }];
-    //
-    //    [data getPicturesAllAtPage:1 AndPerformSuccessBlock:^(NSArray *model) {
-    //        NSString* theID = ((ContentOverviewDataModel*)model[0]).objId;
-    //        NSLog(@"%@",model);
-    //    } orReactToErrorWithBlock:^(NSError *error) {
-    //        NSLog(@"%@",error);
-    //    }];
-    
-    //    [data getCategoriesAllAndPerformSuccessBlock:^(NSArray *categories) {
-    //        NSLog(@"%@", categories[0]);
-    //    } orReactToErrorWithBlock:nil];
-    
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // sample usage of AppData class
-    // testing TODO: Remove this
-    _data = [[AppData alloc] init];
-    [self testAllAppDataMethods];
+    [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
+    [[UIDevice currentDevice] batteryLevel];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryStatus) name:UIDeviceBatteryLevelDidChangeNotification object:nil];
     
     
     // Override point for customization after application launch.
     return YES;
+}
+
+// battery level selector
+-(void)batteryStatus
+{
+    int batteryPercentage = [[UIDevice currentDevice] batteryLevel] * 100;
+    if (batteryPercentage < 10) {
+        [[[UIAlertView alloc] initWithTitle:@"Warning"
+                                    message:@"Your battery is under 10% !"
+                                   delegate:nil
+                          cancelButtonTitle:@"Ok"
+                          otherButtonTitles:nil, nil]
+         show];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
