@@ -37,6 +37,11 @@ static InternetConnectionHelper *internetCheker;
     // Dispose of any resources that can be recreated.
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.userEmail resignFirstResponder];
+    [self.userPassword resignFirstResponder];
+}
+
 /*
 #pragma mark - Navigation
 

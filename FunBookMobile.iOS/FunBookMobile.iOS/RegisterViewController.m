@@ -37,6 +37,12 @@ static UIAlertView *alertView;
     
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.userEmail resignFirstResponder];
+    [self.userPassword resignFirstResponder];
+    [self.userConfirmPassword resignFirstResponder];
+}
+
 /*
 #pragma mark - Navigation
 
