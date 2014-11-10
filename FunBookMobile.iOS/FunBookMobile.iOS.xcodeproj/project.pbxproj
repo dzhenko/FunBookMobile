@@ -49,6 +49,7 @@
 		01BE50DE1A055C28001490E8 /* CreatePictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BE50DD1A055C28001490E8 /* CreatePictureView.xib */; };
 		01D5B6BC1A0ADB9300F59A52 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D5B6BB1A0ADB9300F59A52 /* UserViewController.m */; };
 		01F682E11A10DC5F005DB868 /* bck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01F682E01A10DC5F005DB868 /* bck.jpg */; };
+		844E8BB01A1102EE007B509B /* ContactsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 844E8BAF1A1102EE007B509B /* ContactsData.m */; };
 		849B32E21A065786003E693A /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 849B32E11A065786003E693A /* AppData.m */; };
 		849EAFDE1A056F5800B08F24 /* ContentOverviewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFDD1A056F5800B08F24 /* ContentOverviewDataModel.m */; };
 		849EAFE11A056F7000B08F24 /* CommentDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EAFE01A056F7000B08F24 /* CommentDataModel.m */; };
@@ -150,6 +151,8 @@
 		01D5B6BA1A0ADB9300F59A52 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		01D5B6BB1A0ADB9300F59A52 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		01F682E01A10DC5F005DB868 /* bck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bck.jpg; sourceTree = "<group>"; };
+		844E8BAE1A1102EE007B509B /* ContactsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsData.h; sourceTree = "<group>"; };
+		844E8BAF1A1102EE007B509B /* ContactsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsData.m; sourceTree = "<group>"; };
 		849B32E01A065786003E693A /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
 		849B32E11A065786003E693A /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
 		849EAFDC1A056F5800B08F24 /* ContentOverviewDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentOverviewDataModel.h; sourceTree = "<group>"; };
@@ -398,6 +401,8 @@
 				849EAFF71A05701800B08F24 /* HttpRequester */,
 				849B32E01A065786003E693A /* AppData.h */,
 				849B32E11A065786003E693A /* AppData.m */,
+				844E8BAE1A1102EE007B509B /* ContactsData.h */,
+				844E8BAF1A1102EE007B509B /* ContactsData.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -631,6 +636,7 @@
 				0164011C1A0937CC00B955DB /* AllPicturesViewController.m in Sources */,
 				013013791A02614C0000E67D /* main.m in Sources */,
 				016A99AD1A081D9400A2E686 /* HomeTableUIViewCell.m in Sources */,
+				844E8BB01A1102EE007B509B /* ContactsData.m in Sources */,
 				016400DB1A091D9200B955DB /* HomeDetailsViewController.m in Sources */,
 				016401191A0937BB00B955DB /* AllLinksViewController.m in Sources */,
 				01BE50B31A053570001490E8 /* LoginViewController.m in Sources */,

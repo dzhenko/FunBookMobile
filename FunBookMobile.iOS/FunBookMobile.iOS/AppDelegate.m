@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 
-
 @interface AppDelegate ()
 
 @end
@@ -18,6 +17,7 @@
 -(instancetype) init {
     if (self = [super init]) {
         self.data = [[AppData alloc] init];
+        self.contactsData = [[[ContactsData alloc] init] contactsForEmailsDict];
     }
     return self;
 }
