@@ -119,7 +119,7 @@
                 return this.BadRequest("Invalid Id");
             }
 
-            this.VoteLink(true);
+            this.VoteLink(id, true);
 
             return this.Ok(JsonResultWrapper.Create(id));
         }
@@ -132,17 +132,17 @@
                 return this.BadRequest("Invalid Id");
             }
 
-            this.VoteLink(false);
+            this.VoteLink(id, false);
 
             return this.Ok(JsonResultWrapper.Create(id));
         }
 
-        private void VoteLink(bool value)
+        private void VoteLink(Guid id, bool value)
         {
             var userId = this.User.Identity.GetUserId();
 
             // will always exist, because to hate or like you must ask for content details, thus creating a view object
-            var view = this.Data.Views.All().FirstOrDefault(v => v.UserId == userId);
+            var view = this.Data.Jokes.All().FirstOrDefault(j => j.Id == id).Views.FirstOrDefault(v => v.UserId == userId);
             view.Liked = value;
             this.Data.Views.Update(view);
             this.Data.SaveChanges();

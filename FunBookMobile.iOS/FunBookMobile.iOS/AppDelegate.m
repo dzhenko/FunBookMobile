@@ -17,7 +17,7 @@
 -(instancetype) init {
     if (self = [super init]) {
         self.data = [[AppData alloc] init];
-        self.contactsData = [[[ContactsData alloc] init] contactsForEmailsDict];
+        //self.contactsData = [[[ContactsData alloc] init] contactsForEmailsDict];
     }
     return self;
 }
