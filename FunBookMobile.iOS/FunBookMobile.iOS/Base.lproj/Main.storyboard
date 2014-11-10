@@ -521,6 +521,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="700"/>
                     <connections>
+                        <outlet property="Callbutton" destination="cnT-4p-OOY" id="DgY-mH-FsF"/>
                         <outlet property="imageView" destination="skZ-KS-2l8" id="tnP-gS-goi"/>
                         <outlet property="labelCreator" destination="NgU-i5-iW1" id="He2-Rv-Zj0"/>
                         <outlet property="modelDate" destination="l3Y-sp-xs4" id="DNK-s3-4E6"/>
