@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *jokeTitle;
 @property (weak, nonatomic) IBOutlet UITextField *jokeText;
 @property (weak, nonatomic) IBOutlet UIPickerView *categoriesPicker;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 - (IBAction)switchValueChanged:(UISwitch *)sender;
 - (IBAction)createBtnPressed:(UIButton *)sender;

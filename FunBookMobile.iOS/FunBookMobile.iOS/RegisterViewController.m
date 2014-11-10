@@ -24,6 +24,7 @@ static UIAlertView *alertView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.backgroundImage.image = [UIImage imageNamed:@"bck.jpg"];
     internetCheker = [[InternetConnectionHelper alloc] init];
     
     AppDelegate *app = [[UIApplication sharedApplication] delegate];

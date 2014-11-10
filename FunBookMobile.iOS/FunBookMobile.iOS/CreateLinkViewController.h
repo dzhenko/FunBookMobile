@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *linkTitle;
 @property (weak, nonatomic) IBOutlet UITextField *linkUrl;
+@property (weak, nonatomic) IBOutlet UIImageView *backroundImage;
 
 - (IBAction)switchValueChanged:(UISwitch *)sender;
 - (IBAction)createBtnPressed:(UIButton *)sender;

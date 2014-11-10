@@ -22,6 +22,7 @@ static UIAlertView *alertView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.backgroundImage.image = [UIImage imageNamed:@"bck.jpg"];
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     data = app.data;
     

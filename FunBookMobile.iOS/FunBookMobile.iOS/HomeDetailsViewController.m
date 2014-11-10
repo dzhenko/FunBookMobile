@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "CommentDataModel.h"
 #import "AddCommentViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface HomeDetailsViewController ()
 
@@ -27,6 +28,7 @@ static UIAlertView *alertView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(600, 700)];
     comments = [[NSArray alloc] init];
@@ -115,6 +117,8 @@ static UIAlertView *alertView;
         dispatch_async(dispatch_get_main_queue(), ^{
             // Update the UI
             self.imageView.image = [UIImage imageWithData:imageData];
+            self.imageView.layer.cornerRadius = 15;
+            self.imageView.clipsToBounds = YES;
         });
     });
     

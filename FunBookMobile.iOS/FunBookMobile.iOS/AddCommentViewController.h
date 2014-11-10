@@ -12,6 +12,7 @@
 
 - (IBAction)addCommentBtnPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *commentText;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 @property NSString *type;
 @property NSString *modelId;

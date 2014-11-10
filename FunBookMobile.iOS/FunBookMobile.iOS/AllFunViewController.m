@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.backgroundImage.image = [UIImage imageNamed:@"bck.jpg"];
     // Do any additional setup after loading the view.
 }
 

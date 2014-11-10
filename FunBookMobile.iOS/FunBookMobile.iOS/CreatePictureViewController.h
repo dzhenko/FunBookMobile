@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *pictureTitle;
 @property (strong, nonatomic) UIImage *image;
+@property (weak, nonatomic) IBOutlet UIImageView *backroundImage;
 
 - (IBAction)createBtnPressed:(UIButton *)sender;
 - (IBAction)switchValueChanged:(UISwitch *)sender;

@@ -10,4 +10,6 @@
 
 @interface CreateViewController : UIViewController<UITabBarDelegate>
 
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+
 @end
