@@ -186,11 +186,11 @@ static NSString* callNumber;
         
         [self makeLabel:self.modelText animationBetweenText:self.modelText.text andNewText:jokeModel.text];
         
-        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", jokeModel.views]];
+        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", (long)jokeModel.views]];
         
-        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", jokeModel.hates]];
+        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", (long)jokeModel.hates]];
         
-        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", jokeModel.likes]];
+        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", (long)jokeModel.likes]];
         
         [self makeLabel:self.labelCreator animationBetweenText:self.labelCreator.text andNewText:jokeModel.creator];
         
@@ -215,11 +215,11 @@ static NSString* callNumber;
         
         [self makeLabel:self.modelText animationBetweenText:self.modelText.text andNewText:linkModel.url];
         
-        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", linkModel.views]];
+        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", (long)linkModel.views]];
         
-        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", linkModel.hates]];
+        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", (long)linkModel.hates]];
         
-        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", linkModel.likes]];
+        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", (long)linkModel.likes]];
         
         [self makeLabel:self.labelCreator animationBetweenText:self.labelCreator.text andNewText:linkModel.creator];
         
@@ -244,11 +244,11 @@ static NSString* callNumber;
         
         [self makeLabel:self.modelTitle animationBetweenText:self.modelTitle.text andNewText:pictureModel.title];
         
-        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", pictureModel.views]];
+        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", (long)pictureModel.views]];
         
-        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", pictureModel.hates]];
+        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", (long)pictureModel.hates]];
         
-        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", pictureModel.likes]];
+        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", (long)pictureModel.likes]];
         
         [self makeLabel:self.labelCreator animationBetweenText:self.labelCreator.text andNewText:pictureModel.creator];
         
