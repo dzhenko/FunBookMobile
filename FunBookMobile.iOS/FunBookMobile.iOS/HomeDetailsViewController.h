@@ -29,6 +29,6 @@
 - (IBAction)hateBtnPressed:(UIButton *)sender;
 - (IBAction)likeBtnPressed:(UIButton *)sender;
 - (IBAction)callBtnPressed:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UIButton *Callbutton;
+@property (weak, nonatomic) IBOutlet UIButton *callbutton;
 
 @end

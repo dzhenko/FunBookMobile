@@ -25,6 +25,8 @@ static PictureDetailsDataModel *pictureModel;
 static NSArray *comments;
 static AppData* data;
 static UIAlertView *alertView;
+static NSDictionary* contactsData;
+static NSString* callNumber;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +37,7 @@ static UIAlertView *alertView;
     
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     data = app.data;
-    
+    contactsData = app.contactsData;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -157,6 +159,13 @@ static UIAlertView *alertView;
 }
 
 - (IBAction)callBtnPressed:(UIButton *)sender {
+    if (callNumber) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:callNumber]]];
+    }
+    else {
+        [[[UIAlertView alloc] initWithTitle:nil message:@"You do not have this contact!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]
+         show];
+    }
 }
 
 -(void)visualizeData{
@@ -177,15 +186,20 @@ static UIAlertView *alertView;
         
         [self makeLabel:self.modelText animationBetweenText:self.modelText.text andNewText:jokeModel.text];
         
-        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", jokeModel.views]];
+        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", jokeModel.views]];
         
-        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", jokeModel.hates]];
+        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", jokeModel.hates]];
         
-        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", jokeModel.likes]];
+        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", jokeModel.likes]];
+        
+        [self makeLabel:self.labelCreator animationBetweenText:self.labelCreator.text andNewText:jokeModel.creator];
         
         [self makeLabel:self.modelDate animationBetweenText:self.modelDate.text andNewText:jokeModel.created];
         
         comments = jokeModel.comments;
+        
+        callNumber = [contactsData objectForKey:model.creator];
+        
         [self.picker reloadAllComponents];
     } orReactToErrorWithBlock:^(NSError *error) {
         
@@ -201,17 +215,22 @@ static UIAlertView *alertView;
         
         [self makeLabel:self.modelText animationBetweenText:self.modelText.text andNewText:linkModel.url];
         
-        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", linkModel.views]];
+        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", linkModel.views]];
         
-        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", linkModel.hates]];
+        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", linkModel.hates]];
         
-        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", linkModel.likes]];
+        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", linkModel.likes]];
+        
+        [self makeLabel:self.labelCreator animationBetweenText:self.labelCreator.text andNewText:linkModel.creator];
         
         [self makeLabel:self.modelDate animationBetweenText:self.modelDate.text andNewText:linkModel.created];
         
         [self setHyperlinkText];
         
         comments = linkModel.comments;
+        
+        callNumber = [contactsData objectForKey:model.creator];
+        
         [self.picker reloadAllComponents];
     } orReactToErrorWithBlock:^(NSError *error) {
         
@@ -225,17 +244,22 @@ static UIAlertView *alertView;
         
         [self makeLabel:self.modelTitle animationBetweenText:self.modelTitle.text andNewText:pictureModel.title];
         
-        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", pictureModel.views]];
+        [self makeLabel:self.modelViewsCount animationBetweenText:self.modelViewsCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", pictureModel.views]];
         
-        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", pictureModel.hates]];
+        [self makeLabel:self.modelHatesCount animationBetweenText:self.modelHatesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", pictureModel.hates]];
         
-        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%i", pictureModel.likes]];
+        [self makeLabel:self.modelLikesCount animationBetweenText:self.modelLikesCount.text andNewText:[[NSString alloc] initWithFormat:@"%li", pictureModel.likes]];
+        
+        [self makeLabel:self.labelCreator animationBetweenText:self.labelCreator.text andNewText:pictureModel.creator];
         
         [self makeLabel:self.modelDate animationBetweenText:self.modelDate.text andNewText:pictureModel.created];
         
         [self getImageFromURL];
         
         comments = pictureModel.comments;
+        
+        callNumber = [contactsData objectForKey:model.creator];
+        
         [self.picker reloadAllComponents];
     } orReactToErrorWithBlock:^(NSError *error) {
         

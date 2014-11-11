@@ -9,6 +9,7 @@
 #import "CreateJokeViewController.h"
 #import "AppData.h"
 #import "AppDelegate.h"
+#import "HomeViewController.h"
 
 @interface CreateJokeViewController ()
 
@@ -71,10 +72,13 @@ static UIAlertView *alertView;
     [data createJoke:[JokeNewDataModel jokeWithText:text title:title isAnonymous:isAnonymous andCategory:@"popular"] AndPerformSuccessBlock:^(NSString *createdObjId) {
         alertView = [[UIAlertView alloc] initWithTitle:@"Successfully Created" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
-        [self performSegueWithIdentifier:@"unwindBackToCreate" sender:self];
     } orReactToErrorWithBlock:^(NSError *error) {
         NSLog(@"error");
     }];
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
 }
 
 @end
