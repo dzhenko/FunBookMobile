@@ -4,7 +4,7 @@
 
 **FunBookMobile** is a open-source iOS mobile application.
 
-FunBookMobile is a simple application, used to create, share, comment, like, and view funny stuff like jokes, links and images. All users can view content. Registered users can create content, comment, like(dislike), view details and search by tags/categories or text.
+FunBookMobile is a simple application, used to create, share, comment, like, and view funny stuff like jokes, links and images. All users can view content. Registered users can create content, comment, like(dislike) and view details.
 
 **RESTful mobile application powered by:**
 - [ASP.NET WebAPI](http://www.asp.net/web-api) - Repository Pattern + Unit of work
